@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro no Pagamento | Reset Primal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            text-align: center;
+            background: #2A2A2A;
+            padding: 60px 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-icon {
+            width: 80px;
+            height: 80px;
+            background: #FF5722;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #FF5722;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #CCC;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #1A1A1A;
+            padding: 30px;
+            border-left: 4px solid #FF5722;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            color: #FF5722;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #CCC;
+            margin-bottom: 12px;
+        }
+
+        .info-box strong {
+            color: #FFFFFF;
+        }
+
+        .error-list {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .error-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .error-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF5722;
+            font-weight: 900;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FF5722;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 20px 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #E64A19;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #FF5722;
+            color: #FF5722;
+        }
+
+        .btn-secondary:hover {
+            background: #FF5722;
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1A1A1A;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .contact-info strong {
+            color: #FF5722;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #FF5722;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="error-icon">⚠</div>
+
+    <h1>Problema no Pagamento</h1>
+
+    <p class="subtitle">
+        Não conseguimos processar seu pagamento.<br>
+        Mas não se preocupe, temos soluções!
+    </p>
+
+    <div class="info-box">
+        <h3>🔍 O Que Pode Ter Acontecido</h3>
+        <ul class="error-list">
+            <li><strong>Cartão recusado</strong> - Saldo insuficiente ou limite atingido</li>
+            <li><strong>Dados incorretos</strong> - CPF, data de validade ou CVV errado</li>
+            <li><strong>Banco bloqueou</strong> - Proteção contra fraude da sua instituição</li>
+            <li><strong>Problema na conexão</strong> - Sua internet caiu durante a compra</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>✅ Como Resolver</h3>
+        <p>
+            <strong>1. Tente novamente</strong> com outro cartão ou forma de pagamento<br>
+            <strong>2. Entre em contato com seu banco</strong> para desbloquear compras<br>
+            <strong>3. Limpe o cache do navegador</strong> e tente de novo<br>
+            <strong>4. Contate nosso suporte</strong> se o problema persistir
+        </p>
+    </div>
+
+    <center>
+        <button class="btn" onclick="window.history.back()">
+            ← TENTAR NOVAMENTE
+        </button>
+        <button class="btn btn-secondary" onclick="window.location.href='/'">
+            🏠 VOLTAR À HOME
+        </button>
+    </center>
+
+    <div class="contact-info">
+        <strong>📞 Precisa de Ajuda?</strong><br><br>
+        📧 <strong>suporte@resetprimal.com.br</strong><br>
+        💬 WhatsApp: <strong>+55 (11) XXXXX-XXXX</strong><br>
+        💬 Respondemos em até 2 horas (seg-sex 9h-18h)
+    </div>
+
+    <div class="info-box" style="margin-top: 40px;">
+        <h3>💚 Garantia Tripla</h3>
+        <p>
+            Se comprar e não gostar pelos próximos 30 dias,<br>
+            <strong>devolvemos 2× o valor sem perguntas.</strong><br><br>
+            Seu risco é ZERO. Você só perde se não começar.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>
+            Reset Primal™ © 2025<br>
+            <a href="/privacidade">Política de Privacidade</a> |
+            <a href="/termos">Termos de Uso</a><br>
+            Todos os direitos reservados
+        </p>
+    </div>
+</div>
+
+<script>
+    // Rastrear página de erro em GA4
+    if (window.gtag) {
+        gtag('event', 'page_view', {
+            'page_title': 'Error Page',
+            'page_path': '/erro'
+        });
+
+        gtag('event', 'exception', {
+            'description': 'Payment Error'
+        });
+    }
+</script>
+
+</body>
+</html>

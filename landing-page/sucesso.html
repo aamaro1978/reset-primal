@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Confirmada ✓ | Reset Primal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            text-align: center;
+            background: #2A2A2A;
+            padding: 60px 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .check-mark {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #CCC;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #1A1A1A;
+            padding: 30px;
+            border-left: 4px solid #FF5722;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            color: #FF5722;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #CCC;
+            margin-bottom: 12px;
+        }
+
+        .info-box strong {
+            color: #FFFFFF;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FF5722;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 20px 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #E64A19;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #FF5722;
+            color: #FF5722;
+        }
+
+        .btn-secondary:hover {
+            background: #FF5722;
+            color: white;
+        }
+
+        .timer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1A1A1A;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .timer strong {
+            color: #FF5722;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #FF5722;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="check-mark">✓</div>
+
+    <h1>Compra Confirmada!</h1>
+
+    <p class="subtitle">
+        🎉 Seu pagamento foi processado com sucesso!<br>
+        Prepare-se para sua transformação de 21 dias.
+    </p>
+
+    <div class="info-box">
+        <h3>📧 Verifique Seu Email</h3>
+        <p>
+            Enviamos um email para você com:
+        </p>
+        <ul style="margin-left: 20px; text-align: left; line-height: 2;">
+            <li><strong>Link de download do e-book completo</strong> (72 capítulos)</li>
+            <li><strong>47 receitas Primal</strong> prontas para usar</li>
+            <li><strong>Tracker de progresso</strong> automático</li>
+            <li><strong>Protocolo de transição metabólica</strong> (evita os 5 sintomas)</li>
+            <li><strong>Acesso vitalício</strong> às atualizações futuras</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>🚀 Próximos Passos</h3>
+        <p>
+            <strong>1. Baixe o e-book</strong> que chegou no seu email (verifique spam)<br>
+            <strong>2. Leia o capítulo 1</strong> - "Preparação nos Primeiros 2 Dias"<br>
+            <strong>3. Compre os alimentos</strong> conforme lista de compras do protocolo<br>
+            <strong>4. Comece amanhã ou depois</strong> - prepare sua cozinha hoje!
+        </p>
+    </div>
+
+    <div class="info-box">
+        <h3>❓ Dúvidas?</h3>
+        <p>
+            Respondo até 24h em<br>
+            📧 <strong>suporte@resetprimal.com.br</strong><br>
+            💬 WhatsApp: <strong>+55 (11) XXXXX-XXXX</strong>
+        </p>
+    </div>
+
+    <center>
+        <button class="btn" onclick="window.location.href='https://mail.google.com'">
+            📬 ACESSAR MEUS EMAILS
+        </button>
+        <button class="btn btn-secondary" onclick="window.location.href='/'">
+            ← VOLTAR À HOME
+        </button>
+    </center>
+
+    <div class="timer">
+        <strong>⏱️ Seu e-book estará disponível para download por 90 dias.</strong><br>
+        Se expirar, contate suporte para reenviar.
+    </div>
+
+    <div class="footer">
+        <p>
+            Reset Primal™ © 2025<br>
+            <a href="/privacidade">Política de Privacidade</a> |
+            <a href="/termos">Termos de Uso</a><br>
+            Todos os direitos reservados
+        </p>
+    </div>
+</div>
+
+<script>
+    // Rastrear página de sucesso em GA4
+    if (window.gtag) {
+        gtag('event', 'page_view', {
+            'page_title': 'Success Page',
+            'page_path': '/sucesso'
+        });
+    }
+
+    // Rastrear em Facebook Pixel
+    if (window.fbq) {
+        fbq('track', 'Purchase');
+    }
+</script>
+
+</body>
+</html>
