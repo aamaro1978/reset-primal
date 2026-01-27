@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renascimento Primal - Reset Primal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(180deg, #0D0D0D 0%, #1B5E47 35%, #0A4D2E 65%, #0D0D0D 100%);
+            min-height: 100vh;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        /* CABEÇALHO */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 42px;
+            color: #00FF7F;
+            text-shadow: 0 0 40px rgba(0, 255, 127, 0.8);
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6vw, 64px);
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #6EFFA3;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* LINHA DIVISÓRIA */
+        .divider {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #00FF7F 50%, transparent 100%);
+            margin: 50px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
+        }
+
+        /* CONTEÚDO */
+        .content {
+            animation: fadeIn 1.5s ease-out 0.5s both;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 28px;
+            text-align: left;
+        }
+
+        p.lead {
+            font-size: 22px;
+            font-weight: 600;
+            color: #6EFFA3;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        p.emphasis {
+            font-size: 21px;
+            font-weight: 700;
+            color: #00FF7F;
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 255, 127, 0.1);
+            border-radius: 12px;
+            border-left: 5px solid #00FF7F;
+            margin: 40px 0;
+        }
+
+        .quote {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 5px solid #00FF7F;
+            padding: 35px 40px;
+            margin: 50px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 30px rgba(0, 255, 127, 0.15);
+        }
+
+        .quote p {
+            font-size: 24px;
+            font-style: italic;
+            line-height: 1.9;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quote footer {
+            text-align: right;
+            font-size: 16px;
+            color: #00FF7F;
+            font-style: normal;
+            margin-top: 15px;
+        }
+
+        /* REVELAÇÃO DA PALAVRA */
+        .revelation {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.2) 0%, rgba(16, 217, 109, 0.15) 100%);
+            border: 3px solid #00FF7F;
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 255, 127, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revelation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 127, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(0, 255, 127, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .revelation-intro {
+            font-size: 18px;
+            color: #6EFFA3;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .revelation-word {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(56px, 10vw, 96px);
+            color: #00FF7F;
+            text-shadow: 
+                0 0 40px rgba(0, 255, 127, 1),
+                0 0 80px rgba(0, 255, 127, 0.8);
+            letter-spacing: 8px;
+            margin: 30px 0;
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes neonPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 40px rgba(0, 255, 127, 1),
+                    0 0 80px rgba(0, 255, 127, 0.8);
+            }
+            50% {
+                text-shadow: 
+                    0 0 60px rgba(0, 255, 127, 1),
+                    0 0 120px rgba(0, 255, 127, 0.9);
+            }
+        }
+
+        .revelation-explanation {
+            font-size: 20px;
+            line-height: 1.9;
+            color: #FFFFFF;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PACTO */
+        .pact {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00FF7F;
+            border-radius: 12px;
+            padding: 50px 45px;
+            margin: 60px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .pact h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: #00FF7F;
+            text-align: center;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pact-list li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .pact-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00FF7F;
+            font-weight: 900;
+            font-size: 24px;
+        }
+
+        /* ASSINATURA */
+        .signature {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .signature-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #00FF7F;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(0, 255, 127, 0.6);
+        }
+
+        .signature-title {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        /* BOTÃO COMEÇAR */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #10D96D 0%, #00FF7F 100%);
+            color: #000000;
+            padding: 22px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 255, 127, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin: 40px auto;
+            display: block;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 255, 127, 0.6);
+            background: linear-gradient(135deg, #00FF7F 0%, #6EFFA3 100%);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 20px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .quote p {
+                font-size: 20px;
+            }
+
+            .revelation {
+                padding: 40px 25px;
+            }
+
+            .pact {
+                padding: 35px 25px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* EFEITO DE FUNDO */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 127, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 127, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+    <style>
+        * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+    </style>
+<style>*{-webkit-user-select:none!important;user-select:none!important}</style>
+</head>
+<body>
+<script>(function(){"use strict";document.oncopy=()=>false;document.onselectstart=()=>false;document.oncontextmenu=()=>false;window.addEventListener("keydown",e=>{if(e.keyCode===123||(e.ctrlKey||e.metaKey)&&([73,74,67,85,83,65,88,80].includes(e.keyCode))){e.preventDefault();return false}},true);window.addEventListener("contextmenu",e=>{e.preventDefault();return false},true);window.addEventListener("selectstart",e=>{e.preventDefault();return false},true);window.addEventListener("copy",e=>{e.preventDefault();return false},true)})();</script>
+<script>
+/* Proteção anti-cópia inline */
+(function(){"use strict";document.oncopy=function(){return false};document.onselectstart=function(){return false};document.oncontextmenu=function(){return false};document.oncut=function(){return false};document.addEventListener("keydown",function(e){if(e.keyCode===123||(e.ctrlKey||e.metaKey)&&(e.shiftKey&&(e.keyCode===73||e.keyCode===74||e.keyCode===67)||[85,83,67,65,88,80].includes(e.keyCode))){e.preventDefault();e.stopImmediatePropagation();return false}},true);document.addEventListener("contextmenu",function(e){e.preventDefault();return false},true);document.addEventListener("selectstart",function(e){e.preventDefault();return false},true);document.addEventListener("copy",function(e){e.preventDefault();e.clipboardData.setData("text/plain","");return false},true);document.addEventListener("cut",function(e){e.preventDefault();return false},true)})();
+</script>
+    <div class="container">
+        <!-- CABEÇALHO -->
+        <div class="header">
+            <div class="logo">RESET PRIMAL</div>
+            <h1 class="title">Renascimento<br>Primal</h1>
+            <p class="subtitle">Antes de Começar, Leia Esta Carta</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CONTEÚDO -->
+        <div class="content">
+            <div class="section">
+                <p class="lead">
+                    Olá. Seja muito bem-vindo à comunidade Primal.
+                </p>
+
+                <p>
+                    Estou feliz por você ter dado este passo. Não um passo qualquer, mas <strong>O passo</strong>. O passo que separa quem continua preso em ciclos de frustração daqueles que finalmente rompem as correntes.
+                </p>
+
+                <p>
+                    Você está prestes a iniciar uma jornada de 21 dias. Não é muito tempo, certo? Três semanas. Vinte e um amanheceres. Seiscentas e quatro horas.
+                </p>
+
+                <p>
+                    Mas aqui está a verdade que ninguém te conta: <strong>não são os dias que importam</strong>. É quem você se torna ao atravessá-los.
+                </p>
+            </div>
+
+            <div class="quote">
+                <p>
+                    "Você não pode atravessar o mar simplesmente olhando para a água."
+                </p>
+                <footer>— Rabindranath Tagore</footer>
+            </div>
+
+            <div class="section">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 32px; color: #00FF7F; margin: 50px 0 30px; text-align: center; text-transform: uppercase; letter-spacing: 2px;">
+                    A Resposta Antes da Pergunta
+                </h2>
+
+                <p>
+                    Eu poderia te entregar agora, neste exato momento, a resposta que você procura. Poderia resumir todo este manual em <strong>uma única palavra</strong>.
+                </p>
+
+                <p>
+                    E garanto: quando você receber essa palavra ao final desses 21 dias, ela fará sentido visceral. Você sentirá no corpo, na mente, no espírito.
+                </p>
+
+                <p>
+                    Mas aqui está o problema...
+                </p>
+
+                <p class="emphasis">
+                    A resposta, antes que a jornada seja percorrida,<br>
+                    é insana demais para ser compreendida.
+                </p>
+
+                <p>
+                    É como explicar a cor vermelha para quem nasceu cego. Ou descrever o sabor de um abacate para quem nunca comeu. As palavras existem, mas a <strong>experiência</strong> não.
+                </p>
+
+                <p>
+                    Por isso, não vou te entregar a resposta agora. Você precisa <strong>conquistá-la</strong>. Precisa senti-la se formando dentro de você, célula por célula, dia após dia.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 32px; color: #00FF7F; margin: 50px 0 30px; text-align: center; text-transform: uppercase; letter-spacing: 2px;">
+                    O Pacto dos 21 Dias
+                </h2>
+
+                <p>
+                    Este não é mais um e-book. Não é mais uma dieta. Não é mais uma tentativa.
+                </p>
+
+                <p>
+                    É um <strong>pacto</strong>.
+                </p>
+
+                <p>
+                    Um pacto entre você e a versão de si mesmo que está esperando do outro lado desses 21 dias. Aquela versão que acorda com energia. Que olha no espelho e reconhece o guerreiro. Que não negocia mais com a mediocridade.
+                </p>
+            </div>
+
+            <div class="pact">
+                <h3>Eu Me Comprometo a:</h3>
+                <ul class="pact-list">
+                    <li><strong>Entregar-me TOTALMENTE por 21 dias</strong> — sem questionar, sem negociar, sem "só dessa vez"</li>
+                    <li><strong>Seguir o protocolo EXATAMENTE como descrito</strong> — a ciência não funciona "mais ou menos"</li>
+                    <li><strong>Registrar minha jornada</strong> — fotos, medidas, sensações (você vai querer lembrar deste momento)</li>
+                    <li><strong>Não desistir nos dias difíceis</strong> — eles virão, e são os mais importantes</li>
+                    <li><strong>Confiar no processo ANTES de ver resultados</strong> — a transformação começa invisível</li>
+                    <li><strong>Aceitar que vou me transformar</strong> — não apenas o corpo, mas quem eu sou</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <p>
+                    Alguns de vocês vão ler este manual e pensar: "É simples demais para funcionar."
+                </p>
+
+                <p>
+                    Outros vão pensar: "É intenso demais, não vou conseguir."
+                </p>
+
+                <p>
+                    Ambos estão errados.
+                </p>
+
+                <p>
+                    Não é simples. É <strong>direto</strong>. Há uma diferença.
+                </p>
+
+                <p>
+                    Não é intenso. É <strong>real</strong>. Outra diferença.
+                </p>
+
+                <p>
+                    O Reset Primal não é fácil. Nada que vale a pena é. Mas é <strong>inevitável</strong> — desde que você não desista de si mesmo.
+                </p>
+            </div>
+
+            <div class="quote">
+                <p>
+                    "A caverna que você teme entrar<br>
+                    guarda o tesouro que você procura."
+                </p>
+                <footer>— Joseph Campbell</footer>
+            </div>
+
+            <div class="section">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 32px; color: #00FF7F; margin: 50px 0 30px; text-align: center; text-transform: uppercase; letter-spacing: 2px;">
+                    A Metáfora da Resposta
+                </h2>
+
+                <p>
+                    Imagine um lobo preso em um zoológico. Ele é alimentado todos os dias. Tem abrigo. Segurança. Cuidados veterinários.
+                </p>
+
+                <p>
+                    Mas algo dentro dele está <strong>morrendo</strong>.
+                </p>
+
+                <p>
+                    Ele vaga em círculos. Seus músculos atrofiam. Seus instintos adormecem. Ele esquece como caçar, como correr, como <strong>viver</strong>.
+                </p>
+
+                <p>
+                    Agora imagine que as portas se abrem. A floresta está ali, chamando.
+                </p>
+
+                <p>
+                    No início, ele hesita. O zoológico é seguro. Previsível. Confortável.
+                </p>
+
+                <p>
+                    Mas então... ele dá o primeiro passo. Depois outro. E outro.
+                </p>
+
+                <p>
+                    Nos primeiros dias, ele tropeça. Está fraco. Perdido. Quer voltar.
+                </p>
+
+                <p>
+                    Mas algo acontece por volta do décimo dia. Os músculos começam a lembrar. O instinto desperta. A floresta não é mais estranha — é <strong>casa</strong>.
+                </p>
+
+                <p>
+                    No vigésimo primeiro dia, ele não é mais o mesmo animal. Ele <strong>renasceu</strong>.
+                </p>
+
+                <p class="emphasis">
+                    E quando olha para trás, para as grades do zoológico,<br>
+                    ele finalmente compreende a resposta que sempre esteve dentro dele.
+                </p>
+            </div>
+
+            <div class="revelation">
+                <p class="revelation-intro">
+                    A palavra que resume toda esta jornada.<br>
+                    A resposta que você carregará para sempre.
+                </p>
+                <div class="revelation-word">LIBERDADE</div>
+                <p class="revelation-explanation">
+                    Liberdade não é fazer o que quer.<br>
+                    É ter o corpo e a mente que obedecem à sua vontade.<br>
+                    É não ser mais escravo da comida, da preguiça, da desculpa.<br>
+                    É ser <strong>dono de si mesmo</strong>.
+                </p>
+            </div>
+
+            <div class="section">
+                <p>
+                    Nos próximos 21 dias, você não vai apenas emagrecer. Você vai se <strong>libertar</strong>.
+                </p>
+
+                <p>
+                    Libertar-se das correntes invisíveis que te mantiveram preso. Libertar-se da versão domesticada de si mesmo. Libertar-se para finalmente <strong>viver</strong>.
+                </p>
+
+                <p>
+                    E quando chegar ao último dia, quando reler esta carta, você vai sorrir.
+                </p>
+
+                <p>
+                    Porque finalmente vai entender.
+                </p>
+
+                <p class="emphasis">
+                    A resposta sempre esteve em você.<br>
+                    Você só precisava de 21 dias para libertá-la.
+                </p>
+            </div>
+
+            <div class="signature">
+                <div class="signature-name">AKA</div>
+                <div class="signature-title">Guardião do Método Primal</div>
+            </div>
+
+            <a href="sumario.html" class="cta-button">
+                Iniciar Meu Renascimento →
+            </a>
+        </div>
+    </div>
+    

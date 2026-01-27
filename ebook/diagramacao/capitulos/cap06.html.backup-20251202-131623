@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 06 - Reset Primal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/capitulo-styles.css">
+</head>
+<body>
+    <!-- NAVEGAÇÃO FIXA -->
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <a href="../sumario.html" class="nav-button">← Sumário</a>
+            <span class="nav-chapter">Capítulo 06/08</span>
+        </div>
+        <div class="nav-progress">
+            <span class="progress-text">Progresso</span>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 72%;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PÁGINA DE ABERTURA -->
+    <div class="chapter-intro">
+        <div class="chapter-number">06</div>
+        <h1 class="chapter-title">CAPÍTULO 6: QUANDO VOCÊ CAGAR TUDO (E VOCÊ VAI CAGAR)</h1>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="container">
+        <div class="chapter-content">
+<h1 id="capítulo-6-quando-você-cagar-tudo-e-você-vai-cagar">CAPÍTULO 6: QUANDO VOCÊ CAGAR TUDO (E VOCÊ VAI CAGAR)</h1>
+<h2 id="a-verdade-que-ninguém-te-conta">A VERDADE QUE NINGUÉM TE CONTA</h2>
+<p>Você não vai fazer 21 dias perfeitos. Ninguém faz. A questão não é <strong>SE</strong> você vai sair da rota. É <strong>QUANDO</strong> você vai sair, e <strong>COMO</strong> você vai voltar. Aqui está o dado que importa: <strong>Pessoas que completam programas de mudança de hábito não são as que nunca erram. São as que erram e voltam no dia seguinte.</strong> Estudo de 2018 (University College London, 96 participantes rastreados por 12 semanas): perder um único dia de hábito não afeta o resultado final. Perder dois ou mais dias consecutivos reduz a probabilidade de sucesso em 61%. <strong>Base do cálculo:</strong><br />
+1 dia perdido = impacto desprezível na formação do hábito.<br />
+2+ dias perdidos = descarrilamento estatístico.</p>
+<p><strong>A diferença entre “deslize” e “desistência” é 48 horas.</strong></p>
+<p>Esse capítulo existe pra garantir que você nunca ultrapasse essa janela.</p>
+<h2 id="os-5-cenários-mais-comuns-e-o-que-fazer-em-cada-um">OS 5 CENÁRIOS MAIS COMUNS (E O QUE FAZER EM CADA UM)</h2>
+<h3 id="cenário-1-você-pulou-1-dia-de-treino">CENÁRIO 1: VOCÊ PULOU 1 DIA DE TREINO</h3>
+<p><strong>Por que acontece:</strong><br />
+Trabalho explodiu, filho ficou doente, carro quebrou, você dormiu 4 horas e acordou destruído.</p>
+<p><strong>O que o seu cérebro vai dizer:</strong><br />
+“Ferrou. A sequência quebrou. Não adianta mais. Vou começar de novo segunda-feira.”</p>
+<p><strong>A verdade:</strong><br />
+Você ainda tem 20 dias pela frente. Um dia perdido = 4,7% do programa. Você ainda tem 95,3% disponíveis.</p>
+<h4 id="o-que-fazer-protocolo-de-1-dia-perdido">O que fazer (protocolo de 1 dia perdido):</h4>
+<p><strong>HOJE (dia seguinte ao que você pulou):</strong></p>
+<p><strong>1. Faça só a caminhada de ancoragem (20 min, mínimo).</strong></p>
+<p>Não tente “compensar” fazendo treino duplo. Isso gera fadiga extra e aumenta chance de desistir.</p>
+<p><strong>2. Marque o dia perdido como “○” (parcial) no rastreador, não como “—” (zero).</strong></p>
+<p>Por quê? Porque você está construindo evidência de recuperação, não de fracasso. Linguagem importa.</p>
+<p><strong>3. Amanhã, volte ao calendário normal.</strong></p>
+<p>Se era dia de Bloco A, faça Bloco A. Não ajuste. Não pule. Siga o protocolo.</p>
+<p><strong>Regra de ouro:</strong><br />
+Nunca dois dias perdidos seguidos. Se você pulou ontem, hoje é obrigatório — mesmo que seja só 10 minutos de caminhada.</p>
+<h3 id="cenário-2-você-comeu-algo-fora-do-protocolo-pizza-sorvete-bolo">CENÁRIO 2: VOCÊ COMEU ALGO FORA DO PROTOCOLO (PIZZA, SORVETE, BOLO)</h3>
+<p><strong>Por que acontece:</strong><br />
+Aniversário, churrasco, cliente levou pra jantar, você estava exausto e pediu delivery.</p>
+<p><strong>O que o seu cérebro vai dizer:</strong><br />
+“Ferrou a dieta. Já era. Vou aproveitar e comer tudo hoje, amanhã começo de novo.”</p>
+<p><strong>A verdade fisiológica:</strong><br />
+Uma refeição fora do protocolo não reverte 6 dias de progresso.</p>
+<p>Vamos aos números:</p>
+<ul>
+<li>1 pizza média = ~2.000 kcal</li>
+<li>Excesso calórico real (vs. sua dieta) = ~1.200 kcal</li>
+<li>1 kg de gordura corporal = ~7.700 kcal</li>
+</ul>
+<p><strong>Base do cálculo:</strong><br />
+1.200 kcal ÷ 7.700 kcal/kg = 0,15 kg de gordura (e isso assumindo que 100% do excesso vira gordura, o que não acontece — boa parte vira glicogênio muscular + água).</p>
+<p><strong>Tradução:</strong> você ganhou água (carboidrato + sódio = retenção hídrica) e glicogênio. Vai sumir em 48-72h.</p>
+<h4 id="o-que-fazer-protocolo-de-refeição-fora">O que fazer (protocolo de refeição fora):</h4>
+<p><strong>1. NÃO pule a próxima refeição.</strong></p>
+<p>Não “compense” com jejum forçado. Isso cria ciclo de restrição → culpa → compulsão. Coma a próxima refeição do protocolo no horário normal.</p>
+<p><strong>2. Volte ao Protocolo Nutricional imediatamente.</strong></p>
+<p>Próxima refeição = Fase 2 ou 3 (onde você estava). Sem “dia do lixo estendido”.</p>
+<p><strong>3. Adicione 10 minutos à caminhada nos próximos 2 dias.</strong></p>
+<p>Não é punição. É ajuste metabólico suave (aumenta oxidação de gordura sem estresse).</p>
+<p><strong>4. Beba 500 ml de água extra nas próximas 24h.</strong></p>
+<p>Acelera eliminação do sódio (reduz retenção hídrica = você se sente menos inchado mais rápido).</p>
+<p><strong>Regra de ouro:</strong><br />
+Um deslize é uma refeição. Não vira “dia do lixo”. Não vira “fim de semana do lixo”. Você comeu, acabou, voltou. Ponto.</p>
+<h3 id="cenário-3-você-está-no-dia-10-14-e-quer-desistir-a-crise-do-meio">CENÁRIO 3: VOCÊ ESTÁ NO DIA 10-14 E QUER DESISTIR (A “CRISE DO MEIO”)</h3>
+<p><strong>Por que acontece:</strong><br />
+A novidade passou. Os resultados ainda não são óbvios. Você está cansado, entediado, duvidando se vale a pena.</p>
+<p><strong>O que o seu cérebro vai dizer:</strong><br />
+“Isso não está funcionando. Eu não mudei nada. Vou parar antes de perder mais tempo.”</p>
+<p><strong>A verdade científica:</strong><br />
+Você está no <strong>vale da desilusão</strong> — e isso é previsto em curvas de mudança comportamental.</p>
+<p>Padrão documentado (modelo de adoção de Gartner, aplicado a hábitos):</p>
+<ul>
+<li><strong>Dias 1-3:</strong> Entusiasmo inicial (novidade, motivação alta)</li>
+<li><strong>Dias 4-7:</strong> Platô inicial (ainda motivado, mas esforço aparece)</li>
+<li><strong>Dias 8-14:</strong> VALE DA DESILUSÃO — esforço é alto, resultado percebido é baixo, motivação despenca</li>
+<li><strong>Dias 15-21:</strong> Rampa de consolidação — hábito vira automático, resultado fica visível</li>
+</ul>
+<p><strong>Base do cálculo:</strong><br />
+Meta-análise de 2020 (Health Psychology Review, 47 estudos): 65% das desistências em programas de 21 dias acontecem entre os dias 9-15. Não porque o programa não funciona. Porque o cérebro está procurando desculpa pra voltar ao conforto.</p>
+<p>E aqui está o detalhe crítico: <strong>os resultados fisiológicos JÁ ESTÃO ACONTECENDO no Dia 10-14. Você só não consegue ver ainda.</strong></p>
+<p>Nesse período:</p>
+<ul>
+<li>Sensibilidade à insulina melhorando (balança não mostra)</li>
+<li>Inflamação sistêmica caindo (você não “sente” menos inflamado)</li>
+<li>Densidade mitocondrial aumentando (você não vê no espelho)</li>
+<li>Microbiota intestinal mudando composição (invisível)</li>
+</ul>
+<p><strong>Você está construindo a fundação. A estética vem depois.</strong></p>
+<h4 id="o-que-fazer-protocolo-da-crise-do-meio">O que fazer (protocolo da crise do meio):</h4>
+<p><strong>1. Reveja os dados do Dia 1.</strong></p>
+<p>Compare:</p>
+<ul>
+<li>Foto Dia 1 vs. Dia 10 (provavelmente há diferença sutil que você não nota no espelho diário)</li>
+<li>Treino Dia 1 vs. Dia 10 (você completa as séries com menos esforço? Isso é progresso)</li>
+<li>Sono (você acorda mais disposto? Latência do sono diminuiu?)</li>
+<li>Digestão (menos inchaço? Menos refluxo? Trânsito intestinal mais regular?)</li>
+</ul>
+<p><strong>2. Faça o “Teste de 3 Perguntas”:</strong></p>
+<ul>
+<li>Você está dormindo melhor que no Dia 0? (Sim/Não)</li>
+<li>Você está completando treinos que não completava antes? (Sim/Não)</li>
+<li>Você está comendo comida de verdade pela primeira vez em anos? (Sim/Não)</li>
+</ul>
+<p>Se pelo menos 2 de 3 = SIM, você está progredindo. A balança/espelho só confirmam depois.</p>
+<p><strong>3. Reduza volume por 2 dias (não zere).</strong></p>
+<p>Se você está exausto:</p>
+<ul>
+<li>Caminhada: 20 min (mínimo)</li>
+<li>Bloco A: 2 séries de cada (em vez de 3)</li>
+<li>Bloco B: 2 rounds (em vez de 3-4)</li>
+</ul>
+<p>Por quê? Porque consistência imperfeita &gt; pausa completa. Melhor treinar 60% que parar.</p>
+<p><strong>4. Fale com alguém que está fazendo junto (ou poste no grupo).</strong></p>
+<p>“Dia X, crise do meio. Alguém mais?”</p>
+<p>Você vai descobrir que metade do grupo está passando pela mesma coisa. Isso não é fracasso. É progressão normal.</p>
+<p><strong>Regra de ouro:</strong><br />
+A crise do meio é sinal de que você chegou longe o suficiente pra enfrentar resistência real. Amadores desistem aqui. Você não é amador.</p>
+<h3 id="cenário-4-você-perdeu-2-3-dias-seguidos-descarrilamento-real">CENÁRIO 4: VOCÊ PERDEU 2-3 DIAS SEGUIDOS (DESCARRILAMENTO REAL)</h3>
+<p><strong>Por que acontece:</strong><br />
+Viagem de trabalho, emergência familiar, gripe, evento inesperado que quebrou a rotina completamente.</p>
+<p><strong>O que o seu cérebro vai dizer:</strong><br />
+“Já era. Perdi a sequência. Não tem como recuperar. Vou recomeçar mês que vem.”</p>
+<p><strong>A verdade:</strong><br />
+Você perdeu 3 dias de 21. Ainda restam 18 dias. Você precisa de ≥17 dias com ✓ ou ○ pra bater meta (81% de adesão).</p>
+<p>Você pode perder até 4 dias no total e ainda completar o Reset.</p>
+<p>Perdeu 3? Você tem 1 dia de margem.</p>
+<h4 id="o-que-fazer-protocolo-de-descarrilamento">O que fazer (protocolo de descarrilamento):</h4>
+<p><strong>HOJE (primeiro dia que você consegue voltar):</strong></p>
+<p><strong>1. Reset simplificado:</strong></p>
+<p><strong>Movimento:</strong></p>
+<ul>
+<li>Caminhada: 30 min (não negocie)</li>
+<li>Bloco A ou B: só 1 série de cada exercício (volume mínimo)</li>
+</ul>
+<p>Por quê? Você precisa reconstruir momentum, não compensar volume perdido. Um treino leve completo &gt; nenhum treino.</p>
+<p><strong>Nutrição:</strong></p>
+<ul>
+<li>Café da manhã: proteína (2 ovos) + gordura boa (abacate) + café preto</li>
+<li>Almoço: proteína (150g carne/peixe/frango) + vegetais</li>
+<li>Jantar: igual almoço</li>
+</ul>
+<p>Sem pensar. Sem “começar devagar”. Protocolo Fase 2, direto.</p>
+<p><strong>2. Marque os 3 dias perdidos como “—”, mas não apague.</strong></p>
+<p>Deixe visível. Isso te lembra do custo de parar. Mas não significa fracasso total.</p>
+<p><strong>3. Próximos 3 dias = protocolo completo sem exceção.</strong></p>
+<p>Se você fizer os próximos 3 dias seguidos com ✓, você apagou o buraco estatisticamente. Estudo UCL (citado antes): 3 dias consecutivos de adesão após falha = volta ao padrão de sucesso.</p>
+<p><strong>Regra de ouro:</strong><br />
+Você perdeu dias. Não perdeu o programa. Comece agora, não segunda-feira.</p>
+<h3 id="cenário-5-você-está-meio-fazendo-caminhada-sim-treino-não-nutrição-50">CENÁRIO 5: VOCÊ ESTÁ “MEIO FAZENDO” (CAMINHADA SIM, TREINO NÃO / NUTRIÇÃO 50%)</h3>
+<p><strong>Por que acontece:</strong><br />
+Você não parou completamente, mas também não está executando o protocolo. Está fazendo “o que dá”, sem disciplina real.</p>
+<p><strong>O que o seu cérebro vai dizer:</strong><br />
+“Pelo menos eu tô fazendo alguma coisa. É melhor que nada.”</p>
+<p><strong>A verdade brutal:</strong><br />
+“Melhor que nada” é verdade. Mas “melhor que nada” não gera transformação mensurável.</p>
+<p>Se você quer manter o peso/saúde atuais, “meio fazer” funciona.<br />
+Se você quer mudar, precisa de consistência acima de 80%.</p>
+<p><strong>Dados de compliance em estudos de intervenção nutricional/exercício:</strong></p>
+<ul>
+<li>&lt;50% adesão = zero mudança mensurável em composição corporal</li>
+<li>50-70% adesão = mudança marginal (~1-2% melhora)</li>
+<li><blockquote>
+<p>80% adesão = mudança significativa (5-12% melhora em marcadores)</p>
+</blockquote></li>
+</ul>
+<p>Você está fazendo 50%. Vai terminar os 21 dias e pensar “não funcionou”. Mas o protocolo funciona. Você que não aplicou o protocolo.</p>
+<h4 id="o-que-fazer-protocolo-de-meio-termo">O que fazer (protocolo de meio-termo):</h4>
+<p><strong>1. Diagnóstico honesto (responda agora):</strong></p>
+<p>Por que você está “meio fazendo”?</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Não tenho tempo (verdade ou desculpa?)</li>
+<li><input type="checkbox" disabled="" />
+Estou cansado demais (overtraining ou falta de sono?)</li>
+<li><input type="checkbox" disabled="" />
+Não acredito que funciona (então por que começou?)</li>
+<li><input type="checkbox" disabled="" />
+Tenho medo de falhar completamente (melhor meio fazer que admitir que parei)</li>
+</ul>
+<p><strong>2. Escolha:</strong></p>
+<p><strong>Opção A: Fazer direito pelos próximos 7 dias.</strong></p>
+<p>Protocolo completo. Caminhada + Bloco A ou B + Nutrição Fase 2/3. Sem “mais ou menos”.</p>
+<p><strong>Opção B: Pausar oficialmente.</strong></p>
+<p>Admita que agora não é o momento. Sem culpa. Volte quando puder fazer direito.</p>
+<p><strong>Não existe Opção C (continuar meio fazendo).</strong> Isso só gera frustração e evidência de fracasso.</p>
+<p><strong>3. Se escolheu A:</strong></p>
+<p>Próximos 7 dias:</p>
+<ul>
+<li>Rastreador: só marca ✓ se fez caminhada + treino + protocolo nutricional completo</li>
+<li>Meta mínima: 5 de 7 dias com ✓</li>
+<li>Se conseguir, você provou pra si mesmo que consegue. Aí termina os 14 dias restantes.</li>
+</ul>
+<p><strong>Regra de ouro:</strong><br />
+Meio fazer é pior que parar. Porque você gasta energia e não gera resultado. Escolha: dentro ou fora. Não meio termo.</p>
+<h2 id="o-protocolo-de-emergência-universal-quando-tudo-der-errado">O PROTOCOLO DE EMERGÊNCIA UNIVERSAL (QUANDO TUDO DER ERRADO)</h2>
+<p>Se você chegou aqui e nenhum dos cenários acima se aplica, ou você está simplesmente perdido, faça isso:</p>
+<h3 id="reset-de-24-horas">RESET DE 24 HORAS</h3>
+<p><strong>Próximas 24 horas (começando agora):</strong></p>
+<p><strong>Movimento:</strong></p>
+<ul>
+<li>30 minutos de caminhada (ao ar livre se possível)</li>
+<li>10 flexões (mesmo que seja de joelhos)</li>
+<li>30 segundos de prancha</li>
+<li>10 agachamentos</li>
+</ul>
+<p><strong>Nutrição:</strong></p>
+<ul>
+<li>Café da manhã: 2 ovos + 1 fruta</li>
+<li>Almoço: proteína (palma da mão) + vegetais</li>
+<li>Jantar: igual almoço</li>
+<li>Água: 2 litros</li>
+</ul>
+<p><strong>Sono:</strong></p>
+<ul>
+<li>Dormir antes das 23h (não negocie)</li>
+</ul>
+<p><strong>Depois dessas 24h:</strong></p>
+<p>Você vai ter evidência física de que consegue. Aí você decide: continua ou para.</p>
+<p>Mas pelo menos você terminou alguma coisa. E terminar gera momentum.</p>
+<h2 id="a-matemática-da-recuperação">A MATEMÁTICA DA RECUPERAÇÃO</h2>
+<p>Aqui está o que a ciência mostra sobre voltar depois de falhar:</p>
+<ul>
+<li><strong>Tentativa 1:</strong> Taxa de sucesso ~25% (maioria desiste na primeira dificuldade)</li>
+<li><strong>Tentativa 2</strong> (após falha e retorno): Taxa de sucesso ~45%</li>
+<li><strong>Tentativa 3:</strong> Taxa de sucesso ~67%</li>
+</ul>
+<p><strong>Base do cálculo:</strong><br />
+Estudo de 2012 (European Journal of Social Psychology, 169 participantes): cada tentativa de retomada de hábito após falha aumenta probabilidade de sucesso em 15-20 pontos percentuais, porque você aprende onde está a resistência.</p>
+<p><strong>Tradução:</strong> voltar depois de cagar tudo não é fracasso. É aprendizado.</p>
+<p>Você está coletando dados sobre:</p>
+<ul>
+<li>Quais situações te tiram da rota</li>
+<li>Quais desculpas seu cérebro usa pra te sabotar</li>
+<li>Quanto tempo você leva pra voltar</li>
+</ul>
+<p>E a cada ciclo, você fica mais rápido pra se recuperar.</p>
+<p>Eventualmente, você vira alguém que nunca fica mais de 48h fora da rota. E aí você venceu.</p>
+<p>E isso não vale só pra saúde.</p>
+<p>Vale pro seu relacionamento (quantos dias você deixa um conflito sem resolver antes que vire explosão?).</p>
+<p>Vale pro seu sucesso profissional (quanto tempo você leva pra corrigir um erro no trabalho antes que vire crise?).</p>
+<p>Vale pra tudo.</p>
+<p><strong>Quanto mais rápido você corrige a rota, maior a probabilidade de sucesso na vida.</strong></p>
+<h2 id="checklist-de-diagnóstico-rápido">CHECKLIST DE DIAGNÓSTICO RÁPIDO</h2>
+<p>Antes de tomar qualquer ação, responda:</p>
+<h3 id="quantos-dias-você-perdeu">1. Quantos dias você perdeu?</h3>
+<ul>
+<li><strong>1 dia</strong> → Cenário 1 (volta amanhã, sem drama)</li>
+<li><strong>2-3 dias</strong> → Cenário 4 (reset simplificado hoje)</li>
+<li><strong>Mais de 3</strong> → Protocolo de emergência 24h</li>
+</ul>
+<h3 id="o-que-você-perdeu">2. O que você perdeu?</h3>
+<ul>
+<li><strong>Só treino</strong> → Foque em movimento mínimo (caminhada 30 min hoje)</li>
+<li><strong>Só nutrição</strong> → Próxima refeição = protocolo Fase 2</li>
+<li><strong>Ambos</strong> → Reset de 24h</li>
+</ul>
+<h3 id="por-que-você-saiu-da-rota">3. Por que você saiu da rota?</h3>
+<ul>
+<li><strong>Evento inesperado</strong> (doença, emergência) → Sem culpa, volte quando possível</li>
+<li><strong>Cansaço/overtraining</strong> → Reduza volume 50% por 2 dias</li>
+<li><strong>Desmotivação/tédio</strong> → Cenário 3 (crise do meio)</li>
+<li><strong>Autossabotagem</strong> → Cenário 5 (escolha: dentro ou fora)</li>
+</ul>
+<h3 id="quanto-tempo-faz-que-você-saiu">4. Quanto tempo faz que você saiu?</h3>
+<ul>
+<li><strong>&lt;48h</strong> → Recuperação simples (volta ao protocolo hoje)</li>
+<li><strong>2-7 dias</strong> → Reset de 24h + protocolo completo</li>
+<li><strong>&gt;7 dias</strong> → Recomeça do Dia 1 (sem vergonha, com aprendizado)</li>
+</ul>
+<h2 id="a-única-coisa-que-importa">A ÚNICA COISA QUE IMPORTA</h2>
+<p>Você vai errar.</p>
+<p>A diferença entre quem transforma e quem desiste não é quantas vezes errou.</p>
+<p><strong>É quanto tempo levou pra voltar.</strong></p>
+<p>Amadores levam semanas (ou nunca voltam).<br />
+Profissionais levam 48 horas.</p>
+<p>Qual você quer ser?</p>
+<p>De qual lado da mesa você quer estar?</p>
+<p>Do lado dos que completam 21 dias, provam pra si mesmos que são capazes, e constroem evidência de competência?</p>
+<p>Ou do lado dos que sempre começam segunda-feira, sempre têm uma desculpa, e daqui a 5 anos ainda estão no mesmo lugar?</p>
+<p><strong>Você escolhe. Agora.</strong></p>
+<p><strong>[FIM DO CAPÍTULO 6]</strong></p>
+<h2 id="protocolo-rápido---capítulo-6">PROTOCOLO RÁPIDO - CAPÍTULO 6</h2>
+<p><strong>Se você pulou direto para cá: este é o protocolo de recuperação. Comece HOJE À NOITE.</strong></p>
+<h3 id="protocolo-de-shutdown-21h00---22h00">Protocolo de Shutdown (21h00 - 22h00):</h3>
+<p><strong>21h00 - Última Refeição/Bebida:</strong> - Fechar janela alimentar (última coisa que entra na boca) - Beber 200ml de água</p>
+<p><strong>21h15 - Desligar Telas:</strong> - Celular em modo avião (ou fora do quarto) - TV/computador desligados - Luzes fortes apagadas</p>
+<p><strong>21h30 - Rotina de Desaceleração:</strong> 1. Ducha morna (5 min) 2. Alongamento leve (5 min) 3. Leitura (física, não digital) ou meditação (10 min)</p>
+<p><strong>22h00 - Dormir:</strong> - Quarto escuro (cortina blackout ou máscara) - Quarto frio (18-20°C ideal) - Sem som (ou ruído branco/ASMR)</p>
+<p><strong>06h00 - Acordar:</strong> - Sem snooze - Luz natural imediata</p>
+<h3 id="checklist-de-shutdown">Checklist de Shutdown:</h3>
+<p>[ ] Última refeição/bebida: 21h00 [ ] Telas desligadas: 21h15 [ ] Celular em modo avião [ ] Ducha morna (5min) [ ] Alongamento (5min) [ ] Leitura/meditação (10min) [ ] Dormir: 22h00 [ ] Acordar: 06h00 (sem snooze)</p>
+<p>markdown Copiar código</p>
+<h3 id="regras-de-sono">Regras de Sono:</h3>
+<p>✅ <strong>Mínimo:</strong> 7h por noite<br />
+✅ <strong>Ideal:</strong> 7h30-8h<br />
+✅ <strong>Horário fixo:</strong> Dormir e acordar no mesmo horário (inclusive fim de semana)</p>
+<h3 id="ação-imediata">Ação Imediata:</h3>
+<p>✅ <strong>Hoje à noite (21h00):</strong> - Executar protocolo de shutdown completo - Configurar alarme para 6h (amanhã) - Celular em modo avião às 21h15</p>
+<p>✅ <strong>Se não conseguir dormir:</strong> - Não pegar celular - Levantar, caminhar 5 min, voltar - Repetir até pegar no sono</p>
+<p>✅ <strong>Próximo passo:</strong> → Capítulo 7: Medição e Progresso (tracking diário)</p>
+        </div>
+
+        <!-- NAVEGAÇÃO ENTRE CAPÍTULOS -->
+        <div class="chapter-navigation">
+            <a href="cap05.html" class="nav-chapter-btn prev">
+                <span>←</span>
+                <span>Capítulo Anterior</span>
+            </a>
+            <a href="cap07.html" class="nav-chapter-btn next">
+                <span>Próximo Capítulo</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

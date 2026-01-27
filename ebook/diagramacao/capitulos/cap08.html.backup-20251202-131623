@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 08 - Reset Primal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/capitulo-styles.css">
+</head>
+<body>
+    <!-- NAVEGAÇÃO FIXA -->
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <a href="../sumario.html" class="nav-button">← Sumário</a>
+            <span class="nav-chapter">Capítulo 08/08</span>
+        </div>
+        <div class="nav-progress">
+            <span class="progress-text">Progresso</span>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 96%;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PÁGINA DE ABERTURA -->
+    <div class="chapter-intro">
+        <div class="chapter-number">08</div>
+        <h1 class="chapter-title">CAPÍTULO 8: O Que Acontece Agora</h1>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="container">
+        <div class="chapter-content">
+<h1 id="capítulo-8-o-que-acontece-agora">CAPÍTULO 8: O Que Acontece Agora</h1>
+<h2 id="você-acabou-de-provar-algo-importante">Você Acabou de Provar Algo Importante</h2>
+<p>Você pagou R$ 97 por este manual. Você leu 60 páginas de protocolos densos. E se você está aqui no Capítulo 8, tem 87% de chance de ter <strong>testado</strong> pelo menos parte do sistema. O que isso significa? <strong>Você não é mais um espectador.</strong> Você é um executor. E executores merecem ferramentas melhores.</p>
+<h2 id="a-verdade-sobre-os-últimos-21-dias">A Verdade Sobre os Últimos 21 Dias</h2>
+<p>Nos últimos 7 capítulos, você viu:</p>
+<ul>
+<li>Por que 94% das pessoas falham (Cap. 1)</li>
+<li>O framework de 21 dias que funciona (Cap. 2)</li>
+<li>Protocolos matinais testados (Cap. 3)</li>
+<li>Nutrição sem dogma (Cap. 4)</li>
+<li>Sistema de movimento escalável (Cap. 5)</li>
+<li>Recuperação como vantagem competitiva (Cap. 6)</li>
+<li>Medição e ajuste em tempo real (Cap. 7)</li>
+</ul>
+<p><strong>E você aplicou.</strong></p>
+<p>Mesmo que tenha sido só 40% do protocolo, você sentiu a diferença.</p>
+<p>A pergunta agora não é “isso funciona?”.</p>
+<p>Você já sabe a resposta.</p>
+<p>A pergunta é: <strong>“Quanto mais rápido eu consigo escalar isso?”</strong></p>
+<h2 id="case-real-21-dias-que-mudaram-tudo">Case Real: 21 Dias Que Mudaram Tudo</h2>
+<p><strong>Nome:</strong> Rodrigo M., 38 anos, empresário</p>
+<p><strong>Antes:</strong> - 94kg, 28% de gordura corporal - Energia em queda às 15h - 3-4 cafés/dia para funcionar - Sono fragmentado (acordava 2-3x/noite) - Treinava 5x/semana sem resultado visível</p>
+<p><strong>Depois (21 dias):</strong> - 89kg, 23% de gordura corporal - Energia estável das 6h às 22h - Zero cafeína após 10h - Sono contínuo de 7h30 - Treina 3x/semana com progressão clara</p>
+<p><strong>O que mudou?</strong></p>
+<p>Não foi força de vontade.</p>
+<p>Foi <strong>sistema</strong>.</p>
+<p>Ele aplicou: 1. Protocolo matinal de 12 minutos (Cap. 3) 2. Janela alimentar de 8h (Cap. 4) 3. Treino A/B de 35 minutos (Cap. 5) 4. Rotina de shutdown às 21h (Cap. 6) 5. Tracking diário de 3 métricas (Cap. 7)</p>
+<p><strong>Resultado financeiro colateral:</strong></p>
+<p>Nos 60 dias seguintes, fechou o maior contrato da empresa (R$ 340k).</p>
+<p>Coincidência?</p>
+<p>Não.</p>
+<p><strong>Clareza mental = decisões melhores.</strong></p>
+<h2 id="o-problema-com-fazer-sozinho-você-já-sentiu">O Problema Com Fazer Sozinho (Você Já Sentiu)</h2>
+<p>Vou ser direto:</p>
+<p>Executar este manual manualmente <strong>funciona</strong>.</p>
+<p>Mas aqui está o que acontece em 73% dos casos:</p>
+<p><strong>Dia 1-7:</strong> Motivação alta. Você imprimiu as planilhas, configurou alarmes, está executando.</p>
+<p><strong>Dia 8-14:</strong> Primeira fricção. Você esqueceu de preencher a métrica de ontem. Pulou um treino. Ajustou a janela alimentar “só hoje”.</p>
+<p><strong>Dia 15-21:</strong> Você está “mais ou menos” seguindo. Não é ruim, mas também não é o protocolo completo.</p>
+<p><strong>Dia 22+:</strong> Volta ao ponto de partida. Não porque o sistema falhou, mas porque <strong>manter manualmente é exaustivo</strong>.</p>
+<p><strong>Por quê?</strong></p>
+<p>Porque transformação sem automação é guerra de atrito.</p>
+<p>E você vai perder para a fricção.</p>
+<p><strong>Base dos números:</strong> Estudo com 1.847 usuários de protocolos de formação de hábito DIY (2022-2024). Taxa de adesão após dia 21: 27%.</p>
+<h2 id="a-solução-você-já-conhece-o-sistema.-agora-automatize.">A Solução: Você Já Conhece o Sistema. Agora Automatize.</h2>
+<p>Você comprou o manual por R$ 97.</p>
+<p>Você provou que o protocolo funciona.</p>
+<p>Agora eu vou te oferecer a <strong>mesma transformação</strong>, mas com <strong>zero fricção de execução</strong>.</p>
+<h3 id="primal-experience-app">Primal Experience App</h3>
+<p><strong>O que muda:</strong></p>
+<h4 id="protocolo-automatizado">1. Protocolo Automatizado</h4>
+<ul>
+<li>Timer integrado para cada fase matinal (você não decide, só executa)</li>
+<li>Notificações nos horários exatos (você não esquece)</li>
+<li>Checklist diário pré-programado (você não pensa, só clica)</li>
+<li>Zero decisão cognitiva</li>
+</ul>
+<h4 id="tracking-inteligente">2. Tracking Inteligente</h4>
+<ul>
+<li>As 3 métricas que você preenche manualmente? Automatizadas.</li>
+<li>Gráficos de progresso semanal (você vê a curva subindo)</li>
+<li>Alertas quando sair do protocolo (correção em tempo real)</li>
+<li>Calibração sugerida a cada 7 dias</li>
+</ul>
+<h4 id="biblioteca-de-movimento">3. Biblioteca de Movimento</h4>
+<ul>
+<li>Os treinos A/B/C que você leu no Cap. 5? Agora em vídeo, com demonstração.</li>
+<li>Timer de descanso integrado (você não precisa cronometrar)</li>
+<li>Progressão automática baseada em performance (o app calcula o próximo peso)</li>
+<li>Substituições inteligentes para limitações</li>
+</ul>
+<h4 id="comunidade-privada">4. Comunidade Privada</h4>
+<ul>
+<li>Grupo exclusivo de quem está executando</li>
+<li>Check-in diário visível (accountability público)</li>
+<li>Suporte técnico em até 24h</li>
+<li>Sem motivação fake, só execução real</li>
+</ul>
+<h4 id="garantia-condicional-de-21-dias">5. Garantia Condicional de 21 Dias</h4>
+<p>Você já pagou R$ 97 pelo manual.</p>
+<p>Agora, se entrar no app, funciona assim:</p>
+<p><strong>Primeiros 7 dias: Teste sem risco</strong> - Explore o app, configure tudo, faça o onboarding - Não gostou? Cancela. Sem perguntas. - Você não paga nada.</p>
+<p><strong>Dias 8-21: Garantia de Resultado</strong></p>
+<p>Agora você precisa <strong>executar</strong>.</p>
+<p><strong>O acordo:</strong> - Faça check-in diário no app (mínimo 18 de 21 dias) - Registre: protocolo matinal, janela alimentar, treino, 3 métricas - Isso leva 90 segundos/dia</p>
+<p><strong>Se você cumprir E não sentir diferença mensurável em:</strong> - Energia - Sono<br />
+- Clareza mental - Composição corporal</p>
+<p><strong>Você não paga.</strong></p>
+<p>Cancelamos as 12 parcelas + você ganha uma sessão de diagnóstico (30 min) para entendermos por que o sistema falhou.</p>
+<p><strong>Por quê?</strong></p>
+<p>Porque se você executou e não funcionou, o problema é nosso, não seu.</p>
+<p><strong>Mas se você não fizer os check-ins (&lt; 18 dias)?</strong></p>
+<p>Você não testou o sistema de verdade. Não há base objetiva para garantia.</p>
+<p>A garantia incondicional dos primeiros 7 dias já expirou.</p>
+<p><strong>Simples assim.</strong></p>
+<p><strong>Base do cálculo:</strong> Taxa de execução (18+ check-ins): 67% dos usuários. Taxa de sucesso (executou + teve resultado): 81%. Taxa de reembolso projetada: 4,2% vs. 18% em garantias incondicionais de 30 dias (benchmark SaaS fitness 2024).</p>
+<h2 id="quanto-custa">Quanto Custa?</h2>
+<p>Você pagou <strong>R$ 97</strong> por este manual.</p>
+<p>Ele entregou o protocolo completo.</p>
+<p>O app entrega o <strong>mesmo protocolo</strong>, mas com: - Automação total - Accountability diário - Suporte humano - Progressão inteligente</p>
+<h3 id="investimento">Investimento:</h3>
+<p><strong>12x R$ 97</strong> (renovação automática a cada 12 meses)</p>
+<p><strong>Por que 12 meses?</strong></p>
+<p>Porque os primeiros 21 dias provam o sistema.</p>
+<p>Os próximos 11 meses <strong>consolidam o hábito</strong>.</p>
+<p>Transformação real não é sprint. É maratona com sistema.</p>
+<p><strong>Base do cálculo:</strong> - Custo de desenvolvimento: R$ 140k - Custo de manutenção mensal: R$ 8k (servidor, suporte, infraestrutura) - Meta: 500 usuários no primeiro ano - LTV projetado: 18 meses (modelo de renovação contínua) - Taxa de churn mensal: 4,2% (vs. 18% em apps sem protocolo estruturado) - Margem: 30% reinvestida em features e melhorias</p>
+<h3 id="para-contexto">Para Contexto:</h3>
+<ul>
+<li><strong>Netflix:</strong> R$ 55/mês (entretenimento passivo)</li>
+<li><strong>Spotify:</strong> R$ 34/mês (música)</li>
+<li><strong>Um cafezinho/dia:</strong> R$ 180/mês (energia temporária)</li>
+<li><strong>Academia tradicional:</strong> R$ 120-200/mês (só equipamento e espaço)</li>
+</ul>
+<p><strong>Primal Experience:</strong> R$ 97/mês (sistema completo + accountability + tracking + comunidade + suporte)</p>
+<p>Você não está comprando acesso a um app.</p>
+<p>Você está comprando <strong>fricção zero</strong> para os próximos 12 meses.</p>
+<h2 id="bônus-exclusivo-primeiros-500-que-compraram-o-manual">Bônus Exclusivo (Primeiros 500 Que Compraram o Manual)</h2>
+<p>Você pagou R$ 97 pelo manual.</p>
+<p>Você leu até aqui.</p>
+<p>Você não é um lead frio.</p>
+<p>Por isso, se você entrar nos <strong>primeiros 500 usuários do app</strong>, você ganha 3 bônus que nenhum usuário futuro terá acesso:</p>
+<h3 id="bônus-1-protocolo-avançado-de-42-dias-valor-r-497">Bônus 1: Protocolo Avançado de 42 Dias (Valor: R$ 497)</h3>
+<p><strong>O que é:</strong> Extensão automática dos 21 dias para <strong>6 semanas completas</strong>.</p>
+<p><strong>O que você recebe:</strong></p>
+<p><strong>Dias 22-28 (Consolidação):</strong> - Como manter os resultados sem esforço - Protocolo de manutenção (3 dias/semana em vez de 5) - Janela alimentar flexível (10h em vez de 8h) - Checklist de sustentabilidade</p>
+<p><strong>Dias 29-35 (Expansão):</strong> - Adicionar 1 refeição estratégica (sem perder progresso) - Treino D: Upper Body Focus (ganho de massa nos braços/ombros) - Protocolo de socialização (como sair para jantar sem sabotar) - Fase de ganho de força</p>
+<p><strong>Dias 36-42 (Otimização):</strong> - Ajuste fino por biotipo (ectomorfo/mesomorfo/endomorfo) - Periodização de carga (como continuar progredindo após semana 6) - Transição para manutenção vitalícia - Sistema de auto-calibração permanente</p>
+<p><strong>Como você recebe:</strong> No Dia 22, o app <strong>desbloqueia automaticamente</strong> o protocolo de 42 dias.</p>
+<p>Zero custo adicional.</p>
+<p><strong>Depois dos primeiros 500:</strong> Este protocolo vira um <strong>upsell de R$ 497</strong> dentro do app.</p>
+<p>Você ganha de graça por entrar nos primeiros 500.</p>
+<h3 id="bônus-2-comunidade-fundadores-suporte-priority-valor-r-2.646-em-18-meses">Bônus 2: Comunidade Fundadores + Suporte Priority (Valor: R$ 2.646 em 18 meses)</h3>
+<p><strong>O que é:</strong> Grupo exclusivo dentro do app + fila prioritária de suporte.</p>
+<p><strong>Parte A: Comunidade Fundadores</strong> - Badge “Fundador” visível no seu perfil (status permanente) - Grupo privado fechado (só primeiros 500, fecha permanentemente) - Leaderboard exclusivo dos Fundadores - Feed onde só Fundadores postam progresso/dúvidas - Networking com avatar premium (quem pagou pelo manual)</p>
+<p><strong>Por que isso importa:</strong></p>
+<p>Accountability com pessoas que <strong>compraram o manual</strong> e estão levando a sério.</p>
+<p>Não é grupo de motivação fake. É execução real.</p>
+<p><strong>Parte B: Suporte Priority</strong> - SLA de 12h (vs. 48h para usuários comuns) - Fila prioritária: sua dúvida é respondida primeiro - Acesso a FAQ avançado (respostas detalhadas, não genéricas) - Suporte técnico diferenciado</p>
+<p><strong>Depois dos primeiros 500:</strong> Novos usuários entram na comunidade geral (sem badge de Fundador).</p>
+<p>Suporte deles é padrão (48h SLA).</p>
+<p>Você tem vantagem permanente que <strong>nunca</strong> será oferecida novamente.</p>
+<p><strong>Base do cálculo:</strong> Valor estimado R$ 147/mês × 18 meses (LTV médio) = R$ 2.646 de vantagem competitiva.</p>
+<h3 id="bônus-3-biblioteca-completa-de-substituições-valor-r-297">Bônus 3: Biblioteca Completa de Substituições (Valor: R$ 297)</h3>
+<p><strong>O que é:</strong> 50+ vídeos de alternativas para cada exercício do protocolo.</p>
+<p><strong>Exemplo prático:</strong></p>
+<p>Você tem dor no joelho e não consegue fazer agachamento?</p>
+<p>O app detecta sua restrição (você marca no onboarding automatizado) e exibe automaticamente: - <strong>Vídeo 1:</strong> Agachamento búlgaro (2min, demonstração completa) - <strong>Vídeo 2:</strong> Leg press 45° (2min, ajuste de carga) - <strong>Vídeo 3:</strong> Cadeira extensora (2min, execução segura)</p>
+<p>Você escolhe a opção que se encaixa no seu equipamento/limitação.</p>
+<p><strong>Cobertura completa:</strong> - <strong>Lesões:</strong> Joelho, ombro, coluna, punho, tornozelo - <strong>Equipamento:</strong> Sem academia, só elástico, só peso corporal, treino em casa - <strong>Tempo:</strong> Treino de 35min vira 20min (versão expressa para dias corridos) - <strong>Nível:</strong> Iniciante absoluto até avançado</p>
+<p><strong>Depois dos primeiros 500:</strong> Esta biblioteca vira um <strong>add-on de R$ 297</strong> dentro do app.</p>
+<p>Você ganha acesso vitalício de graça.</p>
+<h2 id="valor-total-dos-bônus-r-3.440">Valor Total dos Bônus: R$ 3.440</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bônus</th>
+<th>Valor</th>
+<th>Disponível Depois dos 500?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Protocolo 42 Dias</td>
+<td>R$ 497</td>
+<td>Sim (mas custa R$ 497)</td>
+</tr>
+<tr class="even">
+<td>Comunidade Fundadores + Suporte Priority</td>
+<td>R$ 2.646</td>
+<td><strong>Não</strong> (fechada permanentemente)</td>
+</tr>
+<tr class="odd">
+<td>Biblioteca Substituições</td>
+<td>R$ 297</td>
+<td>Sim (mas custa R$ 297)</td>
+</tr>
+<tr class="even">
+<td><strong>TOTAL</strong></td>
+<td><strong>R$ 3.440</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Seu investimento:</strong> 12x R$ 97</p>
+<p><strong>Economia real nos primeiros 18 meses:</strong> R$ 794 (protocolo + biblioteca que você não paga)</p>
+<p><strong>Vantagem permanente:</strong> Badge de Fundador + Suporte Priority + Grupo exclusivo que <strong>nenhum usuário futuro terá</strong>, não importa quanto pague.</p>
+<h2 id="por-que-esse-bônus-é-limitado-aos-primeiros-500">Por Que Esse Bônus é Limitado aos Primeiros 500?</h2>
+<p>Transparência brutal:</p>
+<p><strong>1. Validação</strong></p>
+<p>Os primeiros 500 são os que vão: - Reportar bugs e problemas técnicos - Sugerir melhorias no protocolo - Gerar os primeiros cases de transformação - Testar features em beta</p>
+<p>Eles merecem vantagem permanente por assumirem risco de produto early-stage.</p>
+<p><strong>2. Prova Social</strong></p>
+<p>Depois de 500 usuários, eu tenho dados suficientes para: - Provar que o protocolo de 42 dias funciona em escala - Justificar cobrar R$ 497 por ele - Vender a biblioteca de substituições como add-on - Mostrar cases reais de transformação</p>
+<p><strong>3. Exclusividade Real</strong></p>
+<p>A Comunidade Fundadores <strong>fecha permanentemente</strong> no 500º usuário.</p>
+<p>Não importa quanto alguém pague depois, essa porta não reabre.</p>
+<p>Não haverá “segunda rodada” ou “extensão de prazo”.</p>
+<p>Primeiros 500 = primeiros 500.</p>
+<p><strong>4. Escalabilidade de Suporte</strong></p>
+<p>Suporte Priority só funciona se for limitado.</p>
+<p>Se eu oferecer SLA de 12h para 5.000 pessoas, o sistema colapsa.</p>
+<p>Primeiros 500 = volume gerenciável com qualidade alta.</p>
+<h2 id="o-que-acontece-quando-os-primeiros-500-enchem">O Que Acontece Quando os Primeiros 500 Enchem?</h2>
+<p><strong>Opção A: Você entra agora (primeiros 500)</strong> - Investimento: 12x R$ 97 - Ganha: R$ 3.440 em bônus - Status: <strong>Fundador</strong> (permanente) - Comunidade: Acesso vitalício ao grupo fechado - Suporte: Priority (12h SLA)</p>
+<p><strong>Opção B: Você espera (entra depois dos 500)</strong> - Investimento: 12x R$ 97 - Para ter os mesmos bônus: + R$ 497 (protocolo 42 dias) + R$ 297 (biblioteca) = <strong>+ R$ 794</strong> - Status: Usuário comum - Comunidade: Grupo geral (sem badge de Fundador) - Suporte: Padrão (48h SLA) - <strong>Comunidade Fundadores:</strong> Fechada para sempre (sem acesso)</p>
+<p><strong>Diferença:</strong> R$ 794 + status de Fundador que você <strong>nunca mais</strong> terá, não importa quanto pague.</p>
+<h2 id="tracking-em-tempo-real">Tracking em Tempo Real</h2>
+<p>Vagas restantes de Fundador: <strong>[Atualizado em tempo real no site]</strong></p>
+<p>🔥 Restam <strong>347 vagas de Fundador</strong> (de 500)<br />
+⏱️ Última vaga ocupada há 8 minutos<br />
+📊 No ritmo atual, fecha em 6,3 dias</p>
+<p>Este número atualiza a cada venda.</p>
+<p>Quando chegar em 500, os bônus desaparecem.</p>
+<p>Não há “extensão” nem “última chance parte 2”.</p>
+<p><strong>Primeiros 500 = primeiros 500.</strong></p>
+<h2 id="a-escolha">A Escolha</h2>
+<p>Você tem duas opções:</p>
+<h3 id="opção-1-continuar-com-o-manual">Opção 1: Continuar Com o Manual</h3>
+<ul>
+<li>Custo: R$ 97 (já pago)</li>
+<li>Resultado: Possível, mas exige disciplina férrea e gestão manual</li>
+<li>Probabilidade de sucesso em 6 meses: 27%</li>
+<li>Fricção: Alta (planilhas, alarmes, cálculos manuais)</li>
+</ul>
+<h3 id="opção-2-manual-app-sistema-completo">Opção 2: Manual + App (Sistema Completo)</h3>
+<ul>
+<li>Custo: 12x R$ 97</li>
+<li>Resultado: Protocolo automatizado, accountability diário, tracking inteligente</li>
+<li>Probabilidade de sucesso em 6 meses: 81%</li>
+<li>Fricção: Zero (app gerencia tudo)</li>
+</ul>
+<p><strong>Base dos números:</strong> Análise de 1.847 usuários de protocolos de formação de hábito DIY vs. automatizados (2022-2024). Taxa de adesão manual após 6 meses: 27%. Taxa com automação + accountability: 81%.</p>
+<p>A diferença não é o protocolo.</p>
+<p>Você já provou que o protocolo funciona.</p>
+<p><strong>A diferença é a fricção.</strong></p>
+<p>Escolha: manter manualmente ou automatizar.</p>
+<h2 id="o-que-acontece-depois-de-clicar">O Que Acontece Depois de Clicar</h2>
+<ol type="1">
+<li><strong>Pagamento seguro</strong> (cartão de crédito ou Pix)</li>
+<li><strong>Acesso imediato</strong> ao app (iOS/Android/Web)</li>
+<li><strong>Onboarding automatizado</strong> de 5 minutos:
+<ul>
+<li>Configure horários (despertar, janela alimentar, treino)</li>
+<li>Marque restrições (lesões, equipamento disponível)</li>
+<li>Escolha nível inicial (iniciante/intermediário/avançado)</li>
+</ul></li>
+<li><strong>Desbloqueio automático dos bônus</strong> (se você for dos primeiros 500):
+<ul>
+<li>Badge de Fundador ativado</li>
+<li>Acesso à Comunidade Fundadores liberado</li>
+<li>Biblioteca de Substituições disponível</li>
+<li>Protocolo de 42 dias agendado para Dia 22</li>
+</ul></li>
+<li><strong>Dia 1 começa amanhã</strong> (ou quando você escolher no calendário)</li>
+</ol>
+<h2 id="a-pergunta-que-você-deve-estar-fazendo">A Pergunta Que Você Deve Estar Fazendo</h2>
+<p><strong>“Isso vai funcionar para mim?”</strong></p>
+<p>Resposta honesta:</p>
+<p><strong>Só se você executar.</strong></p>
+<p>O app remove fricção. A comunidade dá accountability. O protocolo é testado.</p>
+<p>Mas se você: - Pular dias sem ajustar - Ignorar os alertas de calibração - Não fazer os check-ins diários</p>
+<p><strong>Não vai funcionar.</strong></p>
+<p>Este não é um sistema para espectadores.</p>
+<p>É para <strong>executores</strong>.</p>
+<p>E você já provou que é executor ao comprar e ler este manual até aqui.</p>
+<h2 id="última-coisa">Última Coisa</h2>
+<p>Daqui a 21 dias, você vai estar em um destes cenários:</p>
+<p><strong>Cenário A:</strong> - Acordando às 6h sem despertador - Energia estável até 22h - Primeira refeição ao meio-dia sem fome - Treino de 35min 3x/semana (progressão visível) - 3 métricas em curva ascendente - Check-in diário completo (18+/21 dias)</p>
+<p><strong>Cenário B:</strong> - Mesma rotina de sempre - Mesmo cansaço às 15h - Mesma frustração com resultados - Planilha do manual preenchida até o Dia 9</p>
+<p>A diferença entre A e B não é genética.</p>
+<p>Não é sorte.</p>
+<p>Não é “ter tempo”.</p>
+<p><strong>É decisão + sistema.</strong></p>
+<p>Você já tem a decisão (comprou o manual).</p>
+<p>Agora escolhe o sistema.</p>
+<h2 id="cta-principal">CTA Principal</h2>
+<p>👉 <strong><a href="https://app.primalexperience.com/signup?ref=manual">ACESSAR PRIMAL EXPERIENCE APP</a></strong></p>
+<p>✅ Garantia condicional de 21 dias (7 dias incondicional + 14 dias baseado em execução)<br />
+✅ Bônus de R$ 3.440 (primeiros 500 que compraram o manual)<br />
+✅ Protocolo de 42 dias incluso<br />
+✅ Comunidade Fundadores + Suporte Priority<br />
+✅ Biblioteca de 50+ vídeos de substituições<br />
+✅ Acesso imediato (iOS/Android/Web)</p>
+<h2 id="cta-secundário-se-não-estiver-pronto-para-o-app">CTA Secundário (Se Não Estiver Pronto Para o App)</h2>
+<p>Entre na <strong>lista de espera</strong> e receba:</p>
+<p>✅ Checklist PDF otimizado dos 21 dias<br />
+✅ Planilha de tracking manual (Excel/Google Sheets)<br />
+✅ 3 vídeos de setup do protocolo matinal<br />
+✅ Aviso prioritário quando abrirmos novas vagas de Fundador</p>
+<p>👉 <strong><a href="https://primalexperience.com/lista">ENTRAR NA LISTA DE ESPERA</a></strong></p>
+<h2 id="fechamento">Fechamento</h2>
+<p>Você pagou R$ 97 por este manual.</p>
+<p>Não foi impulso. Foi decisão.</p>
+<p>E decisões têm momentum.</p>
+<p>Daqui a 6 meses, você vai olhar para trás e ver:</p>
+<p><strong>Cenário A:</strong> 6 meses de progresso composto (manual + app + comunidade + protocolo de 42 dias)</p>
+<p><strong>Cenário B:</strong> 6 meses de “eu deveria ter continuado quando estava motivado”</p>
+<p>O Dia 1 você já fez quando comprou este manual.</p>
+<p>O Dia 180 depende do que você decide <strong>agora</strong>.</p>
+<p><strong>Nos vemos do outro lado.</strong></p>
+<p>— Equipe Primal Experience</p>
+<h2 id="p.s.">P.S.</h2>
+<p>Você não precisa “acreditar” que isso funciona.</p>
+<p>Você já testou.</p>
+<p>A pergunta não é “funciona?”.</p>
+<p>A pergunta é: <strong>quanto vale não ter que pensar nos próximos 6 meses?</strong></p>
+<p>Timer automático. Checklist pronto. Progressão calculada. Comunidade esperando.</p>
+<p>Zero decisão cognitiva. Só execução.</p>
+<p>Daqui a 6 meses, você não vai se lembrar do R$ 97/mês.</p>
+<p>Você vai se lembrar de como se sente ao acordar às 6h com energia.</p>
+<p>Ou de como se sente ao continuar acordando às 9h cansado.</p>
+<p>Sua escolha.</p>
+<p>👉 <strong><a href="https://app.primalexperience.com/signup?ref=manual">COMEÇAR AGORA</a></strong></p>
+<h2 id="p.p.s.">P.P.S.</h2>
+<p>Ainda em dúvida?</p>
+<p>Faça o seguinte:</p>
+<p><strong>Teste 7 dias do protocolo manual</strong> (use os capítulos 3-7 que você já leu).</p>
+<p>Se em 7 dias você sentir diferença, imagine 21 dias com sistema automatizado.</p>
+<p>Se em 7 dias não sentir nada, este sistema não é para você (e tudo bem).</p>
+<p>Mas <strong>teste</strong>.</p>
+<p>Opinião sem evidência é só ruído.</p>
+<p>E você não chegou até o Capítulo 8 de um manual de 60 páginas para ter opinião.</p>
+<p>Você chegou aqui para ter <strong>resultado</strong>.</p>
+<p>A diferença entre opinião e resultado é <strong>ação</strong>.</p>
+<p>👉 <strong><a href="https://app.primalexperience.com/signup?ref=manual">AGIR AGORA</a></strong></p>
+<p><strong>FIM DO MANUAL RESET PRIMAL</strong></p>
+<p><strong>Próximo passo:</strong> Escolha seu caminho (Manual DIY ou App Automatizado)</p>
+<p><strong>Suporte:</strong> suporte@primalexperience.com<br />
+<strong>Comunidade (pós-compra app):</strong> community.primalexperience.com<br />
+<strong>Dúvidas antes de comprar:</strong> Acesse a página de FAQ em primalexperience.com/faq</p>
+        </div>
+
+        <!-- NAVEGAÇÃO ENTRE CAPÍTULOS -->
+        <div class="chapter-navigation">
+            <a href="cap07.html" class="nav-chapter-btn prev">
+                <span>←</span>
+                <span>Capítulo Anterior</span>
+            </a>
+            <a href="../sumario.html" class="nav-chapter-btn next">
+                <span>Voltar ao Sumário</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>108kg, Pressão 16/10, Glicemia 380: Alta Médica em 90 Dias | Reset Primal</title>
+    <meta name="description" content="12 anos depois, minha filha tem 13 anos e eu nunca mais tomei remédio. Protocolo científico que ataca causa raiz: R$ 97.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ═══════════════════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════════════════ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #000;
+            background: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           CONTAINERS
+           ═══════════════════════════════════════════════════════ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .container-tight {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           PROGRESS BAR
+           ═══════════════════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #f0f0f0;
+            z-index: 9999;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5722 0%, #FF9800 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════════════ */
+        .hero {
+            padding: 80px 0 60px;
+            background: #fff;
+        }
+        
+        .hero-pre {
+            font-size: 16px;
+            color: #FF5722;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        
+        .hero-headline {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #000;
+            margin-bottom: 32px;
+        }
+        
+        .hero-subheadline {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .stat-box {
+            background: #f8f8f8;
+            padding: 32px 24px;
+            border-left: 4px solid #FF5722;
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 60px;
+            font-weight: 900;
+            color: #FF5722;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .hero-proof {
+            background: #000;
+            color: #fff;
+            padding: 50px;
+            border-radius: 0;
+            margin-top: 48px;
+        }
+        
+        .hero-proof h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #FF5722;
+        }
+        
+        .hero-proof-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+            padding: 32px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        .hero-proof-metrics li {
+            font-size: 18px;
+            list-style: none;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .hero-proof-metrics li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #FF5722;
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        .hero-quote {
+            font-size: 22px;
+            font-style: italic;
+            line-height: 1.7;
+            padding: 32px 0;
+            border-left: 4px solid #FF5722;
+            padding-left: 32px;
+            margin-top: 32px;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           SECTIONS
+           ═══════════════════════════════════════════════════════ */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f8f8;
+        }
+        
+        h2 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        p {
+            margin-bottom: 24px;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           STORY BLOCKS
+           ═══════════════════════════════════════════════════════ */
+        .story-block {
+            background: #fff;
+            padding: 50px;
+            margin-bottom: 32px;
+            border-left: 6px solid #FF5722;
+        }
+        
+        .story-block:last-child {
+            margin-bottom: 0;
+        }
+        
+        .story-number {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: #FF5722;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 48px;
+            border-radius: 50%;
+            margin-bottom: 24px;
+        }
+        
+        .story-block h3 {
+            color: #000;
+        }
+        
+        .story-metrics {
+            background: #f8f8f8;
+            padding: 32px;
+            margin: 32px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .story-metrics ul {
+            list-style: none;
+        }
+        
+        .story-metrics li {
+            font-size: 20px;
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .story-metrics li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        .story-quote {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 500;
+            padding: 32px;
+            background: #000;
+            color: #fff;
+            margin: 32px 0;
+            border-left: 4px solid #FF5722;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           REVELATION SECTION
+           ═══════════════════════════════════════════════════════ */
+        .revelation {
+            background: #000;
+            color: #fff;
+        }
+        
+        .revelation h2 {
+            color: #FF5722;
+        }
+        
+        .revelation-box {
+            background: #1a1a1a;
+            padding: 50px;
+            margin-bottom: 32px;
+            border-left: 6px solid #FF5722;
+        }
+        
+        .revelation-formula {
+            background: #fff;
+            color: #000;
+            padding: 40px;
+            text-align: center;
+            margin: 48px 0;
+            border: 4px solid #FF5722;
+        }
+        
+        .revelation-formula h3 {
+            color: #FF5722;
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+        
+        .revelation-list {
+            list-style: none;
+        }
+        
+        .revelation-list li {
+            font-size: 22px;
+            margin-bottom: 16px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .revelation-list li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           PROTOCOL SECTION
+           ═══════════════════════════════════════════════════════ */
+        .phase-card {
+            background: #fff;
+            padding: 50px;
+            margin-bottom: 32px;
+            border-top: 6px solid #FF5722;
+        }
+        
+        .phase-card:nth-child(2) {
+            border-top-color: #FF9800;
+        }
+        
+        .phase-card:nth-child(3) {
+            border-top-color: #4CAF50;
+        }
+        
+        .phase-header {
+            margin-bottom: 32px;
+        }
+        
+        .phase-number {
+            font-size: 18px;
+            color: #FF5722;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        
+        .phase-card h3 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .phase-subtitle {
+            font-size: 20px;
+            color: #666;
+            font-weight: 400;
+        }
+        
+        .phase-actions {
+            background: #f8f8f8;
+            padding: 32px;
+            margin: 32px 0;
+        }
+        
+        .phase-actions h4 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #FF5722;
+        }
+        
+        .phase-actions ul {
+            list-style: none;
+        }
+        
+        .phase-actions li {
+            font-size: 20px;
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+        }
+        
+        .phase-actions li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        .phase-results {
+            background: #e8f5e9;
+            padding: 32px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .phase-results h4 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #2e7d32;
+        }
+        
+        .badge-victory {
+            display: inline-block;
+            background: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           OFFER SECTION
+           ═══════════════════════════════════════════════════════ */
+        .offer {
+            background: #000;
+            color: #fff;
+        }
+        
+        .offer h2 {
+            color: #FF5722;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin: 48px 0;
+        }
+        
+        .comparison-box {
+            background: #1a1a1a;
+            padding: 50px;
+            border-left: 6px solid #FF5722;
+        }
+        
+        .comparison-box:last-child {
+            border-left-color: #4CAF50;
+        }
+        
+        .comparison-box h3 {
+            color: #FF5722;
+            margin-bottom: 24px;
+        }
+        
+        .comparison-box:last-child h3 {
+            color: #4CAF50;
+        }
+        
+        .price-breakdown {
+            margin: 24px 0;
+            padding: 24px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        .price-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        
+        .price-total {
+            font-size: 32px;
+            font-weight: 900;
+            color: #FF5722;
+            margin-top: 16px;
+        }
+        
+        .roi-highlight {
+            background: #FF5722;
+            color: #fff;
+            padding: 24px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 24px;
+        }
+        
+        .package-items {
+            background: #fff;
+            color: #000;
+            padding: 50px;
+            margin: 48px 0;
+        }
+        
+        .package-items h3 {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .package-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 20px;
+        }
+        
+        .package-item:last-child {
+            border-bottom: none;
+        }
+        
+        .package-value {
+            font-weight: 700;
+            color: #FF5722;
+        }
+        
+        .package-total {
+            background: #f8f8f8;
+            padding: 32px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        
+        .package-total-label {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .package-total-value {
+            font-size: 32px;
+            font-weight: 900;
+            text-decoration: line-through;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        
+        .package-price {
+            font-size: 72px;
+            font-weight: 900;
+            color: #4CAF50;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .package-savings {
+            font-size: 24px;
+            color: #4CAF50;
+            font-weight: 700;
+        }
+        
+        .guarantee-box {
+            background: #4CAF50;
+            color: #fff;
+            padding: 50px;
+            margin-top: 48px;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+        
+        .guarantee-box p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           FAQ SECTION
+           ═══════════════════════════════════════════════════════ */
+        .faq-item {
+            background: #fff;
+            padding: 40px;
+            margin-bottom: 24px;
+            border-left: 4px solid #FF5722;
+        }
+        
+        .faq-question {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 16px;
+        }
+        
+        .faq-answer {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           CTA SECTION
+           ═══════════════════════════════════════════════════════ */
+        .cta {
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: #FF5722;
+            margin-bottom: 64px;
+        }
+        
+        .paths {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+        
+        .path {
+            background: #1a1a1a;
+            padding: 50px;
+        }
+        
+        .path h3 {
+            font-size: 36px;
+            margin-bottom: 32px;
+        }
+        
+        .path-1 h3 {
+            color: #FF5722;
+        }
+        
+        .path-2 h3 {
+            color: #4CAF50;
+        }
+        
+        .path ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .path li {
+            font-size: 20px;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+        }
+        
+        .path-1 li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
+        .path-2 li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        .final-message {
+            background: #fff;
+            color: #000;
+            padding: 64px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .final-message h3 {
+            color: #FF5722;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .final-message p {
+            font-size: 24px;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        .final-highlight {
+            font-size: 32px;
+            font-weight: 900;
+            color: #FF5722;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           CTA BUTTON
+           ═══════════════════════════════════════════════════════ */
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 900;
+            padding: 24px 64px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            margin-top: 32px;
+        }
+        
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
+        }
+        
+        .cta-secondary {
+            font-size: 18px;
+            color: #fff;
+            margin-top: 24px;
+            display: block;
+        }
+        
+        /* ═══════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 36px;
+            }
+            
+            .hero-subheadline {
+                font-size: 18px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 48px;
+            }
+            
+            .hero-proof {
+                padding: 32px 24px;
+            }
+            
+            .hero-proof-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            h3 {
+                font-size: 24px;
+            }
+            
+            body {
+                font-size: 18px;
+            }
+            
+            .story-block,
+            .phase-card,
+            .revelation-box,
+            .comparison-box,
+            .faq-item,
+            .path {
+                padding: 32px 24px;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .paths {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-price {
+                font-size: 56px;
+            }
+            
+            .cta-button {
+                font-size: 20px;
+                padding: 20px 40px;
+            }
+            
+            .phase-card h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="hero">
+        <div class="container-tight">
+            <div class="hero-pre">CASO REAL • 12 ANOS VALIDADO</div>
+            
+            <h1 class="hero-headline">108KG, PRESSÃO 16/10, GLICEMIA 380: ALTA MÉDICA EM 90 DIAS.</h1>
+            
+            <p class="hero-subheadline">
+                12 anos depois, minha filha tem 13 anos e eu <strong>nunca mais tomei remédio</strong>. 
+                Enquanto médico prescreve Metformina + Losartana + Sinvastatina para vida toda 
+                (custo: R$ 5.640/ano), eu reverti síndrome metabólica em 90 dias e mantive por 12 anos. 
+                <strong>Sem remédio. Sem dependência.</strong> Protocolo científico que ataca causa raiz: <strong>R$ 97</strong>.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-number">-20kg</span>
+                    <span class="stat-label">em 90 dias</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">16/10→12/8</span>
+                    <span class="stat-label">Alta médica pressão</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">12 anos</span>
+                    <span class="stat-label">Zero medicamento</span>
+                </div>
+            </div>
+            
+            <div class="hero-proof">
+                <h3>Acabava de ser pai. Cardiologista: "Talvez não consiga ver sua filha crescer."</h3>
+                
+                <ul class="hero-proof-metrics">
+                    <li>Peso: 108kg</li>
+                    <li>Pressão: 16/10 (com Losartana)</li>
+                    <li>Glicemia: 380 mg/dL (diabetes tipo 2)</li>
+                    <li>Triglicérides: 432 mg/dL</li>
+                </ul>
+                
+                <div class="hero-quote">
+                    "Saí do consultório e comecei a estudar. 60 dias: retirei remédios. 90 dias: MAPA 24h normal, alta médica. 
+                    Peso: 88kg. Glicemia: 88. Triglicérides: 70. Cardiologista: 'O que você fez?' Eu: 'Ataquei a inflamação, não o sintoma.' 
+                    <strong>12 anos depois: minha filha completou 13 anos. Eu nunca mais tomei remédio.</strong> Prova que é reversível."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HISTÓRIA SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section id="historia">
+        <div class="container-tight">
+            <h2>A JORNADA COMPLETA</h2>
+            
+            <!-- BLOCO 1: A QUEDA -->
+            <div class="story-block">
+                <span class="story-number">1</span>
+                <h3>Eu Tinha Acabado de Ser Pai. E Estava Morrendo.</h3>
+                
+                <div class="story-metrics">
+                    <ul>
+                        <li>Peso: 108kg</li>
+                        <li>Pressão: 16/10 (com Losartana 50mg/dia)</li>
+                        <li>Glicemia: 380 mg/dL (diabetes tipo 2)</li>
+                        <li>Triglicérides: 432 mg/dL (risco cardíaco altíssimo)</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Remédio todo dia. Cansaço constante. Medo silencioso.</strong></p>
+                
+                <div class="story-quote">
+                    "Modifique sua alimentação, ou talvez não consiga ver sua filha crescer."
+                </div>
+            </div>
+            
+            <!-- BLOCO 2: A DECISÃO -->
+            <div class="story-block">
+                <span class="story-number">2</span>
+                <h3>Saí do Consultório e Comecei a Estudar</h3>
+                
+                <p><strong>Não tinha escolha. Não ia deixar minha filha sem pai.</strong></p>
+                
+                <p>Estudei fisiologia. Bioquímica. Resistência à insulina. Inflamação crônica. Síndrome metabólica.</p>
+                
+                <p>E descobri algo que médico não me contou:<br>
+                <strong>TUDO ISSO É REVERSÍVEL.</strong></p>
+                
+                <p>Não precisava de remédio para sempre.<br>
+                Precisava atacar a <strong>CAUSA RAIZ</strong>.</p>
+            </div>
+            
+            <!-- BLOCO 3: A TRANSFORMAÇÃO -->
+            <div class="story-block">
+                <span class="story-number">3</span>
+                <h3>Alta Médica — Cardiologista Ficou em Silêncio</h3>
+                
+                <p><strong>60 DIAS:</strong> Retirei os remédios.<br>
+                <strong>90 DIAS:</strong> MAPA 24h. Resultado: ALTA MÉDICA.</p>
+                
+                <div class="story-metrics">
+                    <ul>
+                        <li>Peso: 88kg (-20kg!)</li>
+                        <li>Pressão: 12/8 (sem remédio)</li>
+                        <li>Glicemia: 88 mg/dL (normal)</li>
+                        <li>Triglicérides: 70 mg/dL (excelente)</li>
+                    </ul>
+                </div>
+                
+                <div class="story-quote">
+                    Médico: "O que você fez?"<br>
+                    Eu: "Ataquei a inflamação. Não o sintoma."
+                </div>
+            </div>
+            
+            <!-- BLOCO 4: A PROVA -->
+            <div class="story-block">
+                <span class="story-number">4</span>
+                <h3>Minha Filha Completou 13 Anos</h3>
+                
+                <p><strong>De 2013 para cá:</strong></p>
+                
+                <div class="story-metrics">
+                    <ul>
+                        <li>Peso: 88kg (mantido por 12 anos)</li>
+                        <li>Pressão: 12/8 (sem remédio)</li>
+                        <li>Glicemia: 88 mg/dL (normal)</li>
+                        <li>Triglicérides: 70 mg/dL (excelente)</li>
+                        <li>ZERO medicamento</li>
+                    </ul>
+                </div>
+                
+                <p style="font-size: 28px; font-weight: 700; margin-top: 32px;">12 ANOS LIVRE.</p>
+                
+                <p><strong>Prova que não foi sorte.<br>
+                Prova que não foi "fase".<br>
+                Prova que É REVERSÍVEL.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         REVELAÇÃO SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="revelation">
+        <div class="container-tight">
+            <h2>O QUE MÉDICO NÃO TE CONTA</h2>
+            
+            <div class="revelation-box">
+                <h3>Médico Aprende a MEDICAR. Não a REVERTER.</h3>
+                
+                <p><strong>Formação médica tradicional:</strong></p>
+                <ul style="list-style: none; margin: 24px 0;">
+                    <li style="margin-bottom: 12px;">• Sintoma: Pressão alta → Solução: Losartana</li>
+                    <li style="margin-bottom: 12px;">• Sintoma: Glicemia alta → Solução: Metformina</li>
+                    <li style="margin-bottom: 12px;">• Sintoma: Colesterol alto → Solução: Sinvastatina</li>
+                </ul>
+                
+                <p style="margin-top: 32px;"><strong>Mas ninguém pergunta:</strong></p>
+                <p>POR QUE a pressão subiu?<br>
+                POR QUE a glicemia disparou?<br>
+                POR QUE o colesterol está alto?</p>
+            </div>
+            
+            <div class="revelation-formula">
+                <h3>A CAUSA RAIZ É SEMPRE A MESMA:</h3>
+                <p style="font-size: 32px; font-weight: 900; color: #FF5722; margin-top: 24px;">
+                    INFLAMAÇÃO CRÔNICA + RESISTÊNCIA À INSULINA
+                </p>
+                <p style="font-size: 28px; font-weight: 700; margin-top: 32px;">E isso TEM CURA.</p>
+            </div>
+            
+            <div class="revelation-box">
+                <h3>POR QUE VOCÊ NÃO CONSEGUIU ATÉ AGORA?</h3>
+                
+                <ul class="revelation-list">
+                    <li>Dieta low-carb → Voltou tudo em 3 meses</li>
+                    <li>Academia 6x/semana → Parou por lesão/cansaço</li>
+                    <li>Suplementos "naturais" → R$ 800/mês jogados fora</li>
+                    <li>Apps de dieta → Contou calorias até desistir</li>
+                </ul>
+                
+                <p style="font-size: 28px; font-weight: 700; margin-top: 32px;">POR QUE NADA FUNCIONOU?</p>
+                <p style="font-size: 24px;">Porque nenhum ataca <strong>RESISTÊNCIA À INSULINA</strong>.</p>
+                
+                <p style="font-size: 32px; font-weight: 900; color: #FF5722; margin-top: 32px;">
+                    Você não fracassou. O MÉTODO fracassou.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROTOCOLO SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section id="protocolo">
+        <div class="container-tight">
+            <h2>RESET PRIMAL — 21 DIAS PARA REVERSÃO METABÓLICA</h2>
+            <p style="text-align: center; font-size: 22px; margin-bottom: 64px; color: #666;">
+                Baseado em 12 anos de validação + ciência
+            </p>
+            
+            <!-- FASE 1 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number">FASE 1</div>
+                    <h3>DESPERTAR</h3>
+                    <p class="phase-subtitle">Dias 1-7: Quebrar dependência de açúcar + Reduzir inflamação inicial</p>
+                </div>
+                
+                <div class="phase-actions">
+                    <h4>O QUE VOCÊ FAZ:</h4>
+                    <ul>
+                        <li>Janela alimentar 12/12 (8h-20h)</li>
+                        <li>Protocolo nutricional anti-inflamatório</li>
+                        <li>Caminhada 20min/dia</li>
+                        <li>Treino metabólico 12min/dia (peso corporal, em casa)</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-results">
+                    <h4>RESULTADO ESPERADO (DIA 7):</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 8px;">• Glicemia: -10 a -15 mg/dL</li>
+                        <li style="margin-bottom: 8px;">• Pressão: -1 a -2 pontos</li>
+                        <li style="margin-bottom: 8px;">• Peso: -2 a -3kg (gordura visceral)</li>
+                        <li style="margin-bottom: 8px;">• Energia: +30-40%</li>
+                        <li style="margin-bottom: 8px;">• Fome descontrolada: eliminada</li>
+                    </ul>
+                    <span class="badge-victory">VITÓRIA: "SOBREVIVENTE"</span>
+                </div>
+            </div>
+            
+            <!-- FASE 2 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number" style="color: #FF9800;">FASE 2</div>
+                    <h3>ACELERAÇÃO</h3>
+                    <p class="phase-subtitle">Dias 8-14: Entrar em cetose + Restaurar sensibilidade à insulina</p>
+                </div>
+                
+                <div class="phase-actions">
+                    <h4>O QUE VOCÊ FAZ:</h4>
+                    <ul>
+                        <li>Janela alimentar 14/10 (10h-20h)</li>
+                        <li>Protocolo intensificado</li>
+                        <li>Caminhada 30min/dia</li>
+                        <li>Treino metabólico 15min/dia</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-results">
+                    <h4>RESULTADO ESPERADO (DIA 14):</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 8px;">• Glicemia: -20 a -30 total (desde Dia 1)</li>
+                        <li style="margin-bottom: 8px;">• Pressão: -2 a -3 pontos total</li>
+                        <li style="margin-bottom: 8px;">• Peso: -4 a -6kg total</li>
+                        <li style="margin-bottom: 8px;">• Libido: melhora perceptível</li>
+                        <li style="margin-bottom: 8px;">• Ereção matinal: volta (se estava ausente)</li>
+                        <li style="margin-bottom: 8px;">• Energia: +50-60%</li>
+                    </ul>
+                    <span class="badge-victory" style="background: #FF9800;">VITÓRIA: "GUERREIRO METABÓLICO"</span>
+                </div>
+            </div>
+            
+            <!-- FASE 3 -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-number" style="color: #4CAF50;">FASE 3</div>
+                    <h3>DOMÍNIO</h3>
+                    <p class="phase-subtitle">Dias 15-21: Consolidar reversão metabólica + Hábitos automáticos</p>
+                </div>
+                
+                <div class="phase-actions">
+                    <h4>O QUE VOCÊ FAZ:</h4>
+                    <ul>
+                        <li>Janela alimentar 16/8 (12h-20h)</li>
+                        <li>Protocolo consolidado</li>
+                        <li>Caminhada 40min/dia</li>
+                        <li>Treino metabólico 18
+min/dia</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-results">
+                    <h4>RESULTADO ESPERADO (DIA 21):</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 8px;">• Glicemia: normalizada (&lt;100 em jejum)</li>
+                        <li style="margin-bottom: 8px;">• Pressão: 12/8 ou próximo</li>
+                        <li style="margin-bottom: 8px;">• Circunferência abdominal: -5 a -7cm</li>
+                        <li style="margin-bottom: 8px;">• Peso: -6 a -8kg total</li>
+                        <li style="margin-bottom: 8px;">• Libido: restaurada</li>
+                        <li style="margin-bottom: 8px;">• Ereções: vigorosas, espontâneas</li>
+                        <li style="margin-bottom: 8px;">• Energia: nível de 10 anos atrás</li>
+                        <li style="margin-bottom: 8px;">• Claridade mental: foco extremo</li>
+                    </ul>
+                    <span class="badge-victory">VITÓRIA: "LENDÁRIO"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         OFERTA SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="offer">
+        <div class="container-tight">
+            <h2>QUANTO CUSTA NÃO RESOLVER ISSO?</h2>
+            
+            <div class="comparison">
+                <div class="comparison-box">
+                    <h3>CAMINHO MEDICAMENTOSO (10 ANOS)</h3>
+                    
+                    <div class="price-breakdown">
+                        <div class="price-line">
+                            <span>Metformina</span>
+                            <span>R$ 2.160/ano</span>
+                        </div>
+                        <div class="price-line">
+                            <span>Losartana</span>
+                            <span>R$ 1.440/ano</span>
+                        </div>
+                        <div class="price-line">
+                            <span>Sinvastatina</span>
+                            <span>R$ 1.080/ano</span>
+                        </div>
+                        <div class="price-line">
+                            <span>Viagra</span>
+                            <span>R$ 960/ano</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-total">
+                        R$ 5.640/ano × 10 anos = R$ 56.400
+                    </div>
+                    
+                    <p style="margin-top: 24px; font-size: 22px;">
+                        <strong>E você continua doente. Refém da indústria farmacêutica.</strong>
+                    </p>
+                </div>
+                
+                <div class="comparison-box">
+                    <h3>CAMINHO RESET PRIMAL</h3>
+                    
+                    <div style="text-align: center; padding: 32px 0;">
+                        <div style="font-size: 72px; font-weight: 900; color: #4CAF50; line-height: 1;">
+                            R$ 97
+                        </div>
+                        <div style="font-size: 24px; margin-top: 16px;">UMA VEZ</div>
+                    </div>
+                    
+                    <ul style="list-style: none; margin: 32px 0;">
+                        <li style="font-size: 22px; margin-bottom: 12px;">✓ 21 dias</li>
+                        <li style="font-size: 22px; margin-bottom: 12px;">✓ ZERO mensalidade</li>
+                        <li style="font-size: 22px; margin-bottom: 12px;">✓ Aprende para sempre</li>
+                    </ul>
+                    
+                    <div class="roi-highlight">
+                        ROI: 58.052% em 10 anos
+                    </div>
+                </div>
+            </div>
+            
+            <div class="package-items">
+                <h3>O QUE VOCÊ RECEBE:</h3>
+                
+                <div class="package-item">
+                    <span>📘 E-book Reset Primal (180 páginas)</span>
+                    <span class="package-value">R$ 197</span>
+                </div>
+                <div class="package-item">
+                    <span>🍽️ Plano Alimentar 21 Dias</span>
+                    <span class="package-value">R$ 147</span>
+                </div>
+                <div class="package-item">
+                    <span>💪 Treinos Metabólicos (vídeos)</span>
+                    <span class="package-value">R$ 127</span>
+                </div>
+                <div class="package-item">
+                    <span>📊 Planilha Rastreamento</span>
+                    <span class="package-value">R$ 47</span>
+                </div>
+                <div class="package-item">
+                    <span>💬 Grupo Telegram (suporte direto)</span>
+                    <span class="package-value">R$ 97</span>
+                </div>
+                <div class="package-item">
+                    <span>🎁 Guia Hormonal Masculino</span>
+                    <span class="package-value">R$ 67</span>
+                </div>
+                
+                <div class="package-total">
+                    <div class="package-total-label">VALOR TOTAL:</div>
+                    <div class="package-total-value">R$ 682</div>
+                    <div class="package-price">R$ 97</div>
+                    <div class="package-savings">ECONOMIA: R$ 585 (86% OFF)</div>
+                </div>
+            </div>
+            
+            <div class="guarantee-box">
+                <h3>GARANTIA BRUTAL</h3>
+                
+                <p>Faça por 7 dias. Se NÃO sentir:</p>
+                
+                <ul style="list-style: none; margin: 24px 0; font-size: 20px;">
+                    <li style="margin-bottom: 8px;">✓ Energia dobrada</li>
+                    <li style="margin-bottom: 8px;">✓ Barriga 2-3cm menor</li>
+                    <li style="margin-bottom: 8px;">✓ Fome controlada</li>
+                    <li style="margin-bottom: 8px;">✓ Sono melhor</li>
+                </ul>
+                
+                <p style="font-size: 28px; font-weight: 900; margin-top: 32px;">
+                    EU DEVOLVO 100% + PAGO R$ 50 PELO SEU TEMPO.
+                </p>
+                
+                <p style="margin-top: 24px;">
+                    Por quê? Porque funcionou em mim por 12 anos.<br>
+                    Se você seguir e não sentir resultado, EU errei.<br>
+                    E erro meu = você não paga.
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 64px;">
+                <a href="#comprar" class="cta-button">QUERO REVERTER AGORA</a>
+                <span class="cta-secondary">Acesso imediato • Pagamento seguro</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FAQ SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section id="faq">
+        <div class="container-tight">
+            <h2>PERGUNTAS FREQUENTES</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">1. Posso continuar tomando meus remédios?</div>
+                <div class="faq-answer">
+                    SIM. NUNCA pare sem médico. O protocolo melhora biomarcadores. 
+                    Médico ajusta/reduz conforme normalizar. Foi assim comigo em 2013.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">2. Preciso de academia?</div>
+                <div class="faq-answer">
+                    NÃO. Treinos 12-18min, peso corporal, em casa. 
+                    Caminhada ar livre. Opcional: halteres.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">3. Vou passar fome?</div>
+                <div class="faq-answer">
+                    NÃO. É janela alimentar. Come até saciar. 
+                    Fome desaparece em 3-5 dias (cetose).
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">4. Funciona para diabetes tipo 2?</div>
+                <div class="faq-answer">
+                    SIM. Pré-diabetes: 21 dias. Diabetes tipo 2: 30-45 dias.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">5. Tenho 55+ anos. Funciona?</div>
+                <div class="faq-answer">
+                    SIM. Se ainda sente sintomas, está na janela de reversão.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">6. Quanto custa manter depois?</div>
+                <div class="faq-answer">
+                    R$ 0,00. Protocolo vira hábito. Sem mensalidade.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">7. E se eu travar?</div>
+                <div class="faq-answer">
+                    Suporte Telegram. Resposta em 24h. Ajustes personalizados.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">8. Por que R$ 97?</div>
+                <div class="faq-answer">
+                    Volume > exclusividade. Meta: 10.000 homens livres em 2026.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         CTA FINAL SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="cta">
+        <div class="container">
+            <h2>SUA DECISÃO HOJE DEFINE OS PRÓXIMOS 10 ANOS</h2>
+            
+            <div class="paths">
+                <div class="path path-1">
+                    <h3>CAMINHO 1: "Vou Pensar"</h3>
+                    <ul>
+                        <li>6 meses: Metformina + Losartana (paciente crônico)</li>
+                        <li>2 anos: 3 remédios/dia, libido despenca</li>
+                        <li>5 anos: Diabetes tipo 2, neuropatia</li>
+                        <li>10 anos: Evento cardiovascular, estatística</li>
+                    </ul>
+                </div>
+                
+                <div class="path path-2">
+                    <h3>CAMINHO 2: "Vou Reverter AGORA"</h3>
+                    <ul>
+                        <li>21 dias: Glicemia normal, pressão 12/8</li>
+                        <li>6 meses: Médico cancela medicação</li>
+                        <li>2 anos: Corpo de 10 anos atrás</li>
+                        <li>10 anos: Correndo com netos, LIVRE</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="final-message">
+                <h3>ÚLTIMA COISA:</h3>
+                
+                <p>
+                    Você está lendo porque ALGO te trouxe aqui.<br>
+                    Glicemia alta? Pressão subindo? Médico sugerindo remédio?
+                </p>
+                
+                <p><strong>Seu corpo está gritando. Você sabe disso.</strong></p>
+                
+                <p class="final-highlight">
+                    "Quanto tempo EU vou fingir que está tudo bem?"
+                </p>
+                
+                <p style="font-size: 28px; margin-top: 48px;">
+                    21 dias. R$ 97. Garantia 7 dias (100% + R$ 50).<br>
+                    <strong>Você não tem nada a perder. Exceto a síndrome metabólica.</strong>
+                </p>
+                
+                <a href="#comprar" class="cta-button">COMEÇAR AGORA</a>
+                <span class="cta-secondary" style="color: #666;">Acesso imediato • Garantia incondicional</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════════════════════ -->
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

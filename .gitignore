@@ -1,0 +1,21 @@
+  # Credenciais                                                                                                      
+  CREDENCIAIS-*.md                                                                                                   
+  PROBLEMA-*.md                                                                                                      
+  .env                                                                                                               
+  .env.local                                                                                                         
+                                                                                                                     
+  # Backups                                                                                                          
+  *.backup                                                                                                           
+  *.backup-*                                                                                                         
+  *.old                                                                                                              
+  *-backup-*                                                                                                         
+                                                                                                                     
+  # Sistema                                                                                                          
+  .DS_Store                                                                                                          
+  node_modules/                                                                                                      
+  .git/                                                                                                              
+                                                                                                                     
+  # Logs                                                                                                             
+  *.log                                                                                                              
+                                                                                                                     
+  EOF                                  

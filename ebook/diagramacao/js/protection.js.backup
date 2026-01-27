@@ -1,0 +1,36 @@
+(function() {
+    'use strict';
+    
+    // Desabilitar F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+C
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+            (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+            (e.ctrlKey && e.keyCode === 85) || // Ctrl+U
+            (e.ctrlKey && e.keyCode === 83) || // Ctrl+S
+            (e.ctrlKey && e.keyCode === 67) || // Ctrl+C
+            (e.ctrlKey && e.keyCode === 65)) { // Ctrl+A
+            e.preventDefault();
+            return false;
+        }
+    });
+    
+    // Desabilitar clique direito
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    // Desabilitar seleção
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    // CSS para desabilitar seleção
+    document.body.style.userSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+    document.body.style.mozUserSelect = 'none';
+    document.body.style.msUserSelect = 'none';
+    
+})();

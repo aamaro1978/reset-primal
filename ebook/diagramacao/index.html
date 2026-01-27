@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Primal - Manual do Emagrecimento Definitivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(180deg, #0D0D0D 0%, #1B5E47 35%, #0A4D2E 65%, #0D0D0D 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        .tarja-superior {
+            background: #00FF7F;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 255, 127, 0.4);
+            animation: slideDown 0.8s ease-out;
+        }
+        .tarja-superior p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #000000;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 20px 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .titulo-principal {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInScale 1s ease-out 0.3s both;
+        }
+        .titulo-reset, .titulo-primal {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(60px, 12vw, 120px);
+            line-height: 1;
+            letter-spacing: 8px;
+            display: block;
+        }
+        .titulo-reset {
+            color: #FFFFFF;
+            text-shadow: 0 0 30px rgba(0, 255, 127, 0.8);
+            filter: drop-shadow(0 0 25px rgba(0, 255, 127, 0.7));
+        }
+        .titulo-primal {
+            color: #00FF7F;
+            text-shadow: 0 0 50px rgba(0, 255, 127, 0.9);
+            filter: drop-shadow(0 0 40px rgba(0, 255, 127, 0.9));
+            margin-top: -10px;
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 50px rgba(0, 255, 127, 0.9); }
+            50% { text-shadow: 0 0 70px rgba(0, 255, 127, 1); }
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .subtitulo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(18px, 3vw, 28px);
+            color: #FFFFFF;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+        .promessa {
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(14px, 2.5vw, 20px);
+            font-weight: 600;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+        .promessa-highlight {
+            display: block;
+            margin-top: 15px;
+            color: #6EFFA3;
+            font-size: 0.95em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .area-central {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            min-height: 300px;
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+        .imagem-prato {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            animation: floatAndRotate 60s ease-in-out infinite;
+        }
+        @keyframes floatAndRotate {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(90deg); }
+            50% { transform: translateY(0px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+        .btn-container {
+            text-align: center;
+            margin: 30px 0 20px;
+            animation: fadeIn 1s ease-out 1.8s both;
+        }
+        .btn-comecar {
+            display: inline-block;
+            background: linear-gradient(135deg, #10D96D 0%, #00FF7F 100%);
+            color: #000000;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 255, 127, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .btn-comecar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 255, 127, 0.6);
+        }
+        .rodape {
+            text-align: center;
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+        .linha-divisora {
+            width: 60%;
+            height: 2px;
+            background: #00FF7F;
+            margin: 0 auto 20px;
+            opacity: 0.6;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.4);
+        }
+        .autor-por {
+            font-family: 'Open Sans', sans-serif;
+            font-style: italic;
+            font-size: 14px;
+            color: #D4D4D4;
+            margin-bottom: 8px;
+        }
+        .autor-nome {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(32px, 6vw, 48px);
+            color: #00FF7F;
+            text-shadow: 0 0 25px rgba(0, 255, 127, 0.5);
+            margin-bottom: 20px;
+        }
+        .badge-bonus {
+            display: inline-block;
+            background: rgba(0, 255, 127, 0.15);
+            border: 2px solid #00FF7F;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(12px, 2vw, 16px);
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+            transition: all 0.3s ease;
+        }
+        .badge-bonus:hover {
+            background: rgba(0, 255, 127, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 30px rgba(0, 255, 127, 0.5);
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px 15px; }
+            .imagem-prato { max-width: 400px; }
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 127, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 127, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="tarja-superior">
+        <p>O Método Que Já Transformou Milhares de Vidas</p>
+    </div>
+
+    <div class="container">
+        <div class="titulo-principal">
+            <span class="titulo-reset">RESET</span>
+            <span class="titulo-primal">PRIMAL</span>
+        </div>
+
+        <h2 class="subtitulo">Manual do Emagrecimento Definitivo</h2>
+
+        <p class="promessa">
+            Como Reprogramar Seu Metabolismo para se Transformar<br>
+            em uma Máquina de Queimar Gordura...
+            <span class="promessa-highlight">
+                Sem Passar Fome, Contar Calorias ou Viver na Academia
+            </span>
+        </p>
+
+        <div class="area-central">
+            <img src="images/prato.png" alt="Prato Saudável Reset Primal" class="imagem-prato">
+        </div>
+
+        <div class="btn-container">
+            <a href="00_antes_de_comecar.html" class="btn-comecar">🔥 Iniciar Jornada</a>
+        </div>
+
+        <div class="rodape">
+            <div class="linha-divisora"></div>
+            <p class="autor-por">Por</p>
+            <h3 class="autor-nome">AKA</h3>
+            <div class="badge-bonus">🎁 + 4 Bônus Exclusivos</div>
+        </div>
+    </div>
+<script src="js/protection.js"></script>
+</body>
+</html>
