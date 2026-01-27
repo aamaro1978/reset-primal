@@ -1,0 +1,30 @@
+{
+  "name": "reset-primal",
+  "version": "1.0.0",
+  "description": "Reset Primal - Landing page com webhook Hotmart para automação de vendas",
+  "main": "api/webhook-hotmart.js",
+  "scripts": {
+    "start": "node api/webhook-hotmart.js",
+    "dev": "node api/webhook-hotmart.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reset",
+    "primal",
+    "hotmart",
+    "webhook",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.3",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
