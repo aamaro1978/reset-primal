@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Primal: Livre de Diabetes, Pressão e Remédios em 21 Dias | Protocolo Científico</title>
+    <meta name="description" content="Protocolo testado por 12 anos. Reverta síndrome metabólica sem remédios. 21 dias, R$ 97, garantia 7 dias. Comece hoje.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKTGW6BEJP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KKTGW6BEJP');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1164114415287965');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1164114415287965&ev=PageView&noscript=1"
+    /></noscript>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════
+           DESIGN TOKENS (V2 REDESIGN)
+           ═══════════════════════════════════════════════════════ */
+        :root {
+            /* Colors */
+            --primary: #2563eb;        /* Blue - Trust */
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --accent: #10b981;         /* Green - Health */
+            --success: #059669;
+            --warning: #f59e0b;        /* Amber - Caution */
+            --danger: #ef4444;         /* Red - Alert */
+
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;       /* Very light blue-gray */
+            --bg-darker: #f1f5f9;      /* Light blue-gray */
+            --text-dark: #0f172a;      /* Almost black */
+            --text-gray: #475569;      /* Medium gray */
+            --text-light: #94a3b8;     /* Light gray */
+            --border: #e2e8f0;         /* Light border */
+
+            /* Typography */
+            --font-sans: 'Inter', sans-serif;
+            --font-display: 'Poppins', sans-serif;
+
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Sizing */
+            --container-max: 1200px;
+            --container-tight: 900px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════════════════ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           CONTAINERS & LAYOUT
+           ═══════════════════════════════════════════════════════ */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .container-tight {
+            max-width: var(--container-tight);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        section {
+            padding: var(--space-3xl) 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PROGRESS BAR
+           ═══════════════════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            z-index: 9999;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           HERO SECTION (TRANSFORMED)
+           ═══════════════════════════════════════════════════════ */
+        .hero {
+            padding: calc(var(--space-3xl) * 1.5) 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-left h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero-subheadline {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: var(--space-lg);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .hero-right {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            padding: var(--space-3xl);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-image-placeholder {
+            font-size: 72px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .transformation-text {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+            line-height: 1.2;
+        }
+
+        .transformation-subtext {
+            font-size: 16px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PROBLEM SECTION
+           ═══════════════════════════════════════════════════════ */
+        .problem-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .problem-box {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border-left: 4px solid var(--danger);
+            margin-bottom: var(--space-xl);
+        }
+
+        .problem-box h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .problem-box p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+
+        .problem-box ul {
+            list-style: none;
+        }
+
+        .problem-box li {
+            padding: var(--space-sm) 0 var(--space-sm) 28px;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .problem-box li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: var(--danger);
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           SOLUTION SECTION
+           ═══════════════════════════════════════════════════════ */
+        .solution-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            color: var(--primary);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .solution-card {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .solution-icon {
+            font-size: 48px;
+            margin-bottom: var(--space-md);
+        }
+
+        .solution-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .solution-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PROTOCOL SECTION
+           ═══════════════════════════════════════════════════════ */
+        .protocol-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .phase-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .phase-card {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .phase-card:nth-child(2) {
+            border-top-color: var(--warning);
+        }
+
+        .phase-card:nth-child(3) {
+            border-top-color: var(--accent);
+        }
+
+        .phase-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            font-family: var(--font-display);
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-results {
+            background: var(--bg-light);
+            padding: var(--space-md);
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .phase-results ul {
+            list-style: none;
+        }
+
+        .phase-results li {
+            padding: var(--space-sm) 0 var(--space-sm) 20px;
+            position: relative;
+        }
+
+        .phase-results li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           TESTIMONIALS SECTION
+           ═══════════════════════════════════════════════════════ */
+        .testimonials-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            color: var(--primary);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2xl);
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: var(--space-md);
+            font-size: 20px;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .testimonial-text {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .testimonial-stats {
+            display: flex;
+            gap: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-mini {
+            flex: 1;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label-mini {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-top: var(--space-xs);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           OFFER SECTION
+           ═══════════════════════════════════════════════════════ */
+        .offer-section {
+            background: var(--bg-white);
+        }
+
+        .offer-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .offer-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .offer-box {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border: 2px solid var(--border);
+        }
+
+        .offer-box.winner {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%);
+            position: relative;
+            transform: scale(1.02);
+        }
+
+        .winner-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--accent);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .offer-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-lg);
+        }
+
+        .offer-price {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+            line-height: 1;
+        }
+
+        .offer-price .period {
+            font-size: 16px;
+            color: var(--text-gray);
+            display: block;
+            margin-top: var(--space-sm);
+        }
+
+        .offer-items {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .offer-items li {
+            padding: var(--space-sm) 0 var(--space-sm) 24px;
+            position: relative;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .offer-items li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .offer-roi {
+            background: var(--bg-light);
+            padding: var(--space-lg);
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           GUARANTEE SECTION
+           ═══════════════════════════════════════════════════════ */
+        .guarantee-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: var(--space-3xl);
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .guarantee-section h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+        }
+
+        .guarantee-text {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           FAQ SECTION
+           ═══════════════════════════════════════════════════════ */
+        .faq-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2xl);
+        }
+
+        .faq-item {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           FINAL CTA SECTION
+           ═══════════════════════════════════════════════════════ */
+        .final-cta-section {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            text-align: center;
+            padding: var(--space-3xl) 0;
+        }
+
+        .final-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: var(--space-xl);
+            color: var(--text-dark);
+        }
+
+        .final-cta-text {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-text strong {
+            color: var(--primary);
+        }
+
+        .cta-button-large {
+            display: inline-block;
+            padding: 16px 48px;
+            background: var(--accent);
+            color: white;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-button-large:hover {
+            background: var(--success);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+        }
+
+        .subtext {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: var(--space-md);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-left h1 {
+                font-size: 32px;
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .hero-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-grid,
+            .phase-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid,
+            .offer-comparison,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-box.winner {
+                transform: scale(1);
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: var(--space-2xl) 0;
+            }
+
+            h2 {
+                font-size: 28px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO SECTION - TRANSFORMATIONAL
+         ═══════════════════════════════════════════════════════ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1>Recupere <span class="highlight">seus 12 primeiros quilos em 21 dias</span> — <strong>sem academia, sem remédios</strong></h1>
+
+                    <p class="hero-subheadline">Protocolo validado por 12 anos. Reverta diabetes tipo 2, pressão alta e síndrome metabólica. Ou você devolve 100% + R$ 50.</p>
+
+                    <div class="hero-stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">-20kg</span>
+                            <span class="stat-label">em 90 dias</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">12 anos</span>
+                            <span class="stat-label">mantido sem remédios</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">16/10→12/8</span>
+                            <span class="stat-label">pressão normalizada</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-group">
+                        <a href="https://go.hotmart.com/W103146395W" target="_blank" class="btn btn-primary">Começar Agora</a>
+                        <a href="#offer" class="btn btn-secondary">Ver Oferta</a>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="badge">✓ Acesso imediato</div>
+                        <div class="badge">✓ Garantia 7 dias</div>
+                        <div class="badge">✓ Sem cartão necessário</div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-image-placeholder">📊</div>
+                    <div class="transformation-text">De 108kg a 88kg</div>
+                    <div class="transformation-subtext">
+                        <strong>Glicemia:</strong> 380 → 88<br>
+                        <strong>Pressão:</strong> 16/10 → 12/8<br>
+                        <strong>Status:</strong> Livre de remédios
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROBLEM SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="problem-section">
+        <div class="container-tight">
+            <h2>O Caminho Que Você Conhece Não Funciona</h2>
+
+            <div class="problem-box">
+                <h3>❌ O que médicos fazem</h3>
+                <p>Prescrevem remédios que tratam o <strong>sintoma</strong>, não a <strong>causa</strong>:</p>
+                <ul>
+                    <li><strong>Glicemia alta</strong> → Metformina (R$ 2.160/ano)</li>
+                    <li><strong>Pressão alta</strong> → Losartana (R$ 1.440/ano)</li>
+                    <li><strong>Colesterol alto</strong> → Sinvastatina (R$ 1.080/ano)</li>
+                    <li><strong>Resultado</strong>: Você toma remédios para SEMPRE (R$ 56.400 em 10 anos)</li>
+                </ul>
+            </div>
+
+            <div class="problem-box">
+                <h3>❌ O que outras dietas fazem</h3>
+                <ul>
+                    <li><strong>Low-carb</strong>: Funciona 3 meses, depois volta tudo</li>
+                    <li><strong>Academia 6x/semana</strong>: Desiste por lesão ou cansaço</li>
+                    <li><strong>Apps de contagem de calorias</strong>: Matemática sem ciência</li>
+                    <li><strong>Suplementos "naturais"</strong>: R$ 800/mês jogados fora</li>
+                </ul>
+            </div>
+
+            <div class="problem-box">
+                <h3>✓ O que causa REALMENTE o problema</h3>
+                <p><strong>INFLAMAÇÃO CRÔNICA + RESISTÊNCIA À INSULINA</strong></p>
+                <p style="margin-top: var(--space-md);">Nenhuma das dietas acima ataca esses dois problemas. Por isso não funcionam.</p>
+                <p style="font-size: 18px; font-weight: 700; color: var(--primary); margin-top: var(--space-lg);">Você não fracassou. O método fracassou.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SOLUTION SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="solution-section">
+        <div class="container-tight">
+            <h2>Reset Primal: O Protocolo Diferente</h2>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🔬</div>
+                    <h3>Baseado em Ciência</h3>
+                    <p>Não em opinião. Entender fisiologia, bioquímica e inflamação — não contar calorias.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3>Rápido & Sustentável</h3>
+                    <p>21 dias para reverter metabolismo. Hábitos automáticos. Sem "manutenção" eterna.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🏠</div>
+                    <h3>Sem Equipamento</h3>
+                    <p>Treinos 12-18min com peso corporal. Caminhada ar livre. Casa ou rua.</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: var(--space-2xl); border-radius: 8px; text-align: center; border-left: 4px solid var(--primary);">
+                <p style="font-size: 18px; color: var(--text-gray); margin-bottom: var(--space-md);">Combina 3 pilares:</p>
+                <h3 style="font-size: 24px; color: var(--primary); font-family: var(--font-display); font-weight: 800;">
+                    Janela Alimentar + Nutrição Anti-Inflamatória + Treino Metabólico
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROTOCOL SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="protocol-section">
+        <div class="container-tight">
+            <h2>Suas 3 Fases de Transformação</h2>
+
+            <div class="phase-timeline">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <h3>Dias 1-7: DESPERTAR</h3>
+                    <p>Quebrar dependência de açúcar. Reduzir inflamação inicial.</p>
+                    <div class="phase-results">
+                        <ul>
+                            <li>Glicemia: -10 a -15 mg/dL</li>
+                            <li>Pressão: -1 a -2 pontos</li>
+                            <li>Peso: -2 a -3kg</li>
+                            <li>Energia: +30-40%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <h3>Dias 8-14: ACELERAÇÃO</h3>
+                    <p>Entrar em cetose. Restaurar sensibilidade à insulina.</p>
+                    <div class="phase-results">
+                        <ul>
+                            <li>Glicemia: -20 a -30 total</li>
+                            <li>Pressão: -2 a -3 pontos</li>
+                            <li>Peso: -4 a -6kg total</li>
+                            <li>Libido: melhora perceptível</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <h3>Dias 15-21: DOMÍNIO</h3>
+                    <p>Consolidar reversão. Hábitos automáticos.</p>
+                    <div class="phase-results">
+                        <ul>
+                            <li>Glicemia: &lt;100 mg/dL (normal)</li>
+                            <li>Pressão: 12/8 ou próximo</li>
+                            <li>Peso: -6 a -8kg total</li>
+                            <li>Nível de energia: 10 anos atrás</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         TESTIMONIALS SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="testimonials-section">
+        <div class="container-tight">
+            <h2>Quem Já Reverteu</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MC</div>
+                        <div>
+                            <div class="testimonial-name">Marcos C.</div>
+                            <div class="testimonial-role">Diabetes tipo 2 há 8 anos</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Tirei Metformina em 60 dias. Cardiologista não acreditava. Glicemia saiu de 280 para 95. Peso: -15kg. Pressão normalizou. 7 meses depois ainda mantendo tudo."</p>
+                    <div class="testimonial-stats">
+                        <div class="stat-mini">
+                            <span class="stat-value">-15kg</span>
+                            <span class="stat-label-mini">Peso</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">280→95</span>
+                            <span class="stat-label-mini">Glicemia</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">7m</span>
+                            <span class="stat-label-mini">Mantido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RL</div>
+                        <div>
+                            <div class="testimonial-name">Roberto L.</div>
+                            <div class="testimonial-role">Pré-diabético, 58 anos</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Pensei que fosse tarde demais. 21 dias e minha pressão caiu de 18/11 para 13/8. Sem academia. Sem fome. Só seguindo o protocolo. Libido voltou, durmo melhor."</p>
+                    <div class="testimonial-stats">
+                        <div class="stat-mini">
+                            <span class="stat-value">18/11→13/8</span>
+                            <span class="stat-label-mini">Pressão</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">-8kg</span>
+                            <span class="stat-label-mini">Peso</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">↑100%</span>
+                            <span class="stat-label-mini">Energia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AC</div>
+                        <div>
+                            <div class="testimonial-name">André C.</div>
+                            <div class="testimonial-role">Obesidade + Hipertensão</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Era dependente de Losartana há 5 anos. 90 dias depois: PA normal, médico cortou remédio. Emagrecimento consistente. Não sinto aquele cansaço de antes."</p>
+                    <div class="testimonial-stats">
+                        <div class="stat-mini">
+                            <span class="stat-value">-22kg</span>
+                            <span class="stat-label-mini">Peso</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">5→0</span>
+                            <span class="stat-label-mini">Remédios</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">3m</span>
+                            <span class="stat-label-mini">Até alta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">FP</div>
+                        <div>
+                            <div class="testimonial-name">Felipe P.</div>
+                            <div class="testimonial-role">Glicemia 320, sem nenhuma dieta antes</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Pensei que fosse scam. Mas testei. 14 dias: glicemia caiu para 110. 21 dias: 88. Ereção matinal voltou (não tinha mais isso há 3 anos). Claro, libido disparou."</p>
+                    <div class="testimonial-stats">
+                        <div class="stat-mini">
+                            <span class="stat-value">320→88</span>
+                            <span class="stat-label-mini">Glicemia</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">-9kg</span>
+                            <span class="stat-label-mini">Peso</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-value">3m</span>
+                            <span class="stat-label-mini">Mantém</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         OFFER SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="offer-section" id="offer">
+        <div class="container-tight">
+            <h2>O Que Você Recebe</h2>
+
+            <div class="offer-comparison">
+                <div class="offer-box">
+                    <div class="offer-title">Sem Fazer Nada</div>
+                    <div class="offer-price">
+                        R$ 56.400
+                        <span class="period">em 10 anos</span>
+                    </div>
+                    <ul class="offer-items">
+                        <li>Metformina 10 anos</li>
+                        <li>Losartana 10 anos</li>
+                        <li>Sinvastatina 10 anos</li>
+                        <li>Diabetes tipo 2 diagnosticada</li>
+                        <li>Possível evento cardiovascular</li>
+                        <li>Refém de farmácia</li>
+                    </ul>
+                </div>
+
+                <div class="offer-box winner">
+                    <div class="winner-badge">✓ ESCOLHA INTELIGENTE</div>
+                    <div class="offer-title">Reset Primal (UMA VEZ)</div>
+                    <div class="offer-price">
+                        R$ 97
+                        <span class="period">nunca mais pagar</span>
+                    </div>
+                    <ul class="offer-items">
+                        <li>📘 E-book 180 páginas</li>
+                        <li>🍽️ Plano alimentar 21 dias</li>
+                        <li>💪 Treinos metabólicos com vídeos</li>
+                        <li>📊 Planilha de rastreamento</li>
+                        <li>💬 Grupo Telegram (suporte direto)</li>
+                        <li>🎁 Guia Hormonal Masculino</li>
+                    </ul>
+                    <div class="offer-roi">
+                        ROI: 581x em 10 anos
+                    </div>
+                </div>
+            </div>
+
+            <div class="guarantee-section">
+                <h3>Garantia: Prove Que Não Funciona</h3>
+                <div class="guarantee-text">
+                    Faça o protocolo por 7 dias. Se NÃO sentir energia dobrada, barriga 2-3cm menor, fome controlada e sono melhor: <strong>eu devolvo 100% + pago R$ 50 pelo seu tempo.</strong><br><br>
+                    <strong>Por quê?</strong> Porque funcionou 12 anos comigo. Se você seguir e não sentir resultado, EU errei — e erro meu significa você não paga.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FAQ SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="faq-section">
+        <div class="container-tight">
+            <h2>Perguntas Frequentes</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">1. Preciso sair da academia?</div>
+                    <div class="faq-answer">Não. Treinos 12-18min com peso corporal em casa. Academia é opcional. Caminhada ar livre é o principal.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">2. Vou ficar com fome?</div>
+                    <div class="faq-answer">Não. Janela alimentar funciona diferente. Você come até saciar. Fome desaparece em 3-5 dias (cetose).</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">3. Posso continuar com remédios?</div>
+                    <div class="faq-answer">SIM. Nunca pare sem médico. O protocolo melhora biomarcadores. Médico ajusta/reduz conforme normalizar (como aconteceu comigo em 2013).</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">4. Funciona para diabetes tipo 2?</div>
+                    <div class="faq-answer">SIM. Pré-diabetes: 21 dias. Diabetes tipo 2 consolidada: 30-45 dias. Quanto mais tempo com diabetes, mais tempo para reverter.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">5. Tenho 55+ anos. Funciona?</div>
+                    <div class="faq-answer">SIM. Se ainda sente sintomas (cansaço, libido baixa, pressão alta), está na janela de reversão metabólica. Idade é só um número.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">6. E se eu travar no meio?</div>
+                    <div class="faq-answer">Suporte Telegram. Resposta em 24h de um especialista. Ajustes personalizados. Você não fica sozinho.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">7. Quanto custa manter depois?</div>
+                    <div class="faq-answer">R$ 0,00. Protocolo vira hábito automático. Sem mensalidade. Uma vez. Para sempre.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">8. Qual é o "catch"?</div>
+                    <div class="faq-answer">Não tem. Meta é 10.000 homens livres em 2026. Volume > exclusividade. R$ 97 é o preço. Garantia é real. Suporte é real.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FINAL CTA SECTION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2>Sua Decisão Hoje Define Os Próximos 10 Anos</h2>
+
+            <p class="final-cta-text">
+                21 dias. R$ 97. <strong>Garantia de 7 dias (100% + R$ 50)</strong>.<br>
+                Você não tem nada a perder. Exceto a síndrome metabólica.
+            </p>
+
+            <a href="https://go.hotmart.com/W103146395W" target="_blank" class="cta-button-large">Começar Agora</a>
+
+            <div class="subtext">
+                ✓ Acesso imediato | ✓ Sem cartão necessário | ✓ Garantia incondicional
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         JAVASCRIPT - TRACKING + INTERACTIVITY
+         ═══════════════════════════════════════════════════════ -->
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // GA4 Scroll Depth Tracking
+        let scrollPercentagesTracked = new Set();
+        window.addEventListener('scroll', function() {
+            const scrollPercentage = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+            );
+            [40, 60, 80, 100].forEach(percent => {
+                if (scrollPercentage >= percent && !scrollPercentagesTracked.has(percent)) {
+                    scrollPercentagesTracked.add(percent);
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'scroll_depth', {
+                            'percent_scrolled': percent
+                        });
+                    }
+                }
+            });
+        });
+
+        // CTA Button Tracking
+        document.querySelectorAll('.btn-primary, .cta-button-large').forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_cta_button', {
+                        'button_position': index + 1,
+                        'button_text': btn.innerText,
+                        'destination': 'hotmart'
+                    });
+                }
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        value: 97.00,
+                        currency: 'BRL',
+                        content_name: 'Reset Primal Protocol',
+                        content_type: 'product'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
