@@ -1,21 +1,97 @@
-  # Credenciais                                                                                                      
-  CREDENCIAIS-*.md                                                                                                   
-  PROBLEMA-*.md                                                                                                      
-  .env                                                                                                               
-  .env.local                                                                                                         
-                                                                                                                     
-  # Backups                                                                                                          
-  *.backup                                                                                                           
-  *.backup-*                                                                                                         
-  *.old                                                                                                              
-  *-backup-*                                                                                                         
-                                                                                                                     
-  # Sistema                                                                                                          
-  .DS_Store                                                                                                          
-  node_modules/                                                                                                      
-  .git/                                                                                                              
-                                                                                                                     
-  # Logs                                                                                                             
-  *.log                                                                                                              
-                                                                                                                     
-  EOF                                  
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+dev.db
+test.db
+
+# Logs
+logs/
+*.log
+pm2-logs/
+*.pid
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.sublime-workspace
+
+# Build
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Testing
+coverage/
+.nyc_output/
+__pycache__/
+*.pyc
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Credentials & Secrets
+.aws/
+.gcloud/
+credentials.json
+private-key.json
+
+# SSL Certificates
+*.pem
+*.key
+*.cert
+*.crt
+
+# Prisma
+prisma/dev.db
+prisma/test.db
+
+# PM2
+ecosystem.config.js.bak
+
+# Backups
+backup/
+backups/
+*.backup
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Deployment
+.vercel
+.netlify
