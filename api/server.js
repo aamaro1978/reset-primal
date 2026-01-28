@@ -11,6 +11,7 @@ const logger = require('./utils/logger');
 const authRoutes = require('./routes/auth.routes');
 const webhookRoutes = require('./routes/webhook.routes');
 const customersRoutes = require('./routes/customers.routes');
+const analyticsRoutes = require('./routes/analytics.routes');
 
 // Middleware
 const { errorHandler } = require('./middleware/error.middleware');
@@ -80,10 +81,10 @@ app.use(webhookRoutes);
 
 // CRM API routes
 app.use(customersRoutes);
+app.use(analyticsRoutes);
 
 // API routes (SPRINT 3 and beyond)
 // app.use('/api/purchases', purchasesRoutes);
-// app.use('/api/analytics', analyticsRoutes);
 
 // 404 handler
 app.use((req, res) => {
@@ -131,6 +132,11 @@ async function startServer() {
       console.log(`    GET    /api/customers/:id/purchases - Compras do cliente`);
       console.log(`    GET    /api/customers/search    - Buscar clientes`);
       console.log(`    GET    /api/products/:id/customers - Clientes por produto`);
+      console.log();
+      console.log('  📈 ANALYTICS (Requer autenticação ADMIN):');
+      console.log(`    GET    /api/analytics/dashboard - Dashboard completo`);
+      console.log(`    GET    /api/analytics/purchases - Relatório de vendas`);
+      console.log(`    GET    /api/analytics/segments  - Segmentação de clientes`);
       console.log();
       console.log('  🪝 WEBHOOK:');
       console.log(`    POST   /webhook/hotmart         - Webhook Hotmart (legado)`);
