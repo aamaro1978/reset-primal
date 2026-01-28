@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  # ════════════════════════════════════════════════════════════════
+  # PostgreSQL Database
+  # ════════════════════════════════════════════════════════════════
+  postgres:
+    image: postgres:16-alpine
+    container_name: reset-primal-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-reset_primal_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME:-reset_primal}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-reset_primal_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - reset-primal-network
+    labels:
+      - "com.reset-primal.description=PostgreSQL Database"
+
+  # ════════════════════════════════════════════════════════════════
+  # Node.js Backend
+  # ════════════════════════════════════════════════════════════════
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reset-primal-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://${DB_USER:-reset_primal_user}:${DB_PASSWORD}@postgres:5432/${DB_NAME:-reset_primal}?schema=public
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-24h}
+      REFRESH_TOKEN_EXPIRES_IN: ${REFRESH_TOKEN_EXPIRES_IN:-7d}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      SENDGRID_FROM_EMAIL: ${SENDGRID_FROM_EMAIL}
+      HOTMART_WEBHOOK_SECRET: ${HOTMART_WEBHOOK_SECRET}
+      GOOGLE_ANALYTICS_PROPERTY_ID: ${GOOGLE_ANALYTICS_PROPERTY_ID}
+      GOOGLE_ANALYTICS_API_SECRET: ${GOOGLE_ANALYTICS_API_SECRET}
+      FACEBOOK_PIXEL_ID: ${FACEBOOK_PIXEL_ID}
+      FACEBOOK_PIXEL_TOKEN: ${FACEBOOK_PIXEL_TOKEN}
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - reset-primal-network
+    labels:
+      - "com.reset-primal.description=Node.js Backend API"
+    # Uncomment for production logging
+    # logging:
+    #   driver: "json-file"
+    #   options:
+    #     max-size: "10m"
+    #     max-file: "3"
+
+  # ════════════════════════════════════════════════════════════════
+  # Nginx Reverse Proxy (Optional - if not using external load balancer)
+  # ════════════════════════════════════════════════════════════════
+  nginx:
+    image: nginx:alpine
+    container_name: reset-primal-nginx
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx-production.conf:/etc/nginx/conf.d/default.conf:ro
+      - /var/www/reset-primal:/var/www/reset-primal:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - reset-primal-network
+    labels:
+      - "com.reset-primal.description=Nginx Reverse Proxy"
+
+volumes:
+  postgres_data:
+    driver: local
+    labels:
+      - "com.reset-primal.description=PostgreSQL Data Volume"
+
+networks:
+  reset-primal-network:
+    driver: bridge
