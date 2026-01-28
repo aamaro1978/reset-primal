@@ -10,6 +10,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKTGW6BEJP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KKTGW6BEJP');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1164114415287965');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1164114415287965&ev=PageView&noscript=1"
+    /></noscript>
     
     <style>
         /* ═══════════════════════════════════════════════════════
@@ -855,9 +881,14 @@
                 </ul>
                 
                 <div class="hero-quote">
-                    "Saí do consultório e comecei a estudar. 60 dias: retirei remédios. 90 dias: MAPA 24h normal, alta médica. 
-                    Peso: 88kg. Glicemia: 88. Triglicérides: 70. Cardiologista: 'O que você fez?' Eu: 'Ataquei a inflamação, não o sintoma.' 
+                    "Saí do consultório e comecei a estudar. 60 dias: retirei remédios. 90 dias: MAPA 24h normal, alta médica.
+                    Peso: 88kg. Glicemia: 88. Triglicérides: 70. Cardiologista: 'O que você fez?' Eu: 'Ataquei a inflamação, não o sintoma.'
                     <strong>12 anos depois: minha filha completou 13 anos. Eu nunca mais tomei remédio.</strong> Prova que é reversível."
+                </div>
+
+                <div style="text-align: center; margin-top: 64px;">
+                    <a href="https://go.hotmart.com/W103146395W" target="_blank" class="cta-button">QUERO COMEÇAR MINHA TRANSFORMAÇÃO AGORA</a>
+                    <span class="cta-secondary">Acesso imediato • Garantia 7 dias 100% + R$ 50</span>
                 </div>
             </div>
         </div>
@@ -1238,7 +1269,7 @@ min/dia</li>
             </div>
             
             <div style="text-align: center; margin-top: 64px;">
-                <a href="#comprar" class="cta-button">QUERO REVERTER AGORA</a>
+                <a href="https://go.hotmart.com/W103146395W" target="_blank" class="cta-button">QUERO REVERTER AGORA</a>
                 <span class="cta-secondary">Acesso imediato • Pagamento seguro</span>
             </div>
         </div>
@@ -1360,7 +1391,7 @@ min/dia</li>
                     <strong>Você não tem nada a perder. Exceto a síndrome metabólica.</strong>
                 </p>
                 
-                <a href="#comprar" class="cta-button">COMEÇAR AGORA</a>
+                <a href="https://go.hotmart.com/W103146395W" target="_blank" class="cta-button">COMEÇAR AGORA</a>
                 <span class="cta-secondary" style="color: #666;">Acesso imediato • Garantia incondicional</span>
             </div>
         </div>
@@ -1378,7 +1409,7 @@ min/dia</li>
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
         
-        // Smooth scroll for CTA buttons
+        // Smooth scroll for CTA buttons (only for internal links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1388,6 +1419,54 @@ min/dia</li>
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+            });
+        });
+
+        // ════════════════════════════════════════════
+        // RASTREAMENTO GA4 + FACEBOOK PIXEL
+        // ════════════════════════════════════════════
+
+        // Rastrear cliques em botões CTA
+        document.querySelectorAll('.cta-button').forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                // GA4 tracking
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_cta_button', {
+                        'button_position': index + 1,
+                        'button_text': btn.innerText,
+                        'destination': 'hotmart'
+                    });
+                }
+
+                // Facebook Pixel tracking
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        value: 97.00,
+                        currency: 'BRL',
+                        content_name: 'Reset Primal Protocol',
+                        content_type: 'product'
+                    });
+                }
+            });
+        });
+
+        // Rastrear scroll depth (40%, 60%, 80%, 100%)
+        let scrollPercentagesTracked = new Set();
+
+        window.addEventListener('scroll', function() {
+            const scrollPercentage = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+            );
+
+            [40, 60, 80, 100].forEach(percent => {
+                if (scrollPercentage >= percent && !scrollPercentagesTracked.has(percent)) {
+                    scrollPercentagesTracked.add(percent);
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'scroll_depth', {
+                            'percent_scrolled': percent
+                        });
+                    }
                 }
             });
         });
