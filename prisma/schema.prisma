@@ -1,0 +1,377 @@
+// ════════════════════════════════════════════════════════════════
+// RESET PRIMAL - DATABASE SCHEMA
+// Arquitetura: MVP com fundação enterprise
+// Stack: Prisma + SQLite (local) / PostgreSQL (produção)
+// ════════════════════════════════════════════════════════════════
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ════════════════════════════════════════════════════════════════
+// FASE 1: CORE TABLES (Implementar agora)
+// ════════════════════════════════════════════════════════════════
+
+/// Usuários/Clientes
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  name              String?
+  passwordHash      String?  // Nullable para clientes criados via webhook
+  role              UserRole @default(CUSTOMER)
+
+  // 2FA
+  twoFactorEnabled  Boolean  @default(false)
+  twoFactorSecret   String?
+
+  // LGPD Compliance
+  consentMarketing  Boolean  @default(false)
+  consentDataSharing Boolean @default(false)
+  consentDate       DateTime?
+  dataRetentionDate DateTime?
+
+  // Tracking
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  lastLoginAt       DateTime?
+  deletedAt         DateTime? // Soft delete
+
+  // Relacionamentos
+  purchases         Purchase[]
+  sessions          Session[]
+  auditLogs         AuditLog[]
+  subscriptions     Subscription[]
+  progress          ContentProgress[]
+  forumPosts        ForumPost[]
+  messages          Message[]
+
+  @@index([email])
+  @@index([createdAt])
+  @@index([deletedAt])
+  @@map("users")
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+  MODERATOR
+}
+
+/// Produtos (E-books, Cursos, Assinaturas, VIP)
+model Product {
+  id                String   @id @default(cuid())
+  hotmartId         String?  @unique
+  name              String
+  slug              String   @unique
+  description       String?
+  price             Float
+  type              ProductType
+
+  requiresAuth      Boolean  @default(true)
+  isActive          Boolean  @default(true)
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime?
+
+  purchases         Purchase[]
+  subscriptions     Subscription[]
+  content           Content[]
+
+  @@index([slug])
+  @@index([hotmartId])
+  @@map("products")
+}
+
+enum ProductType {
+  EBOOK
+  COURSE
+  SUBSCRIPTION
+  VIP
+}
+
+/// Histórico de Compras
+model Purchase {
+  id                String   @id @default(cuid())
+  userId            String
+  productId         String
+
+  hotmartTransactionId String? @unique
+  hotmartStatus     String?
+
+  price             Float
+  currency          String   @default("BRL")
+  status            PurchaseStatus @default(PENDING)
+
+  purchasedAt       DateTime @default(now())
+  refundedAt        DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([productId])
+  @@index([hotmartTransactionId])
+  @@index([purchasedAt])
+  @@map("purchases")
+}
+
+enum PurchaseStatus {
+  PENDING
+  APPROVED
+  REFUNDED
+  CANCELLED
+  CHARGEDBACK
+}
+
+/// Sessões de Autenticação (JWT + Refresh Tokens)
+model Session {
+  id                String   @id @default(cuid())
+  userId            String
+  token             String   @unique
+  refreshToken      String?  @unique
+
+  ipAddress         String?
+  userAgent         String?
+  isValid           Boolean  @default(true)
+
+  expiresAt         DateTime
+  createdAt         DateTime @default(now())
+  revokedAt         DateTime?
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+/// Audit Log (LGPD compliance + segurança)
+model AuditLog {
+  id                String   @id @default(cuid())
+  userId            String?
+  action            String   // login, purchase, data_access, etc
+  entity            String?  // user, purchase, product
+  entityId          String?
+
+  // Dados sanitizados (nunca logar dados sensíveis)
+  metadata          String?  // JSON como string para SQLite
+
+  // Context
+  ipAddress         String?
+  userAgent         String?
+
+  createdAt         DateTime @default(now())
+
+  user              User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ════════════════════════════════════════════════════════════════
+// FASE 2: ASSINATURAS E MENSAGENS (Preparadas)
+// ════════════════════════════════════════════════════════════════
+
+/// Assinaturas recorrentes
+model Subscription {
+  id                String   @id @default(cuid())
+  userId            String
+  productId         String
+
+  status            SubscriptionStatus @default(ACTIVE)
+  billingCycle      BillingCycle
+
+  startDate         DateTime @default(now())
+  nextBillingDate   DateTime?
+  cancelledAt       DateTime?
+  expiresAt         DateTime?
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+  @@index([nextBillingDate])
+  @@map("subscriptions")
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+  EXPIRED
+}
+
+enum BillingCycle {
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+/// Mensagens multicanal
+model Message {
+  id                String   @id @default(cuid())
+  userId            String
+  channel           MessageChannel
+
+  subject           String?
+  body              String
+
+  status            MessageStatus @default(PENDING)
+  sentAt            DateTime?
+  deliveredAt       DateTime?
+  readAt            DateTime?
+  failedAt          DateTime?
+  errorMessage      String?
+
+  metadata          String?  // JSON como string para SQLite
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([channel])
+  @@index([status])
+  @@index([sentAt])
+  @@map("messages")
+}
+
+enum MessageChannel {
+  EMAIL
+  WHATSAPP
+  SMS
+  PUSH
+}
+
+enum MessageStatus {
+  PENDING
+  SENT
+  DELIVERED
+  READ
+  FAILED
+}
+
+// ════════════════════════════════════════════════════════════════
+// FASE 3: CONTEÚDO E COMUNIDADE (Preparadas)
+// ════════════════════════════════════════════════════════════════
+
+/// Conteúdo (PDFs, Vídeos, Tarefas)
+model Content {
+  id                String   @id @default(cuid())
+  productId         String
+  title             String
+  slug              String   @unique
+  type              ContentType
+
+  isPublic          Boolean  @default(false)
+  fileUrl           String?
+  thumbnailUrl      String?
+  duration          Int?     // Segundos (para vídeos)
+
+  moduleNumber      Int?
+  lessonNumber      Int?
+  order             Int      @default(0)
+
+  description       String?
+  metadata          String?  // JSON como string para SQLite
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime?
+
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  progress          ContentProgress[]
+
+  @@index([productId])
+  @@index([slug])
+  @@index([type])
+  @@map("content")
+}
+
+enum ContentType {
+  PDF
+  VIDEO
+  TASK
+  QUIZ
+  ARTICLE
+}
+
+/// Progresso do usuário no conteúdo
+model ContentProgress {
+  id                String   @id @default(cuid())
+  userId            String
+  contentId         String
+
+  completed         Boolean  @default(false)
+  progressPercent   Int      @default(0) // 0-100
+
+  startedAt         DateTime @default(now())
+  completedAt       DateTime?
+  lastAccessedAt    DateTime @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content           Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, contentId])
+  @@index([userId])
+  @@index([contentId])
+  @@map("content_progress")
+}
+
+/// Posts do Fórum/Comunidade
+model ForumPost {
+  id                String   @id @default(cuid())
+  userId            String
+  title             String
+  content           String
+
+  isPinned          Boolean  @default(false)
+  isLocked          Boolean  @default(false)
+
+  viewCount         Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime?
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  replies           ForumReply[]
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("forum_posts")
+}
+
+/// Respostas no Fórum
+model ForumReply {
+  id                String   @id @default(cuid())
+  postId            String
+  userId            String
+
+  content           String
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime?
+
+  post              ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+  @@index([userId])
+  @@map("forum_replies")
+}
