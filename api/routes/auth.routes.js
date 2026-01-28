@@ -2,6 +2,9 @@ const express = require('express');
 const authController = require('../controllers/auth.controller');
 const { authMiddleware } = require('../middleware/auth.middleware');
 const { asyncHandler } = require('../middleware/error.middleware');
+const permissionService = require('../services/permission.service');
+const { verifyToken } = require('../utils/crypto');
+const logger = require('../utils/logger');
 
 const router = express.Router();
 
@@ -62,9 +65,47 @@ router.get(
 );
 
 /**
+ * GET /api/auth/products
+ * Get all products user has access to (purchases + subscriptions)
+ * Requires: Authentication
+ */
+router.get(
+  '/api/auth/products',
+  authMiddleware,
+  asyncHandler(async (req, res, next) => {
+    try {
+      const userId = req.user.id;
+      const products = await permissionService.getUserAccessibleProducts(userId);
+
+      logger.info('[AUTH] User accessible products retrieved', {
+        userId,
+        count: products.length
+      });
+
+      res.json({
+        products,
+        count: products.length
+      });
+    } catch (error) {
+      logger.error('[AUTH] Failed to get user products', error);
+      next(error);
+    }
+  })
+);
+
+/**
  * GET /api/auth/verify-access
- * Verificar acesso a um recurso (Nginx auth_request)
- * Header: X-Original-URI (URI que o usuário está tentando acessar)
+ * Verify access to a protected resource (Nginx auth_request subrequest)
+ * Used by Nginx to check if user can access /ebook/, /courses/, /premium/, etc.
+ *
+ * Headers:
+ *   - Authorization: Bearer <jwt_token>
+ *   - X-Original-URI: The original URI the user tried to access
+ *
+ * Returns:
+ *   - 200 OK: User has access
+ *   - 401 Unauthorized: No valid token
+ *   - 403 Forbidden: Token valid but user lacks permission
  */
 router.get(
   '/api/auth/verify-access',
@@ -72,19 +113,54 @@ router.get(
     const token = req.headers.authorization?.replace('Bearer ', '');
     const originalUri = req.headers['x-original-uri'];
 
+    // 1. Check if token is provided
     if (!token) {
+      logger.warn('[AUTH] verify-access: No token provided', {
+        uri: originalUri,
+        ip: req.ip
+      });
       return res.status(401).send('Unauthorized');
     }
 
+    // 2. Verify token validity
+    let decoded;
     try {
-      const { verifyToken } = require('../utils/crypto');
-      const decoded = verifyToken(token);
-
-      // TODO FASE 1: Implementar permissionService
-      // Por agora, qualquer usuário autenticado pode acessar
-      res.status(200).send('OK');
+      decoded = verifyToken(token);
     } catch (error) {
-      res.status(401).send('Unauthorized');
+      logger.warn('[AUTH] verify-access: Invalid token', {
+        error: error.message,
+        uri: originalUri,
+        ip: req.ip
+      });
+      return res.status(401).send('Unauthorized');
+    }
+
+    // 3. Check user permissions for the resource
+    try {
+      const userId = decoded.sub;
+      const canAccess = await permissionService.userCanAccessUrl(userId, originalUri);
+
+      if (canAccess) {
+        logger.debug('[AUTH] verify-access: Access granted', {
+          userId,
+          uri: originalUri
+        });
+        return res.status(200).send('OK');
+      } else {
+        logger.warn('[AUTH] verify-access: Access denied', {
+          userId,
+          uri: originalUri,
+          reason: 'no_purchase_or_subscription'
+        });
+        return res.status(403).send('Forbidden');
+      }
+    } catch (error) {
+      logger.error('[AUTH] verify-access: Error checking permissions', {
+        error: error.message,
+        uri: originalUri
+      });
+      // Fail closed - deny access on error
+      return res.status(403).send('Forbidden');
     }
   })
 );
