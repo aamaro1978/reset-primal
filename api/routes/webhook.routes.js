@@ -1,14 +1,12 @@
 const express = require('express');
-const crypto = require('crypto');
-const sgMail = require('@sendgrid/mail');
 const { prisma } = require('../config/database');
+const { verifyHMACSignature } = require('../utils/crypto');
 const logger = require('../utils/logger');
+const emailService = require('../services/email.service');
+const trackingService = require('../services/tracking.service');
+const auditService = require('../services/audit.service');
 
 const router = express.Router();
-
-// Configuração
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const HOTMART_SECRET = process.env.HOTMART_WEBHOOK_SECRET;
 
 // ════════════════════════════════════════════════════════════════
 // WEBHOOK HOTMART (Legado - refatorar em SPRINT 2)
@@ -29,151 +27,113 @@ const HOTMART_SECRET = process.env.HOTMART_WEBHOOK_SECRET;
 router.post('/webhook/hotmart', async (req, res, next) => {
   try {
     const signature = req.headers['x-hotmart-signature'];
+    const hotmartSecret = process.env.HOTMART_WEBHOOK_SECRET;
 
-    // 1. Validar assinatura HMAC
-    if (!signature || !verifyHotmartSignature(req.body, signature)) {
-      logger.warn('[WEBHOOK] Assinatura HMAC inválida');
-      return res.status(401).json({ error: 'Assinatura inválida' });
+    // 1. Validate HMAC signature
+    if (!signature || !verifyHMACSignature(req.body, signature, hotmartSecret)) {
+      logger.warn('[WEBHOOK] Invalid HMAC signature');
+      return res.status(401).json({ error: 'Invalid signature' });
     }
 
     const event = req.body;
+    const buyerEmail = event.data?.buyer?.email;
+    const buyerName = event.data?.buyer?.name;
+    const purchaseId = event.data?.purchase?.id;
+    const purchasePrice = parseFloat(event.data?.purchase?.price || 0);
 
-    logger.info(`[WEBHOOK] Evento recebido: ${event.type}`);
+    logger.info(`[WEBHOOK] Event received: ${event.type}`, { buyerEmail });
 
-    // 2. NOVO: Criar/buscar usuário no banco
+    // 2. Create/find user in database
     let user = await prisma.user.findUnique({
-      where: { email: event.data.buyer.email }
+      where: { email: buyerEmail }
     });
 
     if (!user) {
       user = await prisma.user.create({
         data: {
-          email: event.data.buyer.email,
-          name: event.data.buyer.name,
+          email: buyerEmail,
+          name: buyerName,
           role: 'CUSTOMER',
           consentMarketing: true,
           consentDate: new Date()
         }
       });
 
-      logger.info(`[WEBHOOK] Novo usuário criado: ${user.email}`);
+      logger.info(`[WEBHOOK] New user created: ${buyerEmail}`);
     }
 
-    // 3. NOVO: Criar registro de compra
+    // 3. Create purchase record
     const product = await prisma.product.findFirst({
       where: { type: 'EBOOK' }
     });
 
+    let purchase = null;
     if (product) {
-      const purchase = await prisma.purchase.create({
+      purchase = await prisma.purchase.create({
         data: {
           userId: user.id,
           productId: product.id,
-          hotmartTransactionId: event.data.purchase.id,
+          hotmartTransactionId: purchaseId,
           hotmartStatus: event.type,
-          price: parseFloat(event.data.purchase.price),
+          price: purchasePrice,
           status: 'APPROVED',
           purchasedAt: new Date()
         }
       });
 
-      logger.info(`[WEBHOOK] Compra criada: ${purchase.id}`);
+      logger.info(`[WEBHOOK] Purchase created: ${purchase.id}`, { userId: user.id });
     }
 
-    // 4. Enviar email via SendGrid
+    // 4. Send welcome email
     try {
-      const msg = {
-        to: user.email,
-        from: process.env.SENDGRID_FROM_EMAIL,
-        subject: '🎉 Seu E-book Reset Primal está pronto!',
-        html: `
-          <h2>Bem-vindo ao Reset Primal!</h2>
-          <p>Obrigado pela compra, ${user.name}!</p>
-          <p>Seu e-book está pronto para download.</p>
-          <p>Acesse: <a href="https://resetprimal.com.br/ebook/">resetprimal.com.br/ebook</a></p>
-          <hr>
-          <p><small>Transação: ${event.data.purchase.id}</small></p>
-        `
-      };
-
-      await sgMail.send(msg);
-      logger.info(`[WEBHOOK] Email enviado: ${user.email}`);
+      await emailService.sendEbookWelcomeEmail({
+        toEmail: user.email,
+        userName: user.name,
+        transactionId: purchaseId
+      });
     } catch (emailError) {
-      logger.error('[WEBHOOK] Erro ao enviar email', emailError);
-      // Não falhar a transação se email falhar
+      logger.error('[WEBHOOK] Failed to send welcome email', emailError);
+      // Don't fail the transaction if email fails
     }
 
-    // 5. Rastrear em GA4 e Facebook (simplificado por enquanto)
-    if (process.env.GOOGLE_ANALYTICS_PROPERTY_ID) {
-      try {
-        // GA4 Measurement Protocol
-        await fetch('https://www.google-analytics.com/mp/collect', {
-          method: 'POST',
-          body: JSON.stringify({
-            measurement_id: process.env.GOOGLE_ANALYTICS_PROPERTY_ID,
-            api_secret: process.env.GOOGLE_ANALYTICS_API_SECRET,
-            client_id: user.id.substring(0, 32),
-            events: [
-              {
-                name: 'purchase',
-                params: {
-                  value: event.data.purchase.price,
-                  currency: 'BRL',
-                  transaction_id: event.data.purchase.id
-                }
-              }
-            ]
-          })
-        });
-
-        logger.debug('[WEBHOOK] GA4 rastreado');
-      } catch (gaError) {
-        logger.warn('[WEBHOOK] Erro ao rastrear GA4', gaError);
-      }
-    }
-
-    // 6. Audit log
-    await prisma.auditLog.create({
-      data: {
+    // 5. Track in GA4 and Facebook Pixel
+    try {
+      await trackingService.trackGA4Purchase({
         userId: user.id,
-        action: 'purchase_completed',
-        entity: 'purchase',
-        metadata: JSON.stringify({
-          productId: product?.id,
-          transactionId: event.data.purchase.id,
-          amount: event.data.purchase.price
-        }),
+        purchaseValue: purchasePrice,
+        transactionId: purchaseId,
+        productName: product?.name || 'Reset Primal E-book'
+      });
+
+      await trackingService.trackFacebookPixel({
+        userEmail: user.email,
+        purchaseValue: purchasePrice,
+        transactionId: purchaseId,
+        productName: product?.name || 'Reset Primal E-book'
+      });
+    } catch (trackingError) {
+      logger.warn('[WEBHOOK] Failed to track purchase', trackingError);
+      // Don't fail the transaction if tracking fails
+    }
+
+    // 6. Create audit log
+    if (purchase) {
+      await auditService.logPurchaseCompleted({
+        userId: user.id,
+        purchaseId: purchase.id,
+        productId: product.id,
+        amount: purchasePrice,
+        transactionId: purchaseId,
         ipAddress: req.ip,
         userAgent: req.headers['user-agent']
-      }
-    });
+      });
+    }
 
-    res.status(200).json({ success: true });
+    res.status(200).json({ success: true, userId: user.id });
   } catch (error) {
-    logger.error('[WEBHOOK] Erro ao processar webhook', error);
+    logger.error('[WEBHOOK] Error processing webhook', error);
     next(error);
   }
 });
-
-// ════════════════════════════════════════════════════════════════
-// HELPER FUNCTIONS
-// ════════════════════════════════════════════════════════════════
-
-function verifyHotmartSignature(body, signature) {
-  try {
-    const computedSignature = crypto
-      .createHmac('sha256', HOTMART_SECRET)
-      .update(JSON.stringify(body))
-      .digest('hex');
-
-    return crypto.timingSafeEqual(
-      Buffer.from(computedSignature),
-      Buffer.from(signature)
-    );
-  } catch (error) {
-    logger.error('[WEBHOOK] Erro ao verificar HMAC', error);
-    return false;
-  }
-}
 
 module.exports = router;
