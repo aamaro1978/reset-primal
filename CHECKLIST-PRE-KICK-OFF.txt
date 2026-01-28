@@ -1,0 +1,280 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                   PRÉ-KICK-OFF CHECKLIST (30 MINUTOS)                    ║
+║                                                                            ║
+║              Prepare isto ANTES da reunião de 10:00am                     ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+════════════════════════════════════════════════════════════════════════════
+VERIFICAÇÃO DE SETUP (FAÇA AGORA)
+════════════════════════════════════════════════════════════════════════════
+
+AMBIENTE:
+  [ ] Node.js 18+ instalado? → node --version
+  [ ] Git configurado? → git config user.name
+  [ ] npm atualizado? → npm --version
+  [ ] Acesso SSH servidor (se apply)? → ssh user@server
+
+REPOSITÓRIO:
+  [ ] Projeto clonado? → ls /Users/acacioamaro/Projects/reset-primal/
+  [ ] Todos docs baixados?
+      [ ] DELEGACAO-POR-ESPECIALIDADE.md ✅
+      [ ] DELEGACAO-RESUMO.txt ✅
+      [ ] IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md ✅
+      [ ] IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md ✅
+      [ ] IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md ✅
+      [ ] KICK-OFF-APRESENTACAO.md ✅
+      [ ] CHECKLIST-LANCAMENTO.md ✅
+
+COMUNICAÇÃO:
+  [ ] Slack #reset-primal criado? (ou Discord)
+  [ ] Todos invitados?
+  [ ] Todos conseguem acessar documentos?
+  [ ] Todos têm links para compartilhar?
+
+CREDENCIAIS:
+  [ ] Você tem acesso Hotmart dashboard?
+  [ ] Você tem acesso Google Analytics?
+  [ ] Você tem acesso Facebook Business?
+  [ ] Você tem acesso SendGrid/Gmail?
+
+
+════════════════════════════════════════════════════════════════════════════
+AGENDA PARA REUNIÃO 10:00am (5 MINUTOS)
+════════════════════════════════════════════════════════════════════════════
+
+[00:00] Abrir KICK-OFF-APRESENTACAO.md
+        → Slides 1-10 (5 minutos total)
+
+[04:00] Perguntas rápidas (máximo 3)
+
+[04:45] Confirmar responsabilidades:
+        "Frontend: você entendeu o que fazer?"
+        "Backend: você entendeu o que fazer?"
+        "DevOps: você entendeu o que fazer?"
+        "Product: você tem tudo para coletar credenciais?"
+
+[05:00] REUNIÃO ENCERRA
+        "OK pessoal, vocês têm 2h 30min. Vamos começar!"
+        Sair da call.
+
+
+════════════════════════════════════════════════════════════════════════════
+DISTRIBUIÇÃO DE DOCUMENTOS (COPIE/COLE NO SLACK)
+════════════════════════════════════════════════════════════════════════════
+
+Envie isto para cada pessoa:
+
+─────────────────────────────────────────────────────────────────────────
+
+👋 OI EQUIPE!
+
+Temos DOCUMENTAÇÃO COMPLETA pronta. Leia a DELE sua função:
+
+**FRONTEND Dev:**
+  📄 Leia: IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md (611 linhas)
+  ⏱️  Tempo: 2h 30min
+  🎯 Objetivo: 3 CTA + GA4 + FB Pixel + Eventos
+  📁 Arquivo: landing-page/grand-slam/index.html
+
+**BACKEND Dev:**
+  📄 Leia: IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md (957 linhas)
+  ⏱️  Tempo: 2h 30min
+  🎯 Objetivo: Webhook + BD + Email + Testes
+  📁 Arquivo: api/server.js
+
+**DEVOPS:**
+  📄 Leia: IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md (962 linhas)
+  ⏱️  Tempo: 2h 30min
+  🎯 Objetivo: Nginx + SSL + PM2 + Logs
+  📁 Arquivo: /etc/nginx/sites-available/resetprimal.com.br
+
+**PRODUCT MANAGER:**
+  📄 Leia: DELEGACAO-POR-ESPECIALIDADE.md (943 linhas)
+                  ↳ Seção "FUNÇÃO 4: PRODUCT MANAGER"
+  ⏱️  Tempo: 2h 30min
+  🎯 Objetivo: Credenciais + .env + Coordenação
+  📁 Arquivo: .env
+
+Todos também leiam:
+  📋 DELEGACAO-RESUMO.txt (5 minutos - visão geral)
+  📋 KICK-OFF-APRESENTACAO.md (apresentação do meeting)
+
+Link dos arquivos:
+  → /Users/acacioamaro/Projects/reset-primal/
+
+REUNIÃO: HOJE 10:00am (5 minutos apenas!)
+
+Depois disso, vocês começam em paralelo. 🚀
+
+─────────────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════════════
+VERIFICAÇÃO 5 MINUTOS ANTES DO KICK-OFF
+════════════════════════════════════════════════════════════════════════════
+
+[09:55] Todos online no Zoom/Google Meet?
+  [ ] Frontend Dev aqui?
+  [ ] Backend Dev aqui?
+  [ ] DevOps aqui?
+  [ ] Product Manager aqui?
+
+[09:57] Todos conseguem ver a tela compartilhada?
+  [ ] Teste: "Pessoal, podem ver KICK-OFF-APRESENTACAO.md?"
+
+[09:59] Todos têm documentação baixada?
+  [ ] Frontend: tem seu doc?
+  [ ] Backend: tem seu doc?
+  [ ] DevOps: tem seu doc?
+  [ ] Product: tem seu doc?
+
+[10:00] ✅ PRONTO! Começar apresentação!
+
+
+════════════════════════════════════════════════════════════════════════════
+DEPOIS DO KICK-OFF (10:05am)
+════════════════════════════════════════════════════════════════════════════
+
+PRODUTO MANAGER:
+  ✅ Deixar call
+  ✅ Ir para Hotmart dashboard
+  ✅ Coletar: link + webhook secret
+  ✅ Enviar para Frontend (link) + Backend (secret) no Slack
+  ✅ Ir para Google Analytics
+  ✅ Coletar: GA4 IDs
+  ✅ Enviar para Frontend no Slack
+  ✅ Ir para Facebook Business
+  ✅ Coletar: Pixel ID
+  ✅ Enviar para Frontend no Slack
+
+FRONTEND:
+  ✅ Deixar call
+  ✅ Abrir IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md
+  ✅ Aguardar credenciais de Product (GA4, FB, Hotmart link)
+  ✅ Começar TASK 1 quando receber Hotmart link
+  ✅ Trabalhar sequencial: TASK 1 → 2 → 3 → 4
+  ✅ Testar localmente
+  ✅ Fazer commit quando terminar
+
+BACKEND:
+  ✅ Deixar call
+  ✅ Abrir IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md
+  ✅ Aguardar Hotmart webhook secret de Product
+  ✅ Começar TASK 1 imediatamente (não depende de ninguém)
+  ✅ Trabalhar sequencial: TASK 1 → 2 → 3 → 4 → 5
+  ✅ Testar webhook
+  ✅ Fazer commit quando terminar
+  ✅ Avisar DevOps quando push do codigo
+
+DEVOPS:
+  ✅ Deixar call
+  ✅ Abrir IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md
+  ✅ AGUARDAR Backend fazer push do webhook.js (aprox 1:15pm)
+  ✅ Enquanto aguarda: revisar checklist, preparar configs
+  ✅ Quando Backend fizer push: começar TASK 1
+  ✅ Trabalhar sequencial: TASK 1 → 2 → 3 → 4 → 5
+  ✅ Testar todas URLs
+  ✅ Fazer commit quando terminar
+  ✅ Avisar Product quando pronto
+
+
+════════════════════════════════════════════════════════════════════════════
+CHECK-INS DURANTE O DIA
+════════════════════════════════════════════════════════════════════════════
+
+1:00pm CHECK-IN: Frontend + Backend
+─────────────────────────────────────────────────────
+PM: "Frontend, como está?"
+FE: "[Resposta rápida - pronto, bloqueado, ou timeline]"
+
+PM: "Backend, como está?"
+BE: "[Resposta rápida - pronto, bloqueado, ou timeline]"
+
+Ação: Resolver qualquer bloqueador agora
+
+1:30pm CHECK-IN: Backend + DevOps
+─────────────────────────────────────────────────────
+PM: "Backend, fez push do codigo?"
+BE: "Sim, está em main"
+
+PM: "DevOps, consegue puxar?"
+DO: "Puxando agora, começo Nginx"
+
+Ação: Conectar as peças
+
+3:00pm CHECK-IN: DevOps Status
+─────────────────────────────────────────────────────
+PM: "DevOps, como está?"
+DO: "[Status] Nginx feito, SSL OK, esperando PM2"
+
+5:00pm REUNIÃO FINAL: Todos
+─────────────────────────────────────────────────────
+PM: "Pessoal, todo mundo terminou?"
+ALL: "Sim! ✅"
+
+PM: "Frontend, seu commit feito?"
+FE: "Sim, git log:"
+    feat: integrate hotmart, analytics, events
+
+PM: "Backend, seu commit feito?"
+BE: "Sim, git log:"
+    feat: implement webhook + db + email
+
+PM: "DevOps, seu commit feito?"
+DO: "Sim, git log:"
+    chore: nginx + ssl + pm2 setup
+
+PM: "OK! Tudo pronto para teste amanhã 9am"
+
+
+════════════════════════════════════════════════════════════════════════════
+DOCUMENTOS CRIADOS PARA HOJE
+════════════════════════════════════════════════════════════════════════════
+
+✅ DELEGACAO-RESUMO.txt (326 linhas)
+✅ DELEGACAO-POR-ESPECIALIDADE.md (943 linhas)
+✅ IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md (611 linhas)
+✅ IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md (957 linhas)
+✅ IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md (962 linhas)
+✅ KICK-OFF-APRESENTACAO.md (slides para meeting)
+✅ CHECKLIST-PRE-KICK-OFF.txt (este arquivo)
+
+TOTAL: 4,796 linhas de documentação pronta
+
+Localização: /Users/acacioamaro/Projects/reset-primal/
+
+
+════════════════════════════════════════════════════════════════════════════
+SUCESSO = QUANDO?
+════════════════════════════════════════════════════════════════════════════
+
+✅ HOJE 5:00pm:
+   • Todos 3 commits feitos
+   • Tudo rodando localmente/produção
+   • Documentação atualizada
+   • Equipe sincronizada
+
+✅ AMANHÃ 9:00am:
+   • Demo de cada pessoa
+   • Teste fluxo completo
+   • Revisão CHECKLIST-LANCAMENTO.md
+
+✅ AMANHÃ 2:00pm:
+   • Validação final
+   • ASSINATURA de go/no-go
+
+✅ AMANHÃ 3:30pm:
+   • 🎉 LANÇAMENTO
+
+
+════════════════════════════════════════════════════════════════════════════
+
+Created: 27 de janeiro de 2026
+Status: PRONTO PARA USAR
+Next: Compartilhar com equipe + começar kick-off
+
+Boa sorte! 🚀
+— Morgan, coordenando o futuro 📊

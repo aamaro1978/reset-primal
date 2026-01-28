@@ -1,0 +1,265 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              RESET PRIMAL - MONITORING DASHBOARD LIVE                     ║
+║                          27 de janeiro 2026                              ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+════════════════════════════════════════════════════════════════════════════
+🕐 TIMELINE ATUAL
+════════════════════════════════════════════════════════════════════════════
+
+Hora Atual: [ATUALIZAR A CADA 30min]
+
+PLANEJADO vs REAL:
+
+10:00am ━━━ KICK-OFF
+        Status: ⏳ Planejado
+        ├─ Toda equipe conectada? [  ]
+        ├─ Slides compartilhadas? [  ]
+        └─ Perguntas respondidas? [  ]
+
+10:15am ━━━ PRODUCT: Coleta Hotmart
+        Status: ⏳ Planejado
+        ├─ Link obtido? [  ] ETA: __:__
+        ├─ Secret obtido? [  ] ETA: __:__
+        └─ Distribuído? [  ] ETA: __:__
+
+10:30am ━━━ FRONTEND + BACKEND: Começam
+        Status: ⏳ Planejado
+        ├─ Frontend started? [  ] ETA: __:__
+        └─ Backend started? [  ] ETA: __:__
+
+12:00pm ━━━ MEIO DO DIA
+        Status: ⏳ Planejado
+        ├─ Frontend: Task 2/4 [  ] %
+        ├─ Backend: Task 3/5 [  ] %
+        └─ Bloqueadores? [SIM/NÃO]
+
+1:00pm ━━━━ CHECK-IN 1
+        Status: ⏳ Planejado
+        ├─ Frontend report? [  ]
+        ├─ Backend report? [  ]
+        └─ Bloqueadores resolvidos? [  ]
+
+1:15pm ━━━━ DEVOPS: Começa Nginx
+        Status: ⏳ Planejado
+        ├─ Backend push recebido? [  ] ETA: __:__
+        ├─ DevOps started? [  ] ETA: __:__
+        └─ Nginx config begun? [  ] ETA: __:__
+
+3:00pm ━━━━ FINAL STRETCH
+        Status: ⏳ Planejado
+        ├─ Frontend: Task 4/4 [  ] %
+        ├─ Backend: Task 5/5 [  ] %
+        ├─ DevOps: Task 5/5 [  ] %
+        └─ Bloqueadores? [SIM/NÃO]
+
+5:00pm ━━━━ REUNIÃO FINAL
+        Status: ⏳ Planejado
+        ├─ Todos completaram? [  ]
+        ├─ Todos fizeram commit? [  ]
+        ├─ Bloqueadores resolvidos? [  ]
+        └─ Pronto para amanhã? [SIM/NÃO]
+
+
+════════════════════════════════════════════════════════════════════════════
+👥 STATUS POR FUNÇÃO
+════════════════════════════════════════════════════════════════════════════
+
+👨‍💻 FRONTEND DEV
+   Status: ⏳ NÃO COMEÇOU
+   Responsável: ________________
+   Contato: [Slack/Email]
+
+   Tasks:
+     [ ] Task 1: CTA Hotmart (45min)      | Início: ____ Fim: ____
+     [ ] Task 2: GA4 (45min)              | Início: ____ Fim: ____
+     [ ] Task 3: FB Pixel (45min)         | Início: ____ Fim: ____
+     [ ] Task 4: Events (30min)           | Início: ____ Fim: ____
+     [ ] Commit feito? [SIM/NÃO]
+
+   Documentação: IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md
+   Bloqueadores: [NENHUM / liste aqui]
+   % Completado: 0%
+
+
+🔧 BACKEND DEV
+   Status: ⏳ NÃO COMEÇOU
+   Responsável: ________________
+   Contato: [Slack/Email]
+
+   Tasks:
+     [ ] Task 1: Setup Node.js (20min)    | Início: ____ Fim: ____
+     [ ] Task 2: Database (45min)         | Início: ____ Fim: ____
+     [ ] Task 3: Email (30min)            | Início: ____ Fim: ____
+     [ ] Task 4: Telegram (15min)         | Início: ____ Fim: ____
+     [ ] Task 5: Testes (15min)           | Início: ____ Fim: ____
+     [ ] Commit feito? [SIM/NÃO]
+
+   Documentação: IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md
+   Bloqueadores: [NENHUM / liste aqui]
+   % Completado: 0%
+
+
+🖥️  DEVOPS/SYSADMIN
+   Status: ⏳ AGUARDANDO BACKEND (não pode começar)
+   Responsável: ________________
+   Contato: [Slack/Email]
+
+   Tasks:
+     [ ] Task 1: Estrutura (30min)        | Início: ____ Fim: ____
+     [ ] Task 2: Nginx (1h)               | Início: ____ Fim: ____
+     [ ] Task 3: SSL (30min)              | Início: ____ Fim: ____
+     [ ] Task 4: PM2 (20min)              | Início: ____ Fim: ____
+     [ ] Task 5: Testes (20min)           | Início: ____ Fim: ____
+     [ ] Commit feito? [SIM/NÃO]
+
+   Documentação: IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md
+   Bloqueadores: Backend push não recebido ainda
+   % Completado: 0%
+
+
+📊 PRODUCT MANAGER
+   Status: ⏳ NÃO COMEÇOU
+   Responsável: ________________
+   Contato: [Slack/Email]
+
+   Tasks:
+     [ ] Task 1: Hotmart (15min)          | Início: ____ Fim: ____
+     [ ] Task 2: GA4 (45min)              | Início: ____ Fim: ____
+     [ ] Task 3: FB Pixel (45min)         | Início: ____ Fim: ____
+     [ ] Task 4: Coordenação (1h 15min)   | Início: ____ Fim: ____
+
+   Credenciais obtidas:
+     [ ] HOTMART_LINK
+     [ ] HOTMART_WEBHOOK_SECRET
+     [ ] GA4_MEASUREMENT_ID
+     [ ] FACEBOOK_PIXEL_ID
+     [ ] .env criado
+
+   Documentação: DELEGACAO-POR-ESPECIALIDADE.md seção 4
+   Bloqueadores: [NENHUM / liste aqui]
+   % Completado: 0%
+
+
+════════════════════════════════════════════════════════════════════════════
+⚠️  BLOQUEADORES IDENTIFICADOS
+════════════════════════════════════════════════════════════════════════════
+
+CRÍTICOS (resolvam AGORA):
+  [ ] Nenhum identificado
+
+MÉDIOS (resolvam em <15min):
+  [ ] Nenhum identificado
+
+BAIXOS (resolvam quando possível):
+  [ ] Nenhum identificado
+
+
+════════════════════════════════════════════════════════════════════════════
+✅ CHECKLIST DE COMMITS ESPERADOS
+════════════════════════════════════════════════════════════════════════════
+
+Frontend:
+  [ ] feat: integrate hotmart, analytics, events
+      Hash: ____________________________
+      Status: ⏳ ESPERADO
+
+Backend:
+  [ ] feat: implement webhook + db + email
+      Hash: ____________________________
+      Status: ⏳ ESPERADO
+
+DevOps:
+  [ ] chore: nginx + ssl + pm2 setup
+      Hash: ____________________________
+      Status: ⏳ ESPERADO
+
+
+════════════════════════════════════════════════════════════════════════════
+📊 ESTATÍSTICAS DE PROGRESSO
+════════════════════════════════════════════════════════════════════════════
+
+TAREFAS TOTAIS: 18
+  ✅ Completadas: 0 (0%)
+  🔄 Em progresso: 0 (0%)
+  ⏳ Não começadas: 18 (100%)
+
+BLOQUEADORES:
+  🔴 Críticos: 0
+  🟠 Médios: 0
+  🟡 Baixos: 0
+
+COMMITS:
+  ✅ Feitos: 0 / 3
+  ⏳ Esperados: 3
+
+TEMPO DECORRIDO vs PLANEJADO:
+  Hora atual: ______
+  Tempo decorrido: ___ minutos
+  Tempo restante: ___ minutos
+  Status: [NO PRAZO / ATRASADO / ADIANTADO]
+
+
+════════════════════════════════════════════════════════════════════════════
+💬 NOTAS & OBSERVAÇÕES
+════════════════════════════════════════════════════════════════════════════
+
+[Use este espaço para anotações durante o dia]
+
+9:00am:   Todas as pessoas conectadas para kick-off
+
+10:00am:
+
+11:00am:
+
+12:00pm:
+
+1:00pm:
+
+2:00pm:
+
+3:00pm:
+
+4:00pm:
+
+5:00pm:
+
+
+════════════════════════════════════════════════════════════════════════════
+🎯 CHECKLIST FINAL (5:00pm)
+════════════════════════════════════════════════════════════════════════════
+
+PRODUTO:
+  [ ] Frontend entregou landing-page/grand-slam/index.html
+  [ ] Backend entregou api/server.js + BD
+  [ ] DevOps entregou Nginx config + PM2
+  [ ] Produto entregou .env + equipe sincronizada
+
+QUALIDADE:
+  [ ] Frontend: Sem erros no console
+  [ ] Backend: Webhook respondendo HTTP 200
+  [ ] DevOps: Todas URLs respondendo
+  [ ] Integração: Fluxo testado
+
+DOCUMENTAÇÃO:
+  [ ] Todos os commits feitos
+  [ ] Git log limpo e informativo
+  [ ] Documentação atualizada
+
+PRÓXIMOS PASSOS:
+  [ ] Reunião amanhã 9:00am confirmada
+  [ ] Teste fluxo completo agendado
+  [ ] CHECKLIST-LANCAMENTO.md revisado
+
+
+════════════════════════════════════════════════════════════════════════════
+
+ATUALIZADO: 27 de janeiro, _______ (hora)
+PRÓXIMA ATUALIZAÇÃO: _______ (hora)
+
+Status Geral: 🟢 ON TRACK / 🟡 AT RISK / 🔴 CRITICAL
+
+═════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,218 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    TEMPLATES SLACK PARA #reset-primal                     ║
+║                   Copie/cole para facilitar comunicação                   ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 1: KICK-OFF ANNOUNCEMENT
+Envie isto 5 minutos antes do meeting
+════════════════════════════════════════════════════════════════════════════
+
+🎯 RESET PRIMAL - KICK-OFF 10:00am
+
+Pessoal! Reunião em 5 minutos no Zoom: [LINK]
+
+📋 Documentação pronta:
+  👨‍💻 Frontend → IMPLEMENTACAO-FRONTEND-STEP-BY-STEP.md
+  🔧 Backend → IMPLEMENTACAO-BACKEND-STEP-BY-STEP.md
+  🖥️  DevOps → IMPLEMENTACAO-DEVOPS-STEP-BY-STEP.md
+  📊 Product → DELEGACAO-POR-ESPECIALIDADE.md (seção 4)
+
+⏱️  Tempo: 5 minutos apenas!
+
+Vamos começar! 💪
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 2: BLOQUEADOR ENCONTRADO
+Use quando algo está bloqueando
+════════════════════════════════════════════════════════════════════════════
+
+🚨 BLOQUEADOR: [Nome do bloqueador]
+
+Problema:
+  [Descrever qual é o problema]
+
+Esperado em:
+  [Quando você esperava ter isto]
+
+Impacto:
+  [O que fica atrasado por isso]
+
+CC: @product-manager
+
+(PM: Por favor responder em <5min)
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 3: STATUS CHECK-IN
+Use nos check-ins 1:00pm e 1:30pm
+════════════════════════════════════════════════════════════════════════════
+
+📊 CHECK-IN 1:00pm
+
+👨‍💻 Frontend: Qual é o status?
+   [ ] Completado
+   [ ] Em progresso (ETA: __)
+   [ ] Bloqueado
+
+🔧 Backend: Qual é o status?
+   [ ] Completado
+   [ ] Em progresso (ETA: __)
+   [ ] Bloqueado
+
+Por favor responder em thread 🧵
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 4: ENTREGA COMPLETADA
+Use quando você terminar sua parte
+════════════════════════════════════════════════════════════════════════════
+
+✅ [NOME] - COMPLETADO
+
+Tarefas finalizadas:
+  ✅ Task 1: [descrição]
+  ✅ Task 2: [descrição]
+  ✅ Task 3: [descrição]
+
+Commit:
+  feat: [mensagem exata do commit]
+
+Status do teste:
+  ✅ Local: Testado e funcionando
+
+Pronto para: [próxima etapa]
+
+CC: @product-manager
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 5: FINAL REPORT
+Use às 5:00pm para resumo final
+════════════════════════════════════════════════════════════════════════════
+
+🎉 RESET PRIMAL - STATUS FINAL 5:00pm
+
+📋 Entregas:
+
+👨‍💻 Frontend:
+  ✅ 3 CTA + GA4 + FB Pixel + Events
+  Git: feat: integrate hotmart, analytics, events
+
+🔧 Backend:
+  ✅ Webhook + BD + Email
+  Git: feat: implement webhook + db + email
+
+🖥️  DevOps:
+  ✅ Nginx + SSL + PM2
+  Git: chore: nginx + ssl + pm2 setup
+
+📊 Product:
+  ✅ Equipe sincronizada
+  ✅ Credenciais distribuídas
+  ✅ Bloqueadores resolvidos
+
+═══════════════════════════════════════════════════════════════════════════
+
+🚀 RESULTADO: Tudo pronto para teste amanhã 9:00am
+
+📅 AMANHÃ:
+  9:00am  → Demo de cada pessoa
+  10:00am → Teste fluxo completo
+  2:00pm  → Checklist final
+  3:30pm  → LANÇAMENTO! 🎉
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 6: CALL FOR URGENT ACTION
+Use se precisar escalação
+════════════════════════════════════════════════════════════════════════════
+
+🔴 ALERTA: [problema crítico]
+
+Situação:
+  [Descrever a urgência]
+
+Tempo crítico:
+  ⏰ Até [hora] precisamos resolver isto
+
+Ação necessária:
+  [O que precisa ser feito para desbloquear]
+
+CC: @product-manager @aios-master
+
+URGENTE!
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 7: QUESTION/DISCUSSION
+Use para perguntas rápidas
+════════════════════════════════════════════════════════════════════════════
+
+❓ [Nome da função] - PERGUNTA
+
+Questão:
+  [Perguntar de forma clara]
+
+Contexto:
+  [Adicionar detalhes]
+
+Preciso saber até:
+  [Quando]
+
+CC: @product-manager
+
+
+════════════════════════════════════════════════════════════════════════════
+TEMPLATE 8: SUCCESS CELEBRATION
+Use quando algo importante é completado
+════════════════════════════════════════════════════════════════════════════
+
+🎉 SUCESSO: [O que foi alcançado]
+
+[emoji] [Descrição do que deu certo]
+
+Próxima etapa: [O que vem agora]
+
+
+════════════════════════════════════════════════════════════════════════════
+QUICK REFERENCE: WHO TO TAG
+════════════════════════════════════════════════════════════════════════════
+
+@product-manager  → Para bloqueadores ou decisões
+@frontend-dev     → Para dúvidas de Frontend
+@backend-dev      → Para dúvidas de Backend
+@devops           → Para dúvidas de DevOps/Infra
+@channel          → Apenas para anúncios críticos
+@here             → Para avisos urgentes (todos disponíveis)
+
+
+════════════════════════════════════════════════════════════════════════════
+RULES OF ENGAGEMENT
+════════════════════════════════════════════════════════════════════════════
+
+✅ DO:
+  • Comunicar bloqueadores imediatamente
+  • Ser específico (não "não funciona", mas "erro X em Y")
+  • Responder check-ins em <5 minutos
+  • Usar threads para manter canal limpo
+  • Celebrar pequenas vitórias
+
+❌ DON'T:
+  • Ficar mais de 15min em bloqueador sem comunicar
+  • Enviar messages criptografadas (use plain text)
+  • Spammar o canal com atualizações irrelevantes
+  • Fazer perguntas que estão no documento
+  • Faltar nos check-ins
+
+
+════════════════════════════════════════════════════════════════════════════
+
+Salvo em: TEMPLATES-SLACK.txt
+Use durante o dia para manter comunicação clara e rápida
+
+Boa sorte! 🚀

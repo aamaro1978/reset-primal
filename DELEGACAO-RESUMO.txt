@@ -1,0 +1,325 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              🎯 PLANO DE DELEGAÇÃO - RESET PRIMAL                         ║
+║                                                                            ║
+║           Distribuição de Responsabilidades por Especialidade             ║
+║                                                                            ║
+║                   Status: PRONTO PARA IMPLEMENTAÇÃO                       ║
+║                   Timeline: HOJE + AMANHÃ (2 dias)                        ║
+║                   Total: ~10 horas distribuídas                           ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+════════════════════════════════════════════════════════════════════════════
+📊 MATRIZ DE DELEGAÇÃO
+════════════════════════════════════════════════════════════════════════════
+
+FUNÇÃO              TEMPO      DOCUMENTOS                    STATUS
+─────────────────────────────────────────────────────────────────────────
+Frontend Dev        2h 30min   INTEGRACAO-HOTMART.md        ⏳ TODO
+                               ANALYTICS-SETUP.md            ⏳ TODO
+
+Backend Dev         2h 30min   WEBHOOKS-SETUP.md            ⏳ TODO
+
+DevOps/SysAdmin     2h 30min   ESTRUTURA-PRODUCAO.md        ⏳ TODO
+
+Product Manager     2h 30min   ROADMAP-IMPLEMENTACAO.md     ⏳ TODO
+                               CHECKLIST-LANCAMENTO.md      ⏳ TODO
+
+
+════════════════════════════════════════════════════════════════════════════
+👨‍💻 FRONTEND DEVELOPER (2h 30min)
+════════════════════════════════════════════════════════════════════════════
+
+TAREFAS:
+  1. Integrar link Hotmart em 3 botões CTA (45 min)
+  2. Instalar Google Analytics 4 (45 min)
+  3. Instalar Facebook Pixel (45 min)
+  4. Configurar eventos customizados (30 min)
+
+ARQUIVO: landing-page/grand-slam/index.html
+
+CHECKLIST:
+  ✅ 3 botões CTA com link Hotmart correto
+  ✅ GA4 script em <head>
+  ✅ FB Pixel script em <head>
+  ✅ Eventos disparando (GA4 + FB)
+  ✅ Sem erros no console
+  ✅ Responsividade OK (mobile/desktop)
+  ✅ Commit: "feat: integrate hotmart, analytics, events"
+
+ENTREGA: LP pronta com CTA + Analytics funcionando
+
+
+════════════════════════════════════════════════════════════════════════════
+🔧 BACKEND DEVELOPER (2h 30min)
+════════════════════════════════════════════════════════════════════════════
+
+TAREFAS:
+  1. Implementar webhook Hotmart (1h 15min)
+     • Validação de signature
+     • Resposta HTTP 200
+  2. Integrar BD + registrar vendas (45 min)
+  3. Enviar email confirmação (30 min)
+  4. Notificações Telegram (opcional - 15 min)
+
+ARQUIVO: /api/webhook.js (Node.js, Python ou PHP)
+
+CHECKLIST:
+  ✅ Webhook validando signatures Hotmart
+  ✅ Responde HTTP 200
+  ✅ Dados salvos em BD
+  ✅ Email sendo enviado
+  ✅ Logs detalhados (troubleshooting)
+  ✅ Testado com Hotmart webhook test
+  ✅ Commit: "feat: implement webhook + db + email"
+
+ENTREGA: Webhook recebendo e processando vendas
+
+
+════════════════════════════════════════════════════════════════════════════
+🖥️  DEVOPS / SYSADMIN (2h 30min)
+════════════════════════════════════════════════════════════════════════════
+
+TAREFAS:
+  1. Revisar estrutura de arquivos (30 min)
+  2. Configurar Nginx com proxy (1h)
+  3. Validar SSL/HTTPS (30 min)
+  4. Configurar PM2 webhook auto-restart (20 min)
+  5. Testar todas URLs (20 min)
+
+ARQUIVO: /etc/nginx/sites-available/resetprimal.com.br
+
+CHECKLIST:
+  ✅ Pasta /var/www/reset-primal estruturada
+  ✅ Nginx servindo LP em https://resetprimal.com.br
+  ✅ E-book em https://resetprimal.com.br/ebook
+  ✅ Webhook proxy em /webhook/hotmart
+  ✅ SSL/HTTPS ativo (sem avisos)
+  ✅ PM2 rodando webhook com auto-restart
+  ✅ Logs configurados (Nginx + Node.js)
+  ✅ Todas URLs respondendo HTTP 200/301
+  ✅ Commit: "chore: nginx + pm2 + ssl setup"
+
+ENTREGA: Infraestrutura pronta em produção
+
+
+════════════════════════════════════════════════════════════════════════════
+📊 PRODUCT MANAGER (2h 30min)
+════════════════════════════════════════════════════════════════════════════
+
+TAREFAS:
+  1. Obter credenciais Hotmart (30 min)
+     • Link de venda → compartilhar com Frontend
+     • Webhook secret → compartilhar com Backend
+  2. Criar GA4 + obter IDs (45 min)
+     • Propriedade GA4
+     • Data Stream
+     • Measurement ID → compartilhar com Frontend
+  3. Criar Facebook Pixel + obter ID (45 min)
+     • Pixel novo
+     • Conversão "Purchase"
+     • Pixel ID → compartilhar com Frontend
+  4. Organizar timeline e sincronizar equipe (30 min)
+     • Criar .env.example preenchido
+     • Reunião kick-off
+     • Acompanhar bloqueadores
+
+ARQUIVO: .env (com todas credenciais)
+
+CHECKLIST:
+  ✅ HOTMART_AFFILIATE_LINK obtido
+  ✅ HOTMART_WEBHOOK_SECRET obtido
+  ✅ GA4_PROPERTY_ID obtido
+  ✅ GA4_MEASUREMENT_ID obtido
+  ✅ FACEBOOK_PIXEL_ID obtido
+  ✅ .env criado e distribuído
+  ✅ Equipe sincronizada
+  ✅ Bloqueadores identificados
+  ✅ Teste completo agendado para amanhã
+
+ENTREGA: Todas credenciais, .env pronto, equipe sincronizada
+
+
+════════════════════════════════════════════════════════════════════════════
+🔄 SINCRONIZAÇÃO ENTRE EQUIPES
+════════════════════════════════════════════════════════════════════════════
+
+HOJE - IMPLEMENTAÇÃO PARALELA (4-5 horas):
+
+10:00am
+  • PM: Coleta credenciais Hotmart
+  • PM: Compartilha com Frontend (HOTMART_LINK)
+  • PM: Compartilha com Backend (HOTMART_WEBHOOK_SECRET)
+  • PM: Compartilha com DevOps (infraestrutura ok?)
+
+10:30am
+  • PM: Coleta GA4_ID e FB_PIXEL_ID
+  • Frontend: Começa integração CTA + GA4 + Pixel
+  • Backend: Começa webhook (aguardando credenciais)
+  • DevOps: Começa Nginx config (aguardando Backend)
+
+12:00pm
+  • Frontend: Testa localmente ✅
+  • Backend: Webhook respondendo ✅
+  • DevOps: Nginx + SSL ✅
+
+1:00pm
+  • Todos fazem COMMIT
+  • Frontend → notifica Backend que terminou
+  • Backend → notifica DevOps que terminou
+  • DevOps → notifica PM que terminou
+
+5:00pm
+  • REUNIÃO: Status de todos
+  • Qualquer bloqueador é resolvido agora
+
+
+AMANHÃ - VALIDAÇÃO & LANÇAMENTO (2-3 horas):
+
+9:00am   - Reunião sync final
+9:30am   - Cada pessoa demonstra seu trabalho
+10:00am  - TESTE COMPLETO: LP → Hotmart → Email → E-book
+11:00am  - Revisar CHECKLIST-LANCAMENTO.md
+2:00pm   - Validação final + ASSINATURA
+3:00pm   - GO/NO-GO Decision
+3:30pm   - LANÇAMENTO (se GO)
+
+
+════════════════════════════════════════════════════════════════════════════
+🔴 CRÍTICOS (BLOQUEADORES DE LANÇAMENTO)
+════════════════════════════════════════════════════════════════════════════
+
+❌ SEM ISSO, NÃO LANÇAR:
+
+  1. ✅ Link Hotmart no botão CTA (Frontend responsibility)
+  2. ✅ Webhook recebendo vendas (Backend responsibility)
+  3. ✅ GA4 rastreando eventos (Frontend responsibility)
+  4. ✅ FB Pixel rastreando cliques (Frontend responsibility)
+  5. ✅ Email sendo enviado após compra (Backend responsibility)
+  6. ✅ Fluxo completo testado ponta a ponta (PM responsibility)
+
+
+════════════════════════════════════════════════════════════════════════════
+📋 QUICK CHECKLIST FINAL
+════════════════════════════════════════════════════════════════════════════
+
+Frontend Dev:
+  [ ] 3 botões CTA com link Hotmart
+  [ ] GA4 script em <head>
+  [ ] FB Pixel script em <head>
+  [ ] Eventos customizados funcionando
+  [ ] Commit feito e push
+
+Backend Dev:
+  [ ] Webhook respondendo HTTP 200
+  [ ] BD registrando vendas
+  [ ] Email sendo enviado
+  [ ] Hotmart webhook test dispara com sucesso
+  [ ] Commit feito e push
+
+DevOps:
+  [ ] LP em https://resetprimal.com.br
+  [ ] E-book em https://resetprimal.com.br/ebook
+  [ ] Webhook proxy em /webhook/hotmart
+  [ ] SSL/HTTPS ativo
+  [ ] PM2 rodando webhook
+  [ ] Commit feito e push
+
+Product Manager:
+  [ ] Todas credenciais obtidas
+  [ ] .env distribuído
+  [ ] Equipe sincronizada
+  [ ] Timeline cumprida
+  [ ] Teste completo agendado
+
+
+════════════════════════════════════════════════════════════════════════════
+📂 LOCALIZAÇÃO DOS ARQUIVOS
+════════════════════════════════════════════════════════════════════════════
+
+/Users/acacioamaro/Projects/reset-primal/
+
+  ✅ DELEGACAO-POR-ESPECIALIDADE.md (943 linhas - DETALHADO)
+  ✅ DELEGACAO-RESUMO.txt (ESTE ARQUIVO - rápido)
+  ✅ ROADMAP-IMPLEMENTACAO.md
+  ✅ INTEGRACAO-HOTMART.md (Frontend)
+  ✅ WEBHOOKS-SETUP.md (Backend)
+  ✅ ESTRUTURA-PRODUCAO.md (DevOps)
+  ✅ ANALYTICS-SETUP.md (Frontend)
+  ✅ CHECKLIST-LANCAMENTO.md (PM)
+  ✅ .env.example
+
+
+════════════════════════════════════════════════════════════════════════════
+🎯 COMO USAR ESTE DOCUMENTO
+════════════════════════════════════════════════════════════════════════════
+
+OPÇÃO 1: Para reunião rápida
+  → Imprimir ESTE arquivo (DELEGACAO-RESUMO.txt)
+  → Mostrar na tela durante kick-off (5 minutos)
+
+OPÇÃO 2: Para trabalho detalhado
+  → Compartilhar DELEGACAO-POR-ESPECIALIDADE.md (943 linhas)
+  → Cada pessoa lê sua seção antes de começar
+
+OPÇÃO 3: Para acompanhamento
+  → Usar planilha de tracking (marcar [ ] completo)
+  → Reuniões diárias 5 minutos de status
+
+
+════════════════════════════════════════════════════════════════════════════
+📞 RESPONSÁVEIS
+════════════════════════════════════════════════════════════════════════════
+
+Frontend Developer:     _________________ 
+Backend Developer:      _________________ 
+DevOps / SysAdmin:      _________________ 
+Product Manager:        _________________ 
+Backup (se alguém sair):_________________
+
+
+════════════════════════════════════════════════════════════════════════════
+🚀 PRÓXIMOS PASSOS
+════════════════════════════════════════════════════════════════════════════
+
+1. ✅ HOJE 10:00am  - Reunião kick-off (15 min)
+                      Compartilhar este documento
+
+2. ✅ HOJE 10:30am  - Cada pessoa começa sua tarefa
+
+3. ✅ HOJE 1:00pm   - Check-in: Frontend + Backend
+                      Há bloqueadores?
+
+4. ✅ HOJE 1:30pm   - Check-in: Backend + DevOps
+                      Tudo conectando?
+
+5. ✅ HOJE 5:00pm   - Reunião final de status
+                      Todos terminaram?
+
+6. ✅ AMANHÃ 9:00am  - Demo de tudo funcionando
+
+7. ✅ AMANHÃ 11:00am - Teste ponta a ponta: LP → Hotmart → Email → E-book
+
+8. ✅ AMANHÃ 2:00pm  - Checklist final + ASSINATURA
+
+9. ✅ AMANHÃ 3:00pm  - GO/NO-GO Decision
+
+10. ✅ AMANHÃ 3:30pm - LANÇAMENTO! 🎉
+
+
+════════════════════════════════════════════════════════════════════════════
+
+                    ⏰ TEMPO TOTAL: ~10 HORAS
+                    📅 TIMELINE: HOJE + AMANHÃ
+                    ✅ STATUS: PRONTO PARA COMEÇAR
+
+═══════════════════════════════════════════════════════════════════════════
+
+Criado: 27 de janeiro de 2026
+Documento: DELEGACAO-RESUMO.txt
+Status: Pronto para compartilhar com equipe
+
+Boa sorte! 🚀
+— Morgan, planejando o futuro 📊
