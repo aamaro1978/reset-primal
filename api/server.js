@@ -10,6 +10,7 @@ const logger = require('./utils/logger');
 // Routes
 const authRoutes = require('./routes/auth.routes');
 const webhookRoutes = require('./routes/webhook.routes');
+const customersRoutes = require('./routes/customers.routes');
 
 // Middleware
 const { errorHandler } = require('./middleware/error.middleware');
@@ -74,11 +75,13 @@ app.get('/health', (req, res) => {
 // Auth routes
 app.use(authRoutes);
 
-// Webhook routes (legado, será refatorado em SPRINT 2)
+// Webhook routes (legacy)
 app.use(webhookRoutes);
 
-// API routes (serão criados em SPRINT 2)
-// app.use('/api/customers', customersRoutes);
+// CRM API routes
+app.use(customersRoutes);
+
+// API routes (SPRINT 3 and beyond)
 // app.use('/api/purchases', purchasesRoutes);
 // app.use('/api/analytics', analyticsRoutes);
 
@@ -114,12 +117,23 @@ async function startServer() {
       // Info de debug
       console.log('📍 Endpoints disponíveis:');
       console.log(`  GET    /health                  - Health check`);
-      console.log(`  POST   /api/auth/register       - Registrar`);
-      console.log(`  POST   /api/auth/login          - Login`);
-      console.log(`  POST   /api/auth/logout         - Logout`);
-      console.log(`  POST   /api/auth/refresh        - Renovar token`);
-      console.log(`  GET    /api/auth/me             - Dados do usuário`);
-      console.log(`  POST   /webhook/hotmart         - Webhook Hotmart (legado)`);
+      console.log();
+      console.log('  🔐 AUTENTICAÇÃO:');
+      console.log(`    POST   /api/auth/register       - Registrar`);
+      console.log(`    POST   /api/auth/login          - Login`);
+      console.log(`    POST   /api/auth/logout         - Logout`);
+      console.log(`    POST   /api/auth/refresh        - Renovar token`);
+      console.log(`    GET    /api/auth/me             - Dados do usuário`);
+      console.log();
+      console.log('  📊 CRM (Requer autenticação ADMIN):');
+      console.log(`    GET    /api/customers          - Listar clientes`);
+      console.log(`    GET    /api/customers/:id      - Detalhes do cliente`);
+      console.log(`    GET    /api/customers/:id/purchases - Compras do cliente`);
+      console.log(`    GET    /api/customers/search    - Buscar clientes`);
+      console.log(`    GET    /api/products/:id/customers - Clientes por produto`);
+      console.log();
+      console.log('  🪝 WEBHOOK:');
+      console.log(`    POST   /webhook/hotmart         - Webhook Hotmart (legado)`);
       console.log();
     });
   } catch (error) {
