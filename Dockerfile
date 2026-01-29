@@ -30,6 +30,9 @@ WORKDIR /app
 # Create app user (don't run as root)
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 
+# Create logs directory with correct permissions
+RUN mkdir -p /app/logs && chown -R nodejs:nodejs /app/logs && chmod 755 /app/logs
+
 # Copy from builder
 COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
