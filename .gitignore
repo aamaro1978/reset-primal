@@ -89,7 +89,6 @@ backups/
 *.backup
 
 # Docker
-.dockerignore
 docker-compose.override.yml
 
 # Deployment
