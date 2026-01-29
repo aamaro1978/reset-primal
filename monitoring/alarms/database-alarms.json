@@ -1,0 +1,164 @@
+[
+  {
+    "AlarmName": "rds-cpu-high",
+    "MetricName": "CPUUtilization",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 2,
+    "Threshold": 80,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Database CPU > 80% (High severity)"
+  },
+  {
+    "AlarmName": "rds-cpu-critical",
+    "MetricName": "CPUUtilization",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 1,
+    "Threshold": 95,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-critical"
+    ],
+    "AlarmDescription": "Database CPU > 95% (Critical severity)"
+  },
+  {
+    "AlarmName": "rds-storage-high",
+    "MetricName": "FreeStorageSpace",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 1,
+    "Threshold": 15000000000,
+    "ComparisonOperator": "LessThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Database storage < 15GB (High severity)"
+  },
+  {
+    "AlarmName": "rds-connections-high",
+    "MetricName": "DatabaseConnections",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Maximum",
+    "Period": 300,
+    "EvaluationPeriods": 2,
+    "Threshold": 150,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Active connections > 150 of 200 (High severity)"
+  },
+  {
+    "AlarmName": "rds-replication-lag",
+    "MetricName": "AuroraBinlogReplicaLag",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Average",
+    "Period": 60,
+    "EvaluationPeriods": 1,
+    "Threshold": 1000,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Replication lag > 1 second (High severity)"
+  },
+  {
+    "AlarmName": "rds-read-latency-high",
+    "MetricName": "ReadLatency",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 3,
+    "Threshold": 100,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "Name": "DBInstanceIdentifier",
+        "Value": "reset-primal-prod"
+      }
+    ],
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Read latency p95 > 100ms (Medium severity)"
+  },
+  {
+    "AlarmName": "backup-failed",
+    "MetricName": "FailedDBInstanceBackupCount",
+    "Namespace": "AWS/RDS",
+    "Statistic": "Sum",
+    "Period": 3600,
+    "EvaluationPeriods": 1,
+    "Threshold": 1,
+    "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-critical"
+    ],
+    "AlarmDescription": "Database backup failed (Critical severity)"
+  },
+  {
+    "AlarmName": "app-error-rate-high",
+    "MetricName": "ErrorRate",
+    "Namespace": "reset-primal/app",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 2,
+    "Threshold": 1,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Application error rate > 1% (High severity)"
+  },
+  {
+    "AlarmName": "app-response-time-high",
+    "MetricName": "ResponseTimeP95",
+    "Namespace": "reset-primal/app",
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 3,
+    "Threshold": 1000,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "AlarmActions": [
+      "arn:aws:sns:us-east-1:123456789:ops-team"
+    ],
+    "AlarmDescription": "Response time p95 > 1000ms (Medium severity)"
+  }
+]

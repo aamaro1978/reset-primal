@@ -1,0 +1,150 @@
+{
+  "DashboardName": "reset-primal-prod-overview",
+  "DashboardBody": {
+    "widgets": [
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "CPUUtilization", { "stat": "Average", "label": "DB CPU %" } ],
+            [ ".", "DatabaseConnections", { "stat": "Average", "label": "Active Connections" } ],
+            [ ".", "FreeStorageSpace", { "stat": "Average", "label": "Free Storage (bytes)" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Database Performance",
+          "yAxis": { "left": { "min": 0, "max": 100 } }
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "ReadLatency", { "stat": "Average", "label": "Read Latency (ms)" } ],
+            [ ".", "WriteLatency", { "stat": "Average", "label": "Write Latency (ms)" } ],
+            [ ".", "ReadThroughput", { "stat": "Average", "label": "Read Throughput (bytes)" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Database I/O Performance"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/ApplicationELB", "TargetResponseTime", { "stat": "Average", "label": "Response Time (ms)" } ],
+            [ ".", "RequestCount", { "stat": "Sum", "label": "Request Count" } ],
+            [ ".", "HTTPCode_Target_5XX_Count", { "stat": "Sum", "label": "5XX Errors" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Application Performance"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/business", "PurchasesPerHour", { "stat": "Sum", "label": "Purchases/Hour" } ],
+            [ ".", "RevenuePerDay", { "stat": "Sum", "label": "Revenue/Day" } ],
+            [ ".", "ActiveUsersOnline", { "stat": "Average", "label": "Active Users" } ]
+          ],
+          "period": 300,
+          "stat": "Sum",
+          "region": "us-east-1",
+          "title": "Business Metrics"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "DatabaseConnections", { "stat": "Maximum", "label": "Peak Connections" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Connection Pool Status",
+          "yAxis": { "left": { "min": 0, "max": 200 } }
+        }
+      },
+      {
+        "type": "log",
+        "properties": {
+          "query": "fields @timestamp, @message | filter @message like /ERROR/ | stats count() as errors",
+          "region": "us-east-1",
+          "title": "Error Count (Last Hour)"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/backup", "BackupStatus", { "stat": "Average", "label": "Backup Success %" } ],
+            [ ".", "BackupAgeHours", { "stat": "Average", "label": "Backup Age (hours)" } ]
+          ],
+          "period": 3600,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Backup Status"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/EC2", "CPUUtilization", { "stat": "Average", "label": "Server CPU %" } ],
+            [ ".", "NetworkIn", { "stat": "Average", "label": "Network In (bytes)" } ],
+            [ ".", "NetworkOut", { "stat": "Average", "label": "Network Out (bytes)" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "System Resources"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/webhook", "ProcessingRate", { "stat": "Average", "label": "Webhooks/sec" } ],
+            [ ".", "FailureRate", { "stat": "Average", "label": "Failure %" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Webhook Processing"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/email", "DeliveryRate", { "stat": "Average", "label": "Delivery %" } ],
+            [ ".", "FailureRate", { "stat": "Average", "label": "Failure %" } ]
+          ],
+          "period": 300,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Email Delivery"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "FailoverEvents", { "stat": "Sum", "label": "Failover Events" } ]
+          ],
+          "period": 3600,
+          "stat": "Sum",
+          "region": "us-east-1",
+          "title": "Failover Status"
+        }
+      }
+    ]
+  }
+}

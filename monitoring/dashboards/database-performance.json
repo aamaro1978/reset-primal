@@ -1,0 +1,109 @@
+{
+  "DashboardName": "reset-primal-database-performance",
+  "DashboardBody": {
+    "widgets": [
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "CPUUtilization", { "stat": "Average" } ],
+            [ "...", { "stat": "Maximum" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "CPU Utilization Trend",
+          "yAxis": { "left": { "min": 0, "max": 100 } }
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "DatabaseConnections", { "stat": "Average", "label": "Active" } ],
+            [ "reset-primal/db", "ConnectionQueueDepth", { "stat": "Average", "label": "Queued" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Connection Management"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/db", "QueryCountPerSecond", { "stat": "Average" } ],
+            [ ".", "SlowQueryCount", { "stat": "Sum" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Query Performance"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "ReadLatency", { "stat": "Average", "label": "Read (ms)" } ],
+            [ ".", "WriteLatency", { "stat": "Average", "label": "Write (ms)" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "I/O Latency"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "ReadThroughput", { "stat": "Average", "label": "Read (bytes/s)" } ],
+            [ ".", "WriteThroughput", { "stat": "Average", "label": "Write (bytes/s)" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "I/O Throughput"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "FreeableMemory", { "stat": "Average" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Memory Available (bytes)"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/RDS", "FreeStorageSpace", { "stat": "Average" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Storage Available (bytes)"
+        }
+      },
+      {
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "reset-primal/db", "ReplicationLagSeconds", { "stat": "Average" } ]
+          ],
+          "period": 60,
+          "stat": "Average",
+          "region": "us-east-1",
+          "title": "Replication Lag (seconds)"
+        }
+      }
+    ]
+  }
+}
