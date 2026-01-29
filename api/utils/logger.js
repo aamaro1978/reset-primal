@@ -10,34 +10,37 @@ const logger = winston.createLogger({
   ),
   defaultMeta: { service: 'reset-primal' },
   transports: [
-    // Erros em arquivo separado
-    new winston.transports.File({
-      filename: 'logs/error.log',
-      level: 'error'
-    }),
-    // Todos os logs em arquivo geral
-    new winston.transports.File({
-      filename: 'logs/combined.log'
-    })
-  ]
-});
-
-// Console log em desenvolvimento
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(
+    // Console log (works everywhere: dev, staging, production)
     new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.printf(
-          ({ level, message, timestamp, ...meta }) => {
-            let logString = `${timestamp} [${level}] ${message}`;
-            if (Object.keys(meta).length > 0) {
-              logString += ` ${JSON.stringify(meta)}`;
-            }
-            return logString;
-          }
-        )
-      )
+        process.env.NODE_ENV === 'production'
+          ? winston.format.json()
+          : winston.format.combine(
+              winston.format.colorize(),
+              winston.format.printf(({ level, message, timestamp, ...meta }) => {
+                let logString = `${timestamp} [${level}] ${message}`;
+                if (Object.keys(meta).length > 0) {
+                  logString += ` ${JSON.stringify(meta)}`;
+                }
+                return logString;
+              })
+            )
+      ),
+    }),
+  ],
+});
+
+// File logging only in development (avoid permission issues in Docker)
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(
+    new winston.transports.File({
+      filename: 'logs/error.log',
+      level: 'error',
+    })
+  );
+  logger.add(
+    new winston.transports.File({
+      filename: 'logs/combined.log',
     })
   );
 }
@@ -50,13 +53,13 @@ const log = {
     if (error instanceof Error) {
       logData.error = {
         message: error.message,
-        stack: error.stack
+        stack: error.stack,
       };
     }
     logger.error(message, logData);
   },
   warn: (message, meta = {}) => logger.warn(message, meta),
-  debug: (message, meta = {}) => logger.debug(message, meta)
+  debug: (message, meta = {}) => logger.debug(message, meta),
 };
 
 module.exports = log;
