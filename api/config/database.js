@@ -6,7 +6,7 @@ let prisma;
 function getPrismaClient() {
   if (!prisma) {
     prisma = new PrismaClient({
-      log: ['info', 'warn', 'error']
+      log: ['info', 'warn', 'error'],
     });
   }
   return prisma;
@@ -31,8 +31,11 @@ async function disconnectDatabase() {
 }
 
 module.exports = {
-  prisma: getPrismaClient(),
+  // Lazy-load prisma only when accessed (prevents initialization during build)
+  get prisma() {
+    return getPrismaClient();
+  },
   connectDatabase,
   disconnectDatabase,
-  getPrismaClient
+  getPrismaClient,
 };
