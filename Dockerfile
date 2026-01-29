@@ -27,9 +27,6 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-# Install dumb-init for proper signal handling
-RUN apk add --no-cache dumb-init
-
 # Create app user (don't run as root)
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 
@@ -48,9 +45,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 
 # Expose port
 EXPOSE 3000
-
-# Use dumb-init to handle signals properly
-ENTRYPOINT ["/sbin/dumb-init", "--"]
 
 # Start application
 CMD ["node", "api/server.js"]
