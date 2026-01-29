@@ -18,8 +18,8 @@ RUN npm ci --omit=dev --ignore-scripts
 # Copy source code
 COPY . .
 
-# Generate Prisma client (skip validation since DATABASE_URL not available during build)
-RUN npx prisma generate --skip-validation || true
+# Generate Prisma client (doesn't require DATABASE_URL)
+RUN npx prisma generate
 
 # ════════════════════════════════════════════════════════════════
 # Stage 2: Runtime
