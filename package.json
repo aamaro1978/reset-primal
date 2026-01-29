@@ -4,7 +4,7 @@
   "description": "Reset Primal - Landing page com webhook Hotmart para automação de vendas",
   "main": "api/server.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install || true",
     "start": "node api/server.js",
     "dev": "node api/server.js",
     "legacy-webhook": "node api/webhook-hotmart.js",
