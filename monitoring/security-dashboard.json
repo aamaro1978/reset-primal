@@ -1,0 +1,244 @@
+{
+  "name": "Reset Primal - Security Monitoring",
+  "description": "Comprehensive security monitoring dashboard for database and application security events",
+  "region": "us-east-1",
+  "periodOverride": "inherit",
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Security", "FailedLoginAttempts", {"stat": "Sum"}],
+          [".", "PrivilegeEscalationAttempts", {"stat": "Sum"}],
+          [".", "Brute ForceDetections", {"stat": "Sum"}],
+          [".", "UnauthorizedAccessAttempts", {"stat": "Sum"}]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "us-east-1",
+        "title": "Security Threats (5-min intervals)",
+        "yAxis": {
+          "left": {
+            "min": 0
+          }
+        },
+        "alarm": {
+          "statistic": "Sum",
+          "threshold": 5,
+          "treatMissingData": "notBreaching"
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["AWS/RDS", "DatabaseConnections", {"stat": "Average"}],
+          ["ResetPrimal/Database", "ActiveConnections", {"stat": "Average"}],
+          [".", "IdleConnections", {"stat": "Average"}],
+          [".", "PoolUtilization", {"stat": "Average"}]
+        ],
+        "period": 60,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Connection Pool Status",
+        "yAxis": {
+          "left": {
+            "min": 0,
+            "max": 200
+          }
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Audit", "AuditLogEntries", {"stat": "Sum"}],
+          [".", "AuditLogSize", {"stat": "Average"}],
+          [".", "AuditLogLatency", {"stat": "Average"}],
+          [".", "AuditFlushCount", {"stat": "Sum"}]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Audit Logging Performance",
+        "yAxis": {
+          "left": {
+            "label": "Count / Latency (ms)"
+          }
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Encryption", "EncryptionOperations", {"stat": "Sum"}],
+          [".", "EncryptionLatency", {"stat": "Average"}],
+          [".", "DecryptionLatency", {"stat": "Average"}],
+          [".", "KeyRotationStatus", {"stat": "Average"}]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Encryption Operations & Key Rotation",
+        "yAxis": {
+          "left": {
+            "label": "Latency (ms)"
+          }
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Authentication", "LoginAttempts", {"stat": "Sum"}],
+          [".", "SuccessfulLogins", {"stat": "Sum"}],
+          [".", "FailedLogins", {"stat": "Sum"}],
+          [".", "MFAVerifications", {"stat": "Sum"}]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "us-east-1",
+        "title": "Authentication Metrics",
+        "yAxis": {
+          "left": {
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Secrets", "SecretRotations", {"stat": "Sum"}],
+          [".", "SecretAccessCount", {"stat": "Sum"}],
+          [".", "SecretRotationFailures", {"stat": "Sum"}],
+          [".", "UnauthorizedSecretAccess", {"stat": "Sum"}]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "us-east-1",
+        "title": "Secrets Manager Operations",
+        "yAxis": {
+          "left": {
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "log",
+      "x": 0,
+      "y": 18,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "query": "fields @timestamp, @message, severity, event_type, user_id | filter severity in ['CRITICAL', 'HIGH'] | stats count() as alert_count by event_type, severity | sort alert_count desc | limit 20",
+        "region": "us-east-1",
+        "title": "Critical & High Security Alerts"
+      }
+    },
+    {
+      "type": "log",
+      "x": 12,
+      "y": 18,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "query": "fields @timestamp, user_id, operation, table_name, rows_affected | filter operation in ['DELETE', 'UPDATE'] and rows_affected > 100 | stats count() as bulk_op_count by user_id, operation | sort bulk_op_count desc | limit 20",
+        "region": "us-east-1",
+        "title": "Bulk Operations (100+ rows)"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Database", "AdminOperations", {"stat": "Sum"}],
+          [".", "PrivilegedOperations", {"stat": "Sum"}],
+          [".", "ConfigurationChanges", {"stat": "Sum"}],
+          [".", "RoleChanges", {"stat": "Sum"}]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "us-east-1",
+        "title": "Administrative Operations",
+        "yAxis": {
+          "left": {
+            "min": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          ["ResetPrimal/Compliance", "AuditLogRetention", {"stat": "Average"}],
+          [".", "DataRetentionCompliance", {"stat": "Average"}],
+          [".", "EncryptionCompliance", {"stat": "Average"}],
+          [".", "AccessControlCompliance", {"stat": "Average"}]
+        ],
+        "period": 3600,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Compliance Status (0-100%)",
+        "yAxis": {
+          "left": {
+            "min": 0,
+            "max": 100
+          }
+        }
+      }
+    },
+    {
+      "type": "log",
+      "x": 0,
+      "y": 30,
+      "width": 24,
+      "height": 6,
+      "properties": {
+        "query": "fields @timestamp, @message, severity, event_type, user_id, ip_address, details | filter severity in ['CRITICAL'] | sort @timestamp desc | limit 100",
+        "region": "us-east-1",
+        "title": "Critical Events Log (Last 1 Hour)",
+        "queryString": "fields @timestamp, @message, severity | filter severity = 'CRITICAL' | stats count() as event_count"
+      }
+    }
+  ]
+}
