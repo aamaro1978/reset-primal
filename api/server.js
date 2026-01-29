@@ -23,10 +23,8 @@ const { errorHandler } = require('./middleware/error.middleware');
 console.log('🚀 Reset Primal - Server Initialization');
 console.log('════════════════════════════════════════════════════════════════');
 
-validateEnv();
-
 const app = express();
-const PORT = env.PORT;
+const PORT = env.PORT || process.env.PORT || 3000;
 
 // ════════════════════════════════════════════════════════════════
 // MIDDLEWARE GLOBAL
@@ -107,6 +105,9 @@ app.use(errorHandler);
 
 async function startServer() {
   try {
+    // Validate environment variables at runtime
+    validateEnv();
+
     console.log('\n📦 Conectando ao banco de dados...');
     await connectDatabase();
 
