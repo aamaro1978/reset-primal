@@ -2,7 +2,7 @@
 # Reset Primal - Production Dockerfile
 # ════════════════════════════════════════════════════════════════
 # Multi-stage build for optimal image size
-# Build: 2026-01-29T15:50:00Z (Prisma generate fix)
+# Build: 2026-01-29T16:15:00Z (logs directory permissions fix)
 
 # Stage 1: Build
 FROM node:22-alpine AS builder
