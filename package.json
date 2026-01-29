@@ -4,13 +4,31 @@
   "description": "Reset Primal - Landing page com webhook Hotmart para automação de vendas",
   "main": "api/server.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "node api/server.js",
     "dev": "node api/server.js",
     "legacy-webhook": "node api/webhook-hotmart.js",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
     "prisma:seed": "node prisma/seed.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage --detectOpenHandles",
+    "test:unit": "jest api/__tests__/unit",
+    "test:integration": "jest api/__tests__/integration",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --collectCoverageFrom='api/**/*.js'",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:headed": "cypress run --headed",
+    "lint": "eslint api/ --fix",
+    "lint:check": "eslint api/",
+    "format": "prettier --write 'api/**/*.js' 'cypress/**/*.js'",
+    "lighthouse": "lighthouse http://64.225.44.199 --view",
+    "perf:test": "k6 run k6-webhook-perf.js",
+    "validate": "npm run lint:check && npm test && npm run test:coverage"
+  },
+  "lint-staged": {
+    "api/**/*.js": ["eslint --fix", "prettier --write"],
+    "cypress/**/*.js": ["prettier --write"]
   },
   "prisma": {
     "seed": "node prisma/seed.js"
@@ -45,5 +63,17 @@
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "cypress": "^15.9.0",
+    "eslint": "^9.39.2",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "k6": "^0.0.0",
+    "lighthouse": "^12.8.2",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2"
   }
 }

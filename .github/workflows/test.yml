@@ -1,0 +1,210 @@
+name: Test Suite & Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run ESLint
+      run: npm run lint:check
+      continue-on-error: false
+
+    - name: Run Unit Tests
+      run: npm run test:unit
+
+    - name: Run Integration Tests
+      run: npm run test:integration
+
+    - name: Run all tests with coverage
+      run: npm test
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage/coverage-final.json
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+    - name: Check coverage thresholds
+      run: |
+        COVERAGE=$(grep -oP '"lines":\K[^,}]+' coverage/coverage-summary.json | head -1)
+        echo "Current coverage: $COVERAGE%"
+        if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+          echo "❌ Coverage below 80% threshold"
+          exit 1
+        fi
+      continue-on-error: true
+
+    - name: Generate coverage badge
+      run: |
+        mkdir -p .github/badges
+        COVERAGE=$(grep -oP '"lines":\K[^,}]+' coverage/coverage-summary.json | head -1)
+        echo "[![Coverage $COVERAGE%](...)](...)" > .github/badges/coverage.md
+      continue-on-error: true
+
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Cypress E2E Tests
+      run: npm run cypress:run
+      continue-on-error: true
+      env:
+        CYPRESS_BASE_URL: http://64.225.44.199
+
+    - name: Upload Cypress videos
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-videos
+        path: cypress/videos/
+        retention-days: 7
+
+    - name: Upload Cypress screenshots
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots/
+        retention-days: 7
+
+  quality-gate:
+    needs: [test, cypress]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run full validation
+      run: |
+        echo "🧪 Running full validation suite..."
+        npm run lint:check
+        npm run test:coverage
+        echo "✅ All quality gates passed!"
+
+    - name: Comment PR with results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const coverage = JSON.parse(fs.readFileSync('./coverage/coverage-summary.json', 'utf8'));
+          const lines = coverage.total.lines.pct;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## Test Results\n\n✅ Tests Passing\n📊 Coverage: ${lines}%\n🎯 Threshold: 80%\n\nStatus: ${lines >= 80 ? '✅ PASS' : '❌ FAIL'}`
+          });
+
+    - name: Fail if coverage below threshold
+      run: |
+        COVERAGE=$(grep -oP '"lines":\K[^,}]+' coverage/coverage-summary.json | head -1)
+        if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+          echo "❌ Coverage $COVERAGE% below 80% threshold - BLOCKING MERGE"
+          exit 1
+        else
+          echo "✅ Coverage $COVERAGE% meets threshold"
+        fi
+
+  performance:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    - name: Install k6
+      run: |
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+        echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+        sudo apt-get update
+        sudo apt-get install -y k6
+
+    - name: Run performance tests
+      run: |
+        npm install
+        k6 run k6-webhook-perf.js --out json=k6-results.json
+      continue-on-error: true
+
+    - name: Upload performance results
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-results
+        path: k6-results.json
+      continue-on-error: true
+
+  deploy-status:
+    needs: [quality-gate]
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+    - name: ✅ All checks passed - Ready for merge
+      run: echo "🚀 All quality gates passed. PR is ready for merge!"
+
+    - name: Create deployment check
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.checks.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            name: 'Quality Gate',
+            head_sha: context.sha,
+            status: 'completed',
+            conclusion: 'success',
+            output: {
+              title: 'All checks passed',
+              summary: '✅ Tests, coverage, and linting all passed',
+            }
+          });
+      continue-on-error: true

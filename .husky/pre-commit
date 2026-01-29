@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+echo ""
+
+# Run lint-staged
+npx lint-staged
+
+# Capture exit code
+LINT_EXIT=$?
+
+if [ $LINT_EXIT -ne 0 ]; then
+  echo ""
+  echo "❌ Pre-commit checks failed. Fix issues and try again."
+  exit 1
+fi
+
+echo ""
+echo "✅ All pre-commit checks passed!"
+exit 0

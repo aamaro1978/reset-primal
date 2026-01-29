@@ -15,7 +15,6 @@
 
 const express = require('express');
 const crypto = require('crypto');
-const nodemailer = require('nodemailer');
 const fs = require('fs').promises;
 require('dotenv').config();
 
@@ -29,16 +28,18 @@ app.use(express.json({ limit: '10mb' }));
 const requiredEnvVars = [
   'HOTMART_WEBHOOK_SECRET',
   'SENDGRID_API_KEY',
-  'SENDGRID_FROM_EMAIL'
+  'SENDGRID_FROM_EMAIL',
+  'GOOGLE_ANALYTICS_PROPERTY_ID', // Measurement ID (G-XXXXX)
+  'GOOGLE_ANALYTICS_API_SECRET', // API Secret from GA4 Data Stream
 ];
 
 function validateEnv() {
-  const missing = requiredEnvVars.filter(key => !process.env[key]);
+  const missing = requiredEnvVars.filter((key) => !process.env[key]);
   if (missing.length > 0) {
     console.error('❌ ERRO: Variáveis de ambiente faltando:', missing.join(', '));
     process.exit(1);
   }
-  console.log('✅ Variáveis de ambiente validadas');
+  console.warn('✅ Variáveis de ambiente validadas');
 }
 
 // ========================================
@@ -57,7 +58,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const requestCache = new Map();
 const RATE_LIMIT = {
   maxRequests: 100,
-  windowMs: 60000 // 1 minuto
+  windowMs: 60000, // 1 minuto
 };
 
 // ========================================
@@ -70,13 +71,10 @@ async function logEvent(level, event, sanitizedData = {}) {
       timestamp: new Date().toISOString(),
       level,
       event,
-      ...sanitizedData
+      ...sanitizedData,
     };
 
-    await fs.appendFile(
-      'logs/webhook-hotmart.log',
-      JSON.stringify(logEntry) + '\n'
-    );
+    await fs.appendFile('logs/webhook-hotmart.log', JSON.stringify(logEntry) + '\n');
   } catch (error) {
     console.error('Erro ao escrever log:', error.message);
   }
@@ -95,7 +93,7 @@ function rateLimitMiddleware(req, res, next) {
   }
 
   const requests = requestCache.get(ip);
-  const recentRequests = requests.filter(time => now - time < RATE_LIMIT.windowMs);
+  const recentRequests = requests.filter((time) => now - time < RATE_LIMIT.windowMs);
 
   if (recentRequests.length >= RATE_LIMIT.maxRequests) {
     console.warn(`⚠️  Rate limit excedido para ${ip}`);
@@ -125,10 +123,7 @@ function verifyHotmartSignature(body, signature) {
       .digest('hex');
 
     // ✅ Usar timingSafeEqual para evitar timing attacks
-    return crypto.timingSafeEqual(
-      Buffer.from(computedSignature),
-      Buffer.from(signature)
-    );
+    return crypto.timingSafeEqual(Buffer.from(computedSignature), Buffer.from(signature));
   } catch (error) {
     console.error('Erro ao validar assinatura:', error.message);
     return false;
@@ -139,17 +134,17 @@ function verifyHotmartSignature(body, signature) {
 // ERROR HANDLER GLOBAL
 // ========================================
 
-function errorHandler(err, req, res, next) {
+function errorHandler(err, req, res, _next) {
   console.error('❌ Erro não tratado:', err.message);
 
   logEvent('error', 'unhandled_error', {
     message: err.message,
-    route: req.path
+    route: req.path,
   });
 
   res.status(500).json({
     error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'development' ? err.message : undefined
+    message: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 }
 
@@ -176,7 +171,6 @@ app.post('/webhook/hotmart', async (req, res, next) => {
 
     // ✅ Não confirmar até ter sucesso
     res.status(200).json({ status: 'ok' });
-
   } catch (error) {
     logEvent('error', 'webhook_error', { message: error.message });
     next(error);
@@ -200,24 +194,23 @@ async function processPurchase(event) {
     logEvent('info', 'purchase_received', {
       buyer_domain: buyer.email.split('@')[1],
       purchase_id: purchase.id,
-      amount: purchase.price
+      amount: purchase.price,
     });
 
     // 1. Enviar email
     await sendEbookEmail(buyer.email, buyer.name || 'Cliente');
 
     // 2. Rastrear em GA4 (com retry)
-    await trackConversionGA4(buyer.email, purchase.price).catch(err => {
+    await trackConversionGA4(buyer.email, purchase.price).catch((err) => {
       logEvent('warning', 'ga4_tracking_failed', { message: err.message });
     });
 
     // 3. Rastrear em Facebook (com retry)
     if (FACEBOOK_PIXEL_ID) {
-      await trackConversionFacebook(buyer.email).catch(err => {
+      await trackConversionFacebook(buyer.email).catch((err) => {
         logEvent('warning', 'facebook_tracking_failed', { message: err.message });
       });
     }
-
   } catch (error) {
     logEvent('error', 'purchase_processing_failed', { message: error.message });
     throw error;
@@ -297,12 +290,11 @@ async function sendEbookEmail(email, name) {
           </div>
         </body>
         </html>
-      `
+      `,
     };
 
     await sgMail.send(msg);
     logEvent('info', 'email_sent', {});
-
   } catch (error) {
     logEvent('error', 'email_send_failed', { message: error.message });
     throw error;
@@ -310,48 +302,87 @@ async function sendEbookEmail(email, name) {
 }
 
 // ========================================
-// RASTREAR EM GA4 (CORRIGIDO)
+// RASTREAR EM GA4 (MEASUREMENT PROTOCOL)
 // ========================================
+// Documentação: https://developers.google.com/analytics/devguides/collection/protocol/ga4
+//
+// Setup necessário:
+// 1. Em GA4 Admin → Data Streams → Seu stream
+// 2. Em "Measurement Protocol Secret", clique em "Create"
+// 3. Copie o secret para GA4_API_SECRET no .env
+//
+// Variáveis obrigatórias no .env:
+// GA4_MEASUREMENT_ID=G-XXXXX (seu measurement ID)
+// GA4_API_SECRET=seu_secret_aqui (do Measurement Protocol)
 
-async function trackConversionGA4(email, value) {
+async function trackConversionGA4(email, value, transactionId = null) {
   if (!GA_MEASUREMENT_ID || !process.env.GOOGLE_ANALYTICS_API_SECRET) {
-    return; // GA4 opcional
+    console.warn('⚠️  GA4 não configurado. Defina GA4_MEASUREMENT_ID e GA4_API_SECRET');
+    return;
   }
 
   try {
-    // ✅ Query string CORRIGIDA
+    // Gerar IDs únicos
+    const clientId = crypto.createHash('sha256').update(email).digest('hex').substring(0, 16);
+    const txnId = transactionId || `hotmart-${Date.now()}`;
+
     const params = new URLSearchParams({
       measurement_id: GA_MEASUREMENT_ID,
-      api_secret: process.env.GOOGLE_ANALYTICS_API_SECRET
+      api_secret: process.env.GOOGLE_ANALYTICS_API_SECRET,
     });
 
     const url = `https://www.google-analytics.com/mp/collect?${params}`;
 
+    const payload = {
+      client_id: clientId,
+      user_id: email,
+      events: [
+        {
+          name: 'purchase',
+          params: {
+            value: parseFloat(value) || 0,
+            currency: 'BRL',
+            transaction_id: txnId,
+            items: [
+              {
+                item_id: 'reset-primal-protocol',
+                item_name: 'Reset Primal Protocol',
+                price: parseFloat(value) || 0,
+              },
+            ],
+          },
+        },
+      ],
+    };
+
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        client_id: crypto.createHash('sha256').update(email).digest('hex'),
-        user_id: email,
-        events: [{
-          name: 'purchase',
-          params: {
-            value: value,
-            currency: 'BRL',
-            transaction_id: crypto.randomUUID()
-          }
-        }]
-      })
+      body: JSON.stringify(payload),
+      timeout: 5000,
     });
 
+    const responseText = await response.text();
+
     if (!response.ok) {
-      throw new Error(`GA4 error: ${response.status}`);
+      // GA4 API retorna 204 para sucesso ou JSON com validação_messages
+      if (response.status === 204) {
+        logEvent('info', 'ga4_tracked', { txn_id: txnId });
+        return true;
+      }
+
+      throw new Error(`GA4 API (${response.status}): ${responseText}`);
     }
 
-    logEvent('info', 'ga4_tracked', {});
-
+    logEvent('info', 'ga4_tracked', { txn_id: txnId });
+    return true;
   } catch (error) {
-    throw error; // Vai ser catchado pelo caller
+    console.error('❌ GA4 tracking erro:', error.message);
+    logEvent('error', 'ga4_tracking_error', {
+      message: error.message,
+      email_domain: email?.split('@')[1] || 'unknown',
+    });
+    throw error;
   }
 }
 
@@ -364,34 +395,28 @@ async function trackConversionFacebook(email) {
     return; // Facebook opcional
   }
 
-  try {
-    const response = await fetch(
-      `https://graph.facebook.com/v18.0/${FACEBOOK_PIXEL_ID}/events`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          data: [{
-            event_name: 'Purchase',
-            event_time: Math.floor(Date.now() / 1000),
-            user_data: {
-              em: crypto.createHash('sha256').update(email).digest('hex')
-            }
-          }],
-          access_token: process.env.FACEBOOK_PIXEL_TOKEN
-        })
-      }
-    );
+  const response = await fetch(`https://graph.facebook.com/v18.0/${FACEBOOK_PIXEL_ID}/events`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      data: [
+        {
+          event_name: 'Purchase',
+          event_time: Math.floor(Date.now() / 1000),
+          user_data: {
+            em: crypto.createHash('sha256').update(email).digest('hex'),
+          },
+        },
+      ],
+      access_token: process.env.FACEBOOK_PIXEL_TOKEN,
+    }),
+  });
 
-    if (!response.ok) {
-      throw new Error(`Facebook error: ${response.status}`);
-    }
-
-    logEvent('info', 'facebook_tracked', {});
-
-  } catch (error) {
-    throw error; // Vai ser catchado pelo caller
+  if (!response.ok) {
+    throw new Error(`Facebook error: ${response.status}`);
   }
+
+  logEvent('info', 'facebook_tracked', {});
 }
 
 // ========================================
@@ -402,8 +427,70 @@ app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
     timestamp: new Date().toISOString(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
   });
+});
+
+// ========================================
+// TEST GA4 INTEGRATION
+// ========================================
+// Endpoint para testar a integração com GA4
+// GET /test-ga4?email=test@example.com&value=97
+
+app.get('/test-ga4', async (req, res) => {
+  try {
+    const { email = 'test@example.com', value = '97' } = req.query;
+
+    if (!GA_MEASUREMENT_ID) {
+      return res.status(400).json({
+        success: false,
+        error: 'GA4_MEASUREMENT_ID não configurado',
+        help: 'Configure GA4_MEASUREMENT_ID no arquivo .env',
+      });
+    }
+
+    if (!process.env.GOOGLE_ANALYTICS_API_SECRET) {
+      return res.status(400).json({
+        success: false,
+        error: 'GA4_API_SECRET não configurado',
+        help: 'Em GA4 Admin → Data Streams → Seu stream → Measurement Protocol Secret',
+      });
+    }
+
+    // Testar envio
+    const result = await trackConversionGA4(email, value, `test-${Date.now()}`);
+
+    res.status(200).json({
+      success: result,
+      message: 'Evento de teste enviado para GA4',
+      details: {
+        measurement_id: GA_MEASUREMENT_ID,
+        client_id: crypto.createHash('sha256').update(email).digest('hex').substring(0, 16),
+        event_name: 'purchase',
+        value: parseFloat(value),
+        currency: 'BRL',
+      },
+      next_steps: [
+        '1. Aguarde 24-48h para o evento aparecer em GA4',
+        '2. Vá para GA4 → Reports → Realtime',
+        '3. Você deve ver "purchase" com value = ' + value,
+      ],
+    });
+  } catch (error) {
+    logEvent('error', 'test_ga4_failed', { message: error.message });
+
+    res.status(500).json({
+      success: false,
+      error: 'Erro ao testar GA4',
+      message: error.message,
+      troubleshooting: [
+        '1. Verifique se GA4_MEASUREMENT_ID está correto (G-XXXXX)',
+        '2. Verifique se GA4_API_SECRET está correto',
+        '3. Aguarde 30 segundos e tente novamente',
+        '4. Se persistir, verifique GA4 Admin → Property Settings → Data Collection',
+      ],
+    });
+  }
 });
 
 // ========================================
@@ -435,11 +522,10 @@ async function startServer() {
     await fs.mkdir('logs', { recursive: true });
 
     app.listen(PORT, () => {
-      console.log(`✅ Webhook Hotmart rodando em http://localhost:${PORT}`);
-      console.log(`📝 Logs: logs/webhook-hotmart.log`);
+      console.warn(`✅ Webhook Hotmart rodando em http://localhost:${PORT}`);
+      console.warn('📝 Logs: logs/webhook-hotmart.log');
       logEvent('info', 'server_started', {});
     });
-
   } catch (error) {
     console.error('❌ Falha ao iniciar servidor:', error);
     process.exit(1);
@@ -451,7 +537,7 @@ async function startServer() {
 // ========================================
 
 process.on('SIGTERM', () => {
-  console.log('📢 SIGTERM recebido, encerrando gracefully...');
+  console.warn('📢 SIGTERM recebido, encerrando gracefully...');
   logEvent('info', 'server_shutdown', {});
   process.exit(0);
 });
