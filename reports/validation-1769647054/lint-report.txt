@@ -1,0 +1,139 @@
+
+> reset-primal@1.0.0 lint:check
+> eslint api/
+
+
+/Users/acacioamaro/Projects/reset-primal/api/config/database.js
+  19:5  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+/Users/acacioamaro/Projects/reset-primal/api/config/env.js
+  15:7  warning  'OPTIONAL_ENV_VARS' is assigned a value but never used                             no-unused-vars
+  29:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  44:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+/Users/acacioamaro/Projects/reset-primal/api/middleware/auth.middleware.js
+  22:7   warning  'decoded' is assigned a value but never used  no-unused-vars
+  23:14  warning  'error' is defined but never used             no-unused-vars
+
+/Users/acacioamaro/Projects/reset-primal/api/middleware/error.middleware.js
+  7:38  warning  'next' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+/Users/acacioamaro/Projects/reset-primal/api/server.js
+   23:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+   24:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  110:5   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  113:5   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  115:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  116:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  119:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  120:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  120:19  error    Strings must use singlequote                                                       quotes
+  121:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  122:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  123:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  123:19  error    Strings must use singlequote                                                       quotes
+  124:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  124:19  error    Strings must use singlequote                                                       quotes
+  125:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  125:19  error    Strings must use singlequote                                                       quotes
+  126:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  126:19  error    Strings must use singlequote                                                       quotes
+  127:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  127:19  error    Strings must use singlequote                                                       quotes
+  128:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  129:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  130:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  130:19  error    Strings must use singlequote                                                       quotes
+  131:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  131:19  error    Strings must use singlequote                                                       quotes
+  132:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  132:19  error    Strings must use singlequote                                                       quotes
+  133:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  133:19  error    Strings must use singlequote                                                       quotes
+  134:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  134:19  error    Strings must use singlequote                                                       quotes
+  135:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  136:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  137:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  137:19  error    Strings must use singlequote                                                       quotes
+  138:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  138:19  error    Strings must use singlequote                                                       quotes
+  139:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  139:19  error    Strings must use singlequote                                                       quotes
+  140:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  141:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  142:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  142:19  error    Strings must use singlequote                                                       quotes
+  143:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  156:3   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  162:3   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+/Users/acacioamaro/Projects/reset-primal/api/services/analytics.service.js
+  455:1   error  Expected indentation of 4 spaces but found 6   indent
+  456:1   error  Expected indentation of 6 spaces but found 8   indent
+  457:1   error  Expected indentation of 4 spaces but found 6   indent
+  458:1   error  Expected indentation of 6 spaces but found 8   indent
+  459:1   error  Expected indentation of 4 spaces but found 6   indent
+  460:1   error  Expected indentation of 6 spaces but found 8   indent
+  461:1   error  Expected indentation of 4 spaces but found 6   indent
+  462:1   error  Expected indentation of 6 spaces but found 8   indent
+  463:1   error  Expected indentation of 4 spaces but found 6   indent
+  464:1   error  Expected indentation of 6 spaces but found 8   indent
+  480:1   error  Expected indentation of 6 spaces but found 8   indent
+  481:1   error  Expected indentation of 8 spaces but found 10  indent
+  482:1   error  Expected indentation of 8 spaces but found 10  indent
+  483:1   error  Expected indentation of 6 spaces but found 8   indent
+  484:1   error  Expected indentation of 8 spaces but found 10  indent
+  485:1   error  Expected indentation of 8 spaces but found 10  indent
+  486:1   error  Expected indentation of 6 spaces but found 8   indent
+  487:1   error  Expected indentation of 8 spaces but found 10  indent
+  487:11  error  Unexpected lexical declaration in case block   no-case-declarations
+  488:1   error  Expected indentation of 8 spaces but found 10  indent
+  489:1   error  Expected indentation of 8 spaces but found 10  indent
+  490:1   error  Expected indentation of 6 spaces but found 8   indent
+  491:1   error  Expected indentation of 8 spaces but found 10  indent
+  492:1   error  Expected indentation of 8 spaces but found 10  indent
+  493:1   error  Expected indentation of 6 spaces but found 8   indent
+  494:1   error  Expected indentation of 8 spaces but found 10  indent
+
+/Users/acacioamaro/Projects/reset-primal/api/services/auth.service.js
+  103:11  warning  'session' is assigned a value but never used                              no-unused-vars
+  195:11  warning  'newSession' is assigned a value but never used                           no-unused-vars
+  219:32  warning  'userId' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+/Users/acacioamaro/Projects/reset-primal/api/services/customer.service.js
+  11:1  warning  This line has a length of 115. Maximum allowed is 100  max-len
+
+/Users/acacioamaro/Projects/reset-primal/api/services/email.service.js
+   26:1  warning  This line has a length of 191. Maximum allowed is 100  max-len
+   61:1  warning  This line has a length of 106. Maximum allowed is 100  max-len
+   63:1  warning  This line has a length of 170. Maximum allowed is 100  max-len
+   68:1  warning  This line has a length of 139. Maximum allowed is 100  max-len
+   99:1  warning  This line has a length of 177. Maximum allowed is 100  max-len
+  103:1  warning  This line has a length of 102. Maximum allowed is 100  max-len
+
+/Users/acacioamaro/Projects/reset-primal/api/test-webhook.js
+  36:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  37:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  38:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  39:3  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  54:5  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  55:5  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  58:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  59:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  60:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  61:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  62:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  63:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  64:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  65:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  66:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  68:7  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+/Users/acacioamaro/Projects/reset-primal/api/utils/crypto.js
+   4:9   warning  'getEnv' is assigned a value but never used  no-unused-vars
+  77:12  warning  'error' is defined but never used            no-unused-vars
+
+✖ 109 problems (41 errors, 68 warnings)
+  40 errors and 0 warnings potentially fixable with the `--fix` option.
+

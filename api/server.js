@@ -41,7 +41,7 @@ app.use(
     origin: env.CORS_ORIGIN,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
@@ -69,7 +69,7 @@ app.get('/health', (req, res) => {
     status: 'ok',
     timestamp: new Date().toISOString(),
     database: prisma ? 'connected' : 'disconnected',
-    uptime: process.uptime()
+    uptime: process.uptime(),
   });
 });
 
@@ -91,7 +91,7 @@ app.use((req, res) => {
   res.status(404).json({
     error: 'Rota não encontrada',
     path: req.path,
-    method: req.method
+    method: req.method,
   });
 });
 
@@ -117,29 +117,29 @@ async function startServer() {
 
       // Info de debug
       console.log('📍 Endpoints disponíveis:');
-      console.log(`  GET    /health                  - Health check`);
+      console.log('  GET    /health                  - Health check');
       console.log();
       console.log('  🔐 AUTENTICAÇÃO:');
-      console.log(`    POST   /api/auth/register       - Registrar`);
-      console.log(`    POST   /api/auth/login          - Login`);
-      console.log(`    POST   /api/auth/logout         - Logout`);
-      console.log(`    POST   /api/auth/refresh        - Renovar token`);
-      console.log(`    GET    /api/auth/me             - Dados do usuário`);
+      console.log('    POST   /api/auth/register       - Registrar');
+      console.log('    POST   /api/auth/login          - Login');
+      console.log('    POST   /api/auth/logout         - Logout');
+      console.log('    POST   /api/auth/refresh        - Renovar token');
+      console.log('    GET    /api/auth/me             - Dados do usuário');
       console.log();
       console.log('  📊 CRM (Requer autenticação ADMIN):');
-      console.log(`    GET    /api/customers          - Listar clientes`);
-      console.log(`    GET    /api/customers/:id      - Detalhes do cliente`);
-      console.log(`    GET    /api/customers/:id/purchases - Compras do cliente`);
-      console.log(`    GET    /api/customers/search    - Buscar clientes`);
-      console.log(`    GET    /api/products/:id/customers - Clientes por produto`);
+      console.log('    GET    /api/customers          - Listar clientes');
+      console.log('    GET    /api/customers/:id      - Detalhes do cliente');
+      console.log('    GET    /api/customers/:id/purchases - Compras do cliente');
+      console.log('    GET    /api/customers/search    - Buscar clientes');
+      console.log('    GET    /api/products/:id/customers - Clientes por produto');
       console.log();
       console.log('  📈 ANALYTICS (Requer autenticação ADMIN):');
-      console.log(`    GET    /api/analytics/dashboard - Dashboard completo`);
-      console.log(`    GET    /api/analytics/purchases - Relatório de vendas`);
-      console.log(`    GET    /api/analytics/segments  - Segmentação de clientes`);
+      console.log('    GET    /api/analytics/dashboard - Dashboard completo');
+      console.log('    GET    /api/analytics/purchases - Relatório de vendas');
+      console.log('    GET    /api/analytics/segments  - Segmentação de clientes');
       console.log();
       console.log('  🪝 WEBHOOK:');
-      console.log(`    POST   /webhook/hotmart         - Webhook Hotmart (legado)`);
+      console.log('    POST   /webhook/hotmart         - Webhook Hotmart (legado)');
       console.log();
     });
   } catch (error) {

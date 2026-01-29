@@ -1,0 +1,89 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/RDS", "CPUUtilization", { "stat": "Average" } ],
+          [ ".", "DatabaseConnections", { "stat": "Average" } ],
+          [ ".", "FreeableMemory", { "stat": "Average" } ],
+          [ ".", "FreeStorageSpace", { "stat": "Average" } ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Database Instance Metrics"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/RDS", "ReadLatency", { "stat": "Average" } ],
+          [ ".", "WriteLatency", { "stat": "Average" } ],
+          [ ".", "ReadThroughput", { "stat": "Sum" } ],
+          [ ".", "WriteThroughput", { "stat": "Sum" } ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "I/O Performance"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "ResetPrimal/Database", "ActiveConnections", { "stat": "Average" } ],
+          [ ".", "IdleConnections", { "stat": "Average" } ],
+          [ ".", "PoolUtilization", { "stat": "Average" } ]
+        ],
+        "period": 60,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Connection Pool Status"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "ResetPrimal/Database", "QueryLatencyP50", { "stat": "Average" } ],
+          [ ".", "QueryLatencyP95", { "stat": "Average" } ],
+          [ ".", "QueryLatencyP99", { "stat": "Average" } ],
+          [ ".", "SlowQueryCount", { "stat": "Sum" } ]
+        ],
+        "period": 60,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Query Performance"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "ResetPrimal/Backup", "BackupSuccess", { "stat": "Sum" } ],
+          [ ".", "BackupDuration", { "stat": "Average" } ],
+          [ ".", "BackupSize", { "stat": "Average" } ],
+          [ ".", "WALArchiveLogSize", { "stat": "Average" } ]
+        ],
+        "period": 3600,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Backup Status"
+      }
+    },
+    {
+      "type": "log",
+      "properties": {
+        "query": "fields @timestamp, @message | filter @message like /ERROR|WARNING/ | stats count() as error_count by @message | sort error_count desc | limit 10",
+        "region": "us-east-1",
+        "title": "Top Database Errors"
+      }
+    }
+  ],
+  "periodOverride": "inherit",
+  "name": "Reset Primal - Database Monitoring",
+  "region": "us-east-1"
+}
