@@ -14,19 +14,14 @@ class AnalyticsService {
       const now = new Date();
 
       // Parallel queries for performance
-      const [
-        overview,
-        topProducts,
-        topCustomers,
-        revenueTimeSeries,
-        registrationTimeSeries
-      ] = await Promise.all([
-        this._getOverview(startDate, now),
-        this._getTopProducts(startDate, now),
-        this._getTopCustomers(10),
-        this._getRevenueTimeSeries(startDate, now, period),
-        this._getRegistrationTimeSeries(startDate, now, period)
-      ]);
+      const [overview, topProducts, topCustomers, revenueTimeSeries, registrationTimeSeries] =
+        await Promise.all([
+          this._getOverview(startDate, now),
+          this._getTopProducts(startDate, now),
+          this._getTopCustomers(10),
+          this._getRevenueTimeSeries(startDate, now, period),
+          this._getRegistrationTimeSeries(startDate, now, period),
+        ]);
 
       logger.debug('[ANALYTICS] Dashboard data fetched', { period });
 
@@ -34,15 +29,15 @@ class AnalyticsService {
         period,
         dateRange: {
           start: startDate,
-          end: now
+          end: now,
         },
         overview,
         topProducts,
         topCustomers,
         timeSeries: {
           revenue: revenueTimeSeries,
-          registrations: registrationTimeSeries
-        }
+          registrations: registrationTimeSeries,
+        },
       };
     } catch (error) {
       logger.error('[ANALYTICS] Failed to fetch dashboard', error);
@@ -63,41 +58,39 @@ class AnalyticsService {
           where: {
             deletedAt: null,
             role: 'CUSTOMER',
-            createdAt: { gte: startDate }
-          }
+            createdAt: { gte: startDate },
+          },
         }),
         prisma.purchase.count({
           where: {
             status: 'APPROVED',
-            purchasedAt: { gte: startDate, lte: endDate }
-          }
-        })
+            purchasedAt: { gte: startDate, lte: endDate },
+          },
+        }),
       ]);
 
       // Revenue calculations
       const periodRevenue = await prisma.purchase.aggregate({
         where: {
           status: 'APPROVED',
-          purchasedAt: { gte: startDate, lte: endDate }
+          purchasedAt: { gte: startDate, lte: endDate },
         },
-        _sum: { price: true }
+        _sum: { price: true },
       });
 
       const allTimeRevenue = await prisma.purchase.aggregate({
         where: { status: 'APPROVED' },
-        _sum: { price: true }
+        _sum: { price: true },
       });
 
       const totalRevenue = parseFloat((allTimeRevenue._sum.price || 0).toFixed(2));
       const periodTotal = parseFloat((periodRevenue._sum.price || 0).toFixed(2));
-      const avgTicket = totalPurchases > 0
-        ? parseFloat((periodTotal / totalPurchases).toFixed(2))
-        : 0;
+      const avgTicket =
+        totalPurchases > 0 ? parseFloat((periodTotal / totalPurchases).toFixed(2)) : 0;
 
       // Conversion rate (estimated: purchases / customers)
-      const conversionRate = totalCustomers > 0
-        ? parseFloat(((totalPurchases / totalCustomers) * 100).toFixed(2))
-        : 0;
+      const conversionRate =
+        totalCustomers > 0 ? parseFloat(((totalPurchases / totalCustomers) * 100).toFixed(2)) : 0;
 
       return {
         totalCustomers,
@@ -107,7 +100,7 @@ class AnalyticsService {
         totalPurchases,
         periodPurchases: totalPurchases,
         averageTicketValue: avgTicket,
-        conversionRate
+        conversionRate,
       };
     } catch (error) {
       logger.error('[ANALYTICS] Failed to calculate overview', error);
@@ -127,9 +120,9 @@ class AnalyticsService {
           purchases: {
             some: {
               status: 'APPROVED',
-              purchasedAt: { gte: startDate, lte: endDate }
-            }
-          }
+              purchasedAt: { gte: startDate, lte: endDate },
+            },
+          },
         },
         select: {
           id: true,
@@ -137,17 +130,17 @@ class AnalyticsService {
           type: true,
           slug: true,
           _count: {
-            select: { purchases: true }
+            select: { purchases: true },
           },
           purchases: {
             where: { status: 'APPROVED' },
-            select: { price: true }
-          }
-        }
+            select: { price: true },
+          },
+        },
       });
 
       return products
-        .map(product => ({
+        .map((product) => ({
           id: product.id,
           name: product.name,
           type: product.type,
@@ -157,9 +150,10 @@ class AnalyticsService {
             product.purchases.reduce((sum, p) => sum + p.price, 0).toFixed(2)
           ),
           averagePrice: parseFloat(
-            (product.purchases.reduce((sum, p) => sum + p.price, 0) /
-              product._count.purchases).toFixed(2)
-          )
+            (
+              product.purchases.reduce((sum, p) => sum + p.price, 0) / product._count.purchases
+            ).toFixed(2)
+          ),
         }))
         .sort((a, b) => b.totalRevenue - a.totalRevenue)
         .slice(0, 10);
@@ -180,8 +174,8 @@ class AnalyticsService {
           deletedAt: null,
           role: 'CUSTOMER',
           purchases: {
-            some: { status: 'APPROVED' }
-          }
+            some: { status: 'APPROVED' },
+          },
         },
         select: {
           id: true,
@@ -190,14 +184,14 @@ class AnalyticsService {
           createdAt: true,
           purchases: {
             where: { status: 'APPROVED' },
-            select: { price: true, purchasedAt: true }
-          }
+            select: { price: true, purchasedAt: true },
+          },
         },
-        take: limit * 2 // Get extra to sort properly
+        take: limit * 2, // Get extra to sort properly
       });
 
       return customers
-        .map(customer => ({
+        .map((customer) => ({
           id: customer.id,
           email: customer.email,
           name: customer.name,
@@ -205,11 +199,11 @@ class AnalyticsService {
             customer.purchases.reduce((sum, p) => sum + p.price, 0).toFixed(2)
           ),
           purchaseCount: customer.purchases.length,
-          lastPurchaseAt: customer.purchases.length > 0
-            ? customer.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0]
-              .purchasedAt
-            : null,
-          joinedAt: customer.createdAt
+          lastPurchaseAt:
+            customer.purchases.length > 0
+              ? customer.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0].purchasedAt
+              : null,
+          joinedAt: customer.createdAt,
         }))
         .sort((a, b) => b.totalSpent - a.totalSpent)
         .slice(0, limit);
@@ -228,12 +222,12 @@ class AnalyticsService {
       const purchases = await prisma.purchase.findMany({
         where: {
           status: 'APPROVED',
-          purchasedAt: { gte: startDate, lte: endDate }
+          purchasedAt: { gte: startDate, lte: endDate },
         },
         select: {
           price: true,
-          purchasedAt: true
-        }
+          purchasedAt: true,
+        },
       });
 
       // Group by period
@@ -241,14 +235,11 @@ class AnalyticsService {
 
       return Object.entries(grouped).map(([date, purchases]) => ({
         date,
-        revenue: parseFloat(
-          purchases.reduce((sum, p) => sum + p.price, 0).toFixed(2)
-        ),
+        revenue: parseFloat(purchases.reduce((sum, p) => sum + p.price, 0).toFixed(2)),
         transactions: purchases.length,
         averageValue: parseFloat(
-          (purchases.reduce((sum, p) => sum + p.price, 0) / purchases.length)
-            .toFixed(2)
-        )
+          (purchases.reduce((sum, p) => sum + p.price, 0) / purchases.length).toFixed(2)
+        ),
       }));
     } catch (error) {
       logger.error('[ANALYTICS] Failed to fetch revenue time series', error);
@@ -266,22 +257,22 @@ class AnalyticsService {
         where: {
           role: 'CUSTOMER',
           deletedAt: null,
-          createdAt: { gte: startDate, lte: endDate }
+          createdAt: { gte: startDate, lte: endDate },
         },
         select: {
-          createdAt: true
-        }
+          createdAt: true,
+        },
       });
 
       // Group by period
       const grouped = this._groupByPeriod(
-        users.map(u => ({ createdAt: u.createdAt })),
+        users.map((u) => ({ createdAt: u.createdAt })),
         period
       );
 
       return Object.entries(grouped).map(([date, users]) => ({
         date,
-        registrations: users.length
+        registrations: users.length,
       }));
     } catch (error) {
       logger.error('[ANALYTICS] Failed to fetch registration time series', error);
@@ -299,13 +290,7 @@ class AnalyticsService {
    * @param {number} params.limit - Results per page
    * @returns {Promise<Object>} - Purchases with pagination
    */
-  async getPurchasesReport({
-    status = 'APPROVED',
-    startDate,
-    endDate,
-    page = 1,
-    limit = 50
-  }) {
+  async getPurchasesReport({ status = 'APPROVED', startDate, endDate, page = 1, limit = 50 }) {
     try {
       const validLimit = Math.min(Math.max(1, limit), 500);
       const validPage = Math.max(1, page);
@@ -313,12 +298,12 @@ class AnalyticsService {
 
       const where = {
         ...(status && { status }),
-        ...(startDate || endDate) && {
+        ...((startDate || endDate) && {
           purchasedAt: {
             ...(startDate && { gte: new Date(startDate) }),
-            ...(endDate && { lte: new Date(endDate) })
-          }
-        }
+            ...(endDate && { lte: new Date(endDate) }),
+          },
+        }),
       };
 
       const [total, purchases] = await Promise.all([
@@ -334,20 +319,20 @@ class AnalyticsService {
             user: {
               select: {
                 email: true,
-                name: true
-              }
+                name: true,
+              },
             },
             product: {
               select: {
                 name: true,
-                type: true
-              }
-            }
+                type: true,
+              },
+            },
           },
           orderBy: { purchasedAt: 'desc' },
           take: validLimit,
-          skip
-        })
+          skip,
+        }),
       ]);
 
       const pages = Math.ceil(total / validLimit);
@@ -358,12 +343,12 @@ class AnalyticsService {
           page: validPage,
           limit: validLimit,
           total,
-          pages
+          pages,
         },
         totals: {
           totalRevenue: purchases.reduce((sum, p) => sum + p.price, 0),
-          totalTransactions: total
-        }
+          totalTransactions: total,
+        },
       };
     } catch (error) {
       logger.error('[ANALYTICS] Failed to fetch purchases report', error);
@@ -385,9 +370,9 @@ class AnalyticsService {
           createdAt: true,
           purchases: {
             where: { status: 'APPROVED' },
-            select: { price: true, purchasedAt: true }
-          }
-        }
+            select: { price: true, purchasedAt: true },
+          },
+        },
       });
 
       // Segment customers
@@ -396,46 +381,45 @@ class AnalyticsService {
       const ninetyDaysAgo = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
 
       const segments = {
-        active: customers.filter(c => {
-          const lastPurchase = c.purchases.length > 0
-            ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0]
-              .purchasedAt
-            : null;
+        active: customers.filter((c) => {
+          const lastPurchase =
+            c.purchases.length > 0
+              ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0].purchasedAt
+              : null;
           return lastPurchase && lastPurchase >= thirtyDaysAgo;
         }),
-        atRisk: customers.filter(c => {
-          const lastPurchase = c.purchases.length > 0
-            ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0]
-              .purchasedAt
-            : null;
-          return (
-            lastPurchase &&
-            lastPurchase < thirtyDaysAgo &&
-            lastPurchase >= ninetyDaysAgo
-          );
+        atRisk: customers.filter((c) => {
+          const lastPurchase =
+            c.purchases.length > 0
+              ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0].purchasedAt
+              : null;
+          return lastPurchase && lastPurchase < thirtyDaysAgo && lastPurchase >= ninetyDaysAgo;
         }),
-        inactive: customers.filter(c => {
-          const lastPurchase = c.purchases.length > 0
-            ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0]
-              .purchasedAt
-            : null;
+        inactive: customers.filter((c) => {
+          const lastPurchase =
+            c.purchases.length > 0
+              ? c.purchases.sort((a, b) => b.purchasedAt - a.purchasedAt)[0].purchasedAt
+              : null;
           return !lastPurchase || lastPurchase < ninetyDaysAgo;
         }),
-        neverPurchased: customers.filter(c => c.purchases.length === 0)
+        neverPurchased: customers.filter((c) => c.purchases.length === 0),
       };
 
       return Object.entries(segments).reduce((acc, [key, customers]) => {
         acc[key] = {
           count: customers.length,
-          percentage: parseFloat(
-            ((customers.length / customers.length) * 100).toFixed(2)
-          ),
-          avgSpending: customers.length > 0
-            ? parseFloat(
-              (customers.reduce((sum, c) => sum + c.purchases.reduce((s, p) => s + p.price, 0), 0) /
-                customers.length).toFixed(2)
-            )
-            : 0
+          percentage: parseFloat(((customers.length / customers.length) * 100).toFixed(2)),
+          avgSpending:
+            customers.length > 0
+              ? parseFloat(
+                  (
+                    customers.reduce(
+                      (sum, c) => sum + c.purchases.reduce((s, p) => s + p.price, 0),
+                      0
+                    ) / customers.length
+                  ).toFixed(2)
+                )
+              : 0,
         };
         return acc;
       }, {});
@@ -472,7 +456,7 @@ class AnalyticsService {
   _groupByPeriod(items, period) {
     const grouped = {};
 
-    items.forEach(item => {
+    items.forEach((item) => {
       const date = item.purchasedAt || item.createdAt;
       let key;
 
@@ -483,10 +467,11 @@ class AnalyticsService {
         case 'month':
           key = date.toISOString().substring(0, 7); // YYYY-MM
           break;
-        case 'quarter':
+        case 'quarter': {
           const q = Math.floor(date.getMonth() / 3) + 1;
           key = `${date.getFullYear()}-Q${q}`;
           break;
+        }
         case 'year':
           key = date.getFullYear().toString();
           break;
